@@ -1,0 +1,5 @@
+model_checkpoint.pt
+*.pt
+*.pth
+*.ckpt
+miniGPT/model_checkpoint.pt
