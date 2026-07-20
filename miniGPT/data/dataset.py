@@ -11,16 +11,22 @@ class TextDataset(Dataset):
     ):
 
         self.token_ids = token_ids
-
         self.max_seq_len = max_seq_len
 
     def __len__(self):
 
-        return len(
-            self.token_ids
-        ) - self.max_seq_len
+        return max(
+            0,
+            len(self.token_ids) - self.max_seq_len
+        )
 
     def __getitem__(self, index):
+
+        if len(self) == 0:
+
+            raise ValueError(
+                "Dataset is too small for the selected max_seq_len."
+            )
 
         input_ids = self.token_ids[
             index:
@@ -33,6 +39,7 @@ class TextDataset(Dataset):
         ]
 
         return (
+
             torch.tensor(
                 input_ids,
                 dtype=torch.long
