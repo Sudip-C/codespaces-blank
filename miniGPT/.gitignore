@@ -3,3 +3,5 @@ model_checkpoint.pt
 *.pth
 *.ckpt
 miniGPT/model_checkpoint.pt
+best_model.pt
+.venv/

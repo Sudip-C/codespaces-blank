@@ -144,7 +144,7 @@ def main():
 
         torch.load(
 
-            "best_model.pt",
+            "model_checkpoint.pt",
 
             map_location=config.device
         )

@@ -19,10 +19,14 @@ class GPTConfig:
 
     dropout: float = 0.1
 
-    batch_size: int = 4
+    batch_size: int = 16
 
     learning_rate: float = 3e-4
 
     epochs: int = 5
 
-    device: str = "cuda" if torch.cuda.is_available() else "cpu"
+    device: str = (
+        "cuda"
+        if torch.cuda.is_available()
+        else "cpu"
+    )
