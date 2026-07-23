@@ -1,0 +1,459 @@
+DevOps is a collection of practices that connects software development and software operations.
+
+The goal of DevOps is to help teams build, test, deploy, and operate software reliably.
+
+Software development does not end when code is written.
+
+An application must be built, configured, deployed, monitored, updated, and maintained.
+
+DevOps practices help automate and improve these processes.
+
+Version control records changes to source code over time.
+
+Git is a distributed version control system.
+
+A Git repository stores the history of a project.
+
+A commit represents a set of changes recorded in the repository.
+
+A commit should describe a meaningful change.
+
+A branch allows development to occur separately from another line of work.
+
+A feature branch can isolate development of a new feature.
+
+A pull request can be used to review changes before merging them into a main branch.
+
+Code review can identify bugs, security issues, and maintainability problems.
+
+A merge combines changes from different branches.
+
+A conflict occurs when Git cannot automatically combine changes.
+
+Conflicts must be resolved carefully.
+
+A good version control workflow makes changes easier to review and recover.
+
+A repository should not contain secrets.
+
+Passwords, API keys, private tokens, and production credentials should not be committed to source control.
+
+A .gitignore file can prevent certain files from being tracked.
+
+Environment files containing secrets are commonly excluded from version control.
+
+Continuous integration automatically builds and tests code changes.
+
+A continuous integration pipeline may run when code is pushed or when a pull request is opened.
+
+A typical pipeline may install dependencies, run formatting checks, run a linter, execute tests, and build the application.
+
+If a required check fails, the change may be blocked from merging.
+
+Continuous integration provides rapid feedback.
+
+Continuous delivery prepares software for deployment.
+
+Continuous deployment automatically deploys approved changes to an environment.
+
+Automation reduces manual deployment errors.
+
+A deployment environment is a place where an application runs.
+
+Common environments include development, testing, staging, and production.
+
+A development environment is used while building features.
+
+A testing environment is used to verify behavior.
+
+A staging environment attempts to resemble production.
+
+A production environment serves real users.
+
+Different environments often require different configuration.
+
+Environment variables allow configuration to change without modifying application code.
+
+A database URL may be different in development and production.
+
+An API URL may be different between environments.
+
+Secrets should be provided securely to the appropriate environment.
+
+A build process converts source code into artifacts that can be executed or served.
+
+A frontend build may bundle JavaScript, optimize assets, and generate static files.
+
+A backend may be packaged with its dependencies.
+
+A build should be reproducible.
+
+The same source code and configuration should produce predictable results.
+
+A deployment artifact is the output prepared for release.
+
+A release is a version of software made available for use.
+
+A deployment moves a release into an environment.
+
+A rollback returns an environment to a previous version.
+
+Rollbacks can reduce the impact of a failed deployment.
+
+A database migration can make rollback more complicated.
+
+Schema changes should be designed carefully when multiple application versions may temporarily exist.
+
+A server is a machine that runs software and responds to requests.
+
+A virtual machine provides an isolated computing environment.
+
+A container packages an application and its dependencies into a portable unit.
+
+Docker is a platform commonly used to build and run containers.
+
+A Docker image is a package containing an application and the components required to run it.
+
+A container is a running instance of an image.
+
+A Dockerfile describes how an image is built.
+
+A container image should contain only the components needed to run the application when possible.
+
+Smaller images can reduce transfer and startup time.
+
+A container should generally run one primary application process.
+
+Containerized applications can run consistently across different environments.
+
+Containers do not replace the need for security.
+
+Images should be built from trusted base images.
+
+Dependencies should be kept updated.
+
+Container processes should use appropriate permissions.
+
+A container registry stores container images.
+
+A deployment system can retrieve an image from a registry and run it.
+
+Container orchestration manages multiple containers and services.
+
+Orchestration systems can handle scheduling, scaling, networking, and service recovery.
+
+A service represents an application component that can be reached by other components.
+
+A load balancer distributes traffic among application instances.
+
+Horizontal scaling adds additional application instances.
+
+A stateless application can generally scale more easily because each instance does not depend on local session state.
+
+If session data is stored locally in one instance, requests routed to another instance may not find the session.
+
+Shared storage or another session strategy may be required.
+
+A reverse proxy receives requests and forwards them to backend services.
+
+A reverse proxy can handle TLS termination, routing, compression, and caching.
+
+A domain name maps a human-readable name to a network location.
+
+DNS is the system that translates domain names into network addresses.
+
+A DNS record can direct traffic to a server or service.
+
+HTTPS uses TLS to protect communication.
+
+A production application should use secure transport for sensitive communication.
+
+Deployment infrastructure can be hosted on physical servers, virtual machines, cloud platforms, or managed services.
+
+Cloud platforms provide computing resources and supporting services.
+
+Managed services can reduce the amount of infrastructure that application developers must operate directly.
+
+A managed database may provide backups, monitoring, replication, and maintenance.
+
+Infrastructure should be configured consistently.
+
+Infrastructure as code describes infrastructure using configuration files.
+
+Infrastructure as code can make environments reproducible.
+
+Configuration should be reviewed and version controlled carefully.
+
+Production infrastructure should follow the principle of least privilege.
+
+A deployment account should have only the permissions it needs.
+
+CI/CD credentials should be protected.
+
+A deployment pipeline may have separate permissions for building, testing, and deploying.
+
+A secret should not appear in build logs.
+
+Logs provide information about application behavior.
+
+Application logs can record requests, errors, background jobs, and important events.
+
+Logs should be structured when possible.
+
+Structured logs can be searched and analyzed more easily.
+
+A log entry may include a timestamp, severity, service, request identifier, and message.
+
+Sensitive personal data should not be unnecessarily logged.
+
+Monitoring collects information about system behavior.
+
+Metrics can measure request rate, response time, error rate, CPU usage, memory usage, and database performance.
+
+An alert is triggered when a metric crosses an important threshold.
+
+Alerts should be actionable.
+
+Too many unnecessary alerts can cause alert fatigue.
+
+A health check verifies whether an application is running.
+
+A readiness check verifies whether an application is ready to accept traffic.
+
+A liveness check can indicate whether a process is still functioning.
+
+Monitoring should cover important dependencies.
+
+An application may appear healthy while its database or external service is unavailable.
+
+Distributed tracing follows a request across multiple services.
+
+A trace can help identify where time is spent during a request.
+
+A correlation identifier can connect logs from different components involved in one request.
+
+Observability is the ability to understand a system through its outputs.
+
+Logs, metrics, and traces are common observability signals.
+
+Performance monitoring can reveal changes after a deployment.
+
+A deployment should be monitored after release.
+
+A gradual deployment can reduce risk.
+
+A canary deployment exposes a new version to a small percentage of traffic.
+
+If the new version performs well, traffic can gradually increase.
+
+A blue-green deployment maintains two environments.
+
+One environment serves current traffic while the other runs the new version.
+
+Traffic can be switched between environments.
+
+A rolling deployment updates instances gradually.
+
+Different deployment strategies have different operational tradeoffs.
+
+Feature flags allow functionality to be enabled or disabled independently of deployment.
+
+A feature can be deployed but disabled until it is ready.
+
+Feature flags can support gradual releases and experimentation.
+
+Unused feature flags should eventually be removed.
+
+Database migrations should be included in the deployment process.
+
+A migration changes the database schema.
+
+Migrations should be tested before production deployment.
+
+Backward-compatible schema changes can make deployments safer.
+
+For example, a new column may be added before application code begins depending on it.
+
+A later deployment can remove old structures after they are no longer needed.
+
+A deployment can fail for many reasons.
+
+The build may fail.
+
+Tests may fail.
+
+Configuration may be incorrect.
+
+A dependency may be unavailable.
+
+The database migration may fail.
+
+The application may crash during startup.
+
+The deployment process should provide useful failure information.
+
+A rollback strategy should be defined before a deployment is needed.
+
+Backups should be available for important data.
+
+A backup is useful only if it can actually be restored.
+
+Restore procedures should be tested periodically.
+
+Disaster recovery describes how systems are restored after major failures.
+
+Recovery objectives define acceptable recovery time and data loss.
+
+Recovery time objective describes how quickly a service should be restored.
+
+Recovery point objective describes how much recent data loss is acceptable.
+
+Different applications have different recovery requirements.
+
+A production system should protect against common operational failures.
+
+Servers can fail.
+
+Networks can fail.
+
+Storage can fail.
+
+Databases can become unavailable.
+
+External services can experience outages.
+
+A resilient system anticipates failures and recovers where possible.
+
+Retries can recover from temporary errors.
+
+Retries should have limits.
+
+Exponential backoff increases the delay between repeated attempts.
+
+A circuit breaker can stop sending requests to a failing service for a period of time.
+
+This can prevent a failing dependency from causing cascading failures.
+
+Timeouts prevent requests from waiting forever.
+
+Resource limits prevent a single operation from consuming unlimited resources.
+
+Capacity planning estimates the resources required to support expected workload.
+
+Traffic may increase over time.
+
+Resource requirements should be monitored.
+
+Autoscaling can add or remove resources based on demand.
+
+Autoscaling policies should be tested.
+
+A system can fail if scaling happens too slowly.
+
+A system can also waste resources if scaling limits are too high.
+
+Performance testing can help determine appropriate capacity.
+
+A deployment should be repeatable.
+
+Manual production changes are difficult to track and reproduce.
+
+Automated deployment reduces differences between releases.
+
+A release should identify the version being deployed.
+
+Version identifiers can help correlate code, logs, and incidents.
+
+A changelog can describe important changes between versions.
+
+Semantic versioning is one approach to communicating software version changes.
+
+A major version may indicate breaking changes.
+
+A minor version may indicate new compatible functionality.
+
+A patch version may indicate bug fixes.
+
+Versioning strategies vary by project.
+
+Dependency management is part of deployment reliability.
+
+A lockfile records exact dependency versions.
+
+Using a lockfile can make installations more reproducible.
+
+Dependency updates should be tested.
+
+A dependency may introduce a security vulnerability or incompatible behavior.
+
+Software supply-chain security protects the process by which software is built and delivered.
+
+Build systems and deployment systems should be protected.
+
+Access to production systems should be limited.
+
+Production credentials should not be shared unnecessarily.
+
+Audit logs can record administrative actions.
+
+Infrastructure changes should be reviewed.
+
+A runbook documents how to perform common operational procedures.
+
+A runbook may describe how to restart a service, inspect logs, restore a database, or roll back a deployment.
+
+Documentation is especially valuable during incidents.
+
+An incident response process helps teams respond to failures.
+
+The first priority during a serious incident is often restoring service and protecting users.
+
+After recovery, the team can investigate the root cause.
+
+A post-incident review can identify actions that reduce the chance of recurrence.
+
+Reliability is a property of the entire system.
+
+A reliable frontend depends on a reliable backend.
+
+A reliable backend may depend on a reliable database and external services.
+
+Each dependency can affect the user experience.
+
+Systems should define appropriate reliability goals.
+
+A service-level indicator is a measurement of system behavior.
+
+A service-level objective defines a target for that behavior.
+
+A service-level agreement may define commitments to customers.
+
+Reliability targets should be measurable.
+
+DevOps encourages collaboration between developers and operations teams.
+
+Developers should understand how their code behaves after deployment.
+
+Operations teams should understand application requirements and failure modes.
+
+Automation reduces repetitive manual work.
+
+Feedback loops help teams learn from deployments and incidents.
+
+Small frequent changes can be easier to test and recover than large infrequent releases.
+
+A mature delivery process makes it easier to release software safely.
+
+The goal of DevOps is not simply to use more tools.
+
+The goal is to improve the flow from code change to reliable software operation.
+
+Good DevOps practices combine version control, automation, testing, deployment, monitoring, security, and incident response.
+
+A developer should understand how an application moves from source code to a running production service.
+
+The complete process may include writing code, committing changes, running automated checks, building an artifact, deploying the artifact, monitoring the result, and responding to failures.
+
+A reliable production system requires both good software and good operational practices.
+
+DevOps helps teams deliver software repeatedly while maintaining reliability and control.

@@ -1,0 +1,505 @@
+System design is the process of deciding how the components of a software system work together.
+
+A system design describes components, data flows, interfaces, storage, communication, scalability, reliability, and security.
+
+A system should be designed according to its requirements.
+
+A simple application may need only a frontend, backend, and database.
+
+A large application may require multiple services, queues, caches, databases, storage systems, and monitoring infrastructure.
+
+The first step in system design is understanding requirements.
+
+Functional requirements describe what the system should do.
+
+Non-functional requirements describe qualities such as performance, availability, scalability, security, and reliability.
+
+A system should define the users and use cases it must support.
+
+Requirements should identify the most important operations.
+
+For example, a social application may need users to create posts, follow other users, view feeds, and send messages.
+
+A system design should consider expected traffic.
+
+Traffic may be measured in requests per second, daily active users, or other relevant metrics.
+
+The number of reads and writes can affect architecture decisions.
+
+A read-heavy system may benefit from caching and read replicas.
+
+A write-heavy system may require efficient write processing and database design.
+
+The size of stored data can influence storage decisions.
+
+The amount of data may grow over time.
+
+A system should consider both current and future scale.
+
+Overengineering a small application can create unnecessary complexity.
+
+A design should be appropriate for the expected requirements.
+
+A client sends requests to a server.
+
+The server processes requests and returns responses.
+
+A load balancer can distribute requests among multiple servers.
+
+A load balancer can improve availability and scalability.
+
+If one server fails, traffic can potentially be routed to other healthy servers.
+
+Horizontal scaling adds more server instances.
+
+Vertical scaling increases the resources of an existing server.
+
+Horizontal scaling can provide more capacity but requires appropriate application design.
+
+Stateless services are easier to scale horizontally.
+
+A stateless server does not depend on local memory for important user session state.
+
+Shared state can be stored in a database, cache, or dedicated session system.
+
+A reverse proxy can receive incoming requests and route them to backend services.
+
+A reverse proxy can also terminate TLS connections, compress responses, and provide caching.
+
+An API defines how clients communicate with a service.
+
+REST APIs commonly organize operations around resources.
+
+An endpoint can represent a resource collection or a specific resource.
+
+HTTP methods communicate the intended operation.
+
+GET commonly retrieves data.
+
+POST commonly creates a resource or triggers an operation.
+
+PUT commonly replaces a resource.
+
+PATCH commonly updates part of a resource.
+
+DELETE commonly removes a resource.
+
+An API should use consistent response formats.
+
+An API should communicate errors clearly.
+
+HTTP status codes communicate the general result of a request.
+
+A successful response may indicate that an operation completed.
+
+A client error may indicate invalid input or insufficient authorization.
+
+A server error may indicate an unexpected failure.
+
+An API should avoid exposing unnecessary internal implementation details.
+
+Pagination prevents an API from returning excessively large datasets.
+
+A page-based pagination system can use a page number and page size.
+
+Cursor-based pagination can use a value representing a position in a dataset.
+
+Cursor pagination can perform better for large or changing datasets.
+
+Sorting and filtering allow clients to request specific data.
+
+The server should validate query parameters.
+
+An API may use rate limiting to control request volume.
+
+Rate limiting can protect services from abuse and excessive traffic.
+
+Authentication identifies clients or users.
+
+Authorization determines what actions they can perform.
+
+A service should verify permissions before accessing protected resources.
+
+A database stores persistent application data.
+
+Relational databases organize information into tables.
+
+NoSQL databases use other data models such as documents, key-value pairs, columns, or graphs.
+
+The appropriate database depends on application requirements.
+
+Data modeling should reflect important relationships and access patterns.
+
+A database index can improve the speed of searches.
+
+Indexes consume storage and can slow writes.
+
+Indexes should be chosen based on query patterns.
+
+A database query can become a bottleneck as data grows.
+
+Query performance should be measured.
+
+A database connection pool allows applications to reuse database connections.
+
+Connection pooling improves efficiency and controls the number of active connections.
+
+A database can be scaled vertically by increasing resources.
+
+A database can sometimes be scaled horizontally through replication or partitioning.
+
+Replication creates multiple copies of data.
+
+A primary database may handle writes.
+
+Read replicas may handle read operations.
+
+Replication introduces consistency considerations.
+
+A replica may not immediately contain the newest write.
+
+This is called eventual consistency.
+
+Strong consistency means that reads reflect the latest committed state according to the system's consistency guarantees.
+
+Different systems make different tradeoffs between consistency, availability, and partition tolerance.
+
+A cache stores frequently accessed data in a faster storage layer.
+
+Caching can reduce database load and improve response time.
+
+A cache entry should have an expiration strategy.
+
+A time-to-live value determines how long cached data remains valid.
+
+Cache invalidation removes or updates stale data.
+
+Cache invalidation can be difficult when data changes frequently.
+
+A cache miss occurs when requested data is not found in the cache.
+
+The application can retrieve the data from the original source and optionally store it in the cache.
+
+A cache hit occurs when requested data is available in the cache.
+
+Caching should be used when the performance benefits justify the additional complexity.
+
+A distributed cache can be shared by multiple application instances.
+
+A local in-memory cache is fast but may not be shared between servers.
+
+A message queue stores messages until they can be processed.
+
+Queues allow producers and consumers to work independently.
+
+A producer creates a message.
+
+A consumer processes a message.
+
+A queue can absorb temporary differences between incoming work and processing capacity.
+
+Background jobs can be processed asynchronously.
+
+Sending email, processing images, generating reports, and performing long calculations can be moved to background workers.
+
+Asynchronous processing can reduce HTTP response times.
+
+A worker can retry a failed task.
+
+Retries should be limited and designed carefully.
+
+A dead-letter queue can store messages that repeatedly fail processing.
+
+A message should ideally be processed safely if it is delivered more than once.
+
+Idempotency allows repeated processing to produce the same final result.
+
+Distributed systems can deliver messages more than once.
+
+Consumers should account for duplicate messages where necessary.
+
+A message can be lost if a system does not provide appropriate delivery guarantees.
+
+Different messaging systems provide different delivery behavior.
+
+A system may provide at-most-once delivery.
+
+A system may provide at-least-once delivery.
+
+Exactly-once processing is difficult to guarantee across distributed systems.
+
+Application logic can use idempotency to achieve safe results even when messages are delivered repeatedly.
+
+A unique idempotency key can identify a request.
+
+A payment operation may use an idempotency key to prevent duplicate charges.
+
+A distributed system contains components that communicate across networks.
+
+Network communication can fail.
+
+Requests can time out.
+
+Services can become unavailable.
+
+Partial failure occurs when some components work while others fail.
+
+Distributed systems should handle partial failure carefully.
+
+Timeouts prevent indefinite waiting.
+
+Retries can recover from temporary failures.
+
+Exponential backoff reduces pressure on a failing service.
+
+A circuit breaker can temporarily stop requests to a failing dependency.
+
+A fallback can provide a reduced service when a dependency is unavailable.
+
+A service should avoid cascading failures.
+
+A cascading failure occurs when one failure causes failures in connected components.
+
+Resource limits and timeouts can reduce cascading effects.
+
+A microservice architecture divides functionality into independently deployable services.
+
+Each service may own a specific business capability.
+
+Microservices can allow independent scaling.
+
+However, microservices increase network communication and operational complexity.
+
+A monolith may be simpler to develop and operate.
+
+A modular monolith can provide internal separation without requiring many independently deployed services.
+
+Architecture should match the team's ability to operate the system.
+
+A service boundary should be based on meaningful responsibilities.
+
+Splitting a system into services too early can create unnecessary complexity.
+
+A service may own its data.
+
+Shared databases can create tight coupling between services.
+
+Data ownership should be clearly defined.
+
+A distributed transaction involves multiple systems.
+
+Distributed transactions are complex.
+
+An application may instead use an event-driven approach.
+
+An event describes something that happened.
+
+For example, an OrderCreated event can notify other components that an order exists.
+
+Consumers can react to events independently.
+
+Event-driven systems can reduce direct coupling.
+
+Events should be designed carefully.
+
+Changing event formats can break consumers.
+
+Backward compatibility can help when event schemas evolve.
+
+An event log can store a sequence of events.
+
+Event sourcing stores changes as events rather than only storing the current state.
+
+The current state can be reconstructed from events.
+
+Event sourcing can provide a detailed history but introduces additional complexity.
+
+A database transaction can ensure that related changes happen atomically.
+
+When a database operation and message publication must both succeed, the system should consider consistency carefully.
+
+The transactional outbox pattern can store an event in the same database transaction as the main data change.
+
+A separate process can later publish the stored event.
+
+This can reduce the risk of database changes succeeding while event publication fails.
+
+Data partitioning divides data across multiple storage units.
+
+Partitioning can improve scalability.
+
+Sharding distributes data across multiple database servers or partitions.
+
+A shard key determines where data is stored.
+
+Choosing a shard key is important.
+
+A poor shard key can create uneven load.
+
+A hot partition receives much more traffic than other partitions.
+
+A system should distribute workload as evenly as practical.
+
+Consistent hashing can help distribute keys across changing sets of servers.
+
+Object storage is useful for large files.
+
+Images, videos, backups, and documents can be stored in object storage.
+
+The database can store metadata and references to stored objects.
+
+Content delivery networks can cache content closer to users.
+
+A CDN can reduce latency for static assets.
+
+Static assets may include JavaScript files, CSS files, images, and videos.
+
+Content compression can reduce network transfer size.
+
+Caching headers can control browser and intermediary caching.
+
+A system should consider data privacy.
+
+Sensitive data should be protected.
+
+Access control should restrict who can read data.
+
+Encryption can protect data in transit and at rest.
+
+Audit logs can record important access and modification events.
+
+A system should consider data retention.
+
+Some data may need to be deleted after a specific period.
+
+Backups can preserve data even after application deletion.
+
+Retention policies should consider backups and replicas.
+
+Availability describes how often a service is operational.
+
+Reliability describes the ability of a system to perform correctly over time.
+
+Durability describes whether stored data remains available after failures.
+
+A system may use redundancy to improve availability.
+
+Redundancy means having multiple components capable of providing a service.
+
+A single point of failure is a component whose failure can bring down the entire system.
+
+Removing single points of failure can improve resilience.
+
+A health check can determine whether a service is operating.
+
+A load balancer can remove unhealthy instances from traffic.
+
+Failover switches traffic to an alternative system after failure.
+
+Disaster recovery plans define how systems are restored after major failures.
+
+Backups should be stored separately from the primary system when appropriate.
+
+A recovery point objective defines acceptable data loss.
+
+A recovery time objective defines acceptable restoration time.
+
+System design should consider operational visibility.
+
+Metrics can measure traffic, latency, errors, and resource usage.
+
+Logs can explain events.
+
+Traces can follow requests across components.
+
+Together, these signals help developers understand complex systems.
+
+A request identifier can connect events from multiple services.
+
+Distributed tracing can identify slow dependencies.
+
+Monitoring should include business metrics as well as technical metrics.
+
+A system may be technically healthy while important business operations fail.
+
+For example, a checkout process may fail even when servers respond successfully.
+
+A system design should identify important user journeys.
+
+Load testing can estimate how the system behaves under traffic.
+
+Capacity planning estimates required resources.
+
+Performance optimization should be based on measured bottlenecks.
+
+A system should define acceptable response times.
+
+Latency is the time required to complete an operation.
+
+Throughput is the amount of work completed in a period of time.
+
+High throughput does not always mean low latency.
+
+A system may process many operations while individual operations remain slow.
+
+Tail latency measures slow requests such as the slowest one percent of requests.
+
+Tail latency can strongly affect user experience.
+
+A system may use asynchronous processing to improve perceived response time.
+
+The user may receive confirmation that work has been accepted while processing continues in the background.
+
+The system should communicate eventual completion when appropriate.
+
+Consistency requirements should be understood.
+
+Some operations require immediate consistency.
+
+Other operations can tolerate delayed updates.
+
+A social media feed may tolerate small delays.
+
+A bank balance may require stronger consistency guarantees.
+
+The correct design depends on the business requirements.
+
+System design involves tradeoffs.
+
+Increasing consistency may reduce availability or performance.
+
+Increasing redundancy may increase cost.
+
+Increasing caching may improve speed but create invalidation complexity.
+
+Adding services may improve independent scaling but increase operational complexity.
+
+There is rarely one perfect architecture.
+
+A good design clearly explains its assumptions and tradeoffs.
+
+System design interviews often begin with requirements clarification.
+
+The designer estimates scale.
+
+The designer identifies major components.
+
+The designer defines data models and APIs.
+
+The designer considers bottlenecks and failure scenarios.
+
+The designer explains tradeoffs.
+
+A strong system design is not simply a collection of popular technologies.
+
+The design should solve the actual problem.
+
+A system should start with the simplest architecture that satisfies known requirements.
+
+As traffic and complexity grow, components can be introduced where needed.
+
+Good system design balances simplicity, scalability, reliability, performance, security, and cost.
+
+Understanding system design helps developers move from writing individual functions to building complete software systems.
+
+A system is successful when its components work together to reliably provide useful functionality to users.

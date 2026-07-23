@@ -1,0 +1,459 @@
+Software testing is the process of checking whether a software system behaves as expected.
+
+Testing helps identify bugs before they affect users.
+
+A bug is an error or unexpected behavior in a software system.
+
+Testing can verify that features work correctly.
+
+Testing can also verify that existing features continue working after code changes.
+
+A test usually defines an input, performs an operation, and checks the result.
+
+A test expectation describes the behavior that should occur.
+
+A test fails when the actual behavior differs from the expected behavior.
+
+Automated tests can execute these checks repeatedly.
+
+Automated testing is faster and more consistent than manually repeating every check.
+
+Unit testing tests a small isolated part of an application.
+
+A unit may be a function, class, or small module.
+
+A unit test should generally focus on one behavior.
+
+For example, a test can verify that a function correctly adds two numbers.
+
+A unit test can verify that an invalid input produces an expected error.
+
+Unit tests should be fast because they may run frequently.
+
+Integration testing checks how multiple components work together.
+
+An integration test may verify that a service correctly communicates with a database.
+
+An integration test may verify that an API route correctly calls application logic and returns a response.
+
+End-to-end testing verifies a complete user workflow.
+
+An end-to-end test may open an application, create an account, log in, create a resource, and verify the result.
+
+End-to-end tests provide confidence that multiple parts of the system work together.
+
+They can be slower and more complex than unit tests.
+
+A test suite is a collection of automated tests.
+
+A test runner discovers and executes tests.
+
+The test runner reports which tests passed and which tests failed.
+
+A test assertion checks whether an actual value matches an expected result.
+
+A test should have a clear purpose.
+
+Tests should be easy to understand.
+
+A test name should describe the behavior being tested.
+
+A well-written test can serve as documentation for expected behavior.
+
+The Arrange, Act, Assert pattern is commonly used in tests.
+
+Arrange prepares the required data and environment.
+
+Act performs the operation being tested.
+
+Assert checks the result.
+
+A test should avoid unnecessary complexity.
+
+Tests that depend on too many unrelated systems can become difficult to maintain.
+
+A mock is a replacement for a real dependency used during testing.
+
+A stub provides predetermined responses.
+
+A fake is a simplified working implementation used in tests.
+
+Mocks can isolate a unit from external dependencies.
+
+For example, a test may replace a database service with a mock.
+
+This allows the test to focus on business logic.
+
+Test doubles should be used carefully.
+
+Overusing mocks can make tests tightly coupled to implementation details.
+
+A good test focuses on behavior rather than private implementation details.
+
+Test-driven development is a development approach in which tests are written before implementation code.
+
+A common cycle is red, green, and refactor.
+
+The red stage begins with a failing test.
+
+The green stage implements enough code to make the test pass.
+
+The refactor stage improves the code while keeping the tests passing.
+
+Test-driven development can help clarify requirements.
+
+Behavior-driven development focuses on describing software behavior from the perspective of expected outcomes.
+
+Tests should cover important behavior.
+
+Testing every possible combination of every input may be impractical.
+
+Risk-based testing prioritizes important and high-risk functionality.
+
+Authentication, payments, permissions, and data integrity often require careful testing.
+
+Boundary values should be tested.
+
+A boundary value is near the edge of an allowed range.
+
+For example, if a field accepts between one and one hundred characters, tests should consider zero, one, one hundred, and one hundred one characters.
+
+Invalid inputs should be tested.
+
+Empty values, unexpected types, invalid formats, and excessive values can reveal bugs.
+
+Error handling should be tested.
+
+A system should behave predictably when an operation fails.
+
+A test may verify that the correct status code and error response are returned.
+
+Testing only successful scenarios is insufficient.
+
+A reliable system must also handle failure scenarios.
+
+Regression testing checks that previously fixed bugs do not return.
+
+A regression test can be added after discovering a bug.
+
+The test then helps prevent the same problem from appearing again.
+
+A test suite should be run after significant changes.
+
+Continuous integration systems can run tests automatically when code is pushed.
+
+A pull request may be blocked if required tests fail.
+
+Automated tests can provide fast feedback during development.
+
+A code coverage report measures which parts of code were executed by tests.
+
+High code coverage does not automatically mean high software quality.
+
+A test can execute code without checking meaningful behavior.
+
+Coverage is useful as an indicator but should not be treated as the only measure of testing quality.
+
+Testing should focus on meaningful behavior and important risks.
+
+Debugging is the process of finding and correcting the cause of a problem.
+
+Debugging begins by reproducing the problem.
+
+A bug that cannot be reproduced may be difficult to investigate.
+
+The first step is to understand the actual behavior.
+
+The developer should compare actual behavior with expected behavior.
+
+A useful bug report describes what happened, what was expected, and how the problem can be reproduced.
+
+A minimal reproduction reduces a problem to the smallest example that still demonstrates the bug.
+
+Minimal reproductions make debugging easier.
+
+Logs can provide information about what happened during execution.
+
+A log message can include useful context such as an operation, identifier, timestamp, or error.
+
+Logs should not expose passwords or sensitive secrets.
+
+Different log levels can represent different importance.
+
+Debug logs provide detailed information during development.
+
+Info logs describe normal application events.
+
+Warning logs describe potentially problematic situations.
+
+Error logs describe failures.
+
+Production logging should be configured carefully.
+
+Too many logs can make important information difficult to find.
+
+Too few logs can make failures difficult to investigate.
+
+A stack trace shows the sequence of function calls that led to an error.
+
+Stack traces can help identify where an exception originated.
+
+The first error in a chain is not always the root cause.
+
+A developer should investigate the complete context of a failure.
+
+A breakpoint pauses program execution during debugging.
+
+A debugger can inspect variables, call stacks, and program state.
+
+Step over executes the current line and moves to the next line.
+
+Step into enters a function being called.
+
+Step out completes the current function and returns to the caller.
+
+Debugging tools can reveal values that are different from what the developer expected.
+
+A common debugging mistake is making changes without first understanding the problem.
+
+Random changes can hide the original problem and create new bugs.
+
+A systematic debugging process is more reliable.
+
+First reproduce the issue.
+
+Then identify the smallest failing case.
+
+Next gather evidence.
+
+Then form a hypothesis about the cause.
+
+Change one relevant thing at a time.
+
+Run the reproduction again.
+
+If the problem is fixed, verify that the fix works in other cases.
+
+If the problem remains, revise the hypothesis.
+
+This process reduces guesswork.
+
+A binary search can help locate the source of a problem.
+
+If a large change introduced a bug, the developer can examine smaller sections of the change.
+
+Version control can help identify when behavior changed.
+
+A commit history can reveal which change introduced a problem.
+
+A process of finding the change that introduced a bug is sometimes called regression analysis.
+
+A race condition occurs when the result depends on the timing of operations.
+
+Race conditions can be difficult to reproduce because timing may vary.
+
+Concurrent systems require careful synchronization and state management.
+
+An intermittent bug may occur only under certain timing or environmental conditions.
+
+Intermittent problems require detailed logging and repeated observation.
+
+A memory leak occurs when a program continues to retain memory that is no longer needed.
+
+Memory leaks can cause memory usage to grow over time.
+
+A resource leak can occur when files, connections, or other resources are not properly released.
+
+Database connection leaks can eventually prevent new requests from accessing the database.
+
+Timers and event listeners can also cause resource leaks if they are not cleaned up.
+
+Performance testing measures how a system behaves under workload.
+
+Load testing applies expected traffic or usage.
+
+Stress testing pushes a system beyond normal expected limits.
+
+Endurance testing examines behavior over a long period.
+
+Performance tests can measure response time, throughput, memory usage, and CPU usage.
+
+A performance problem should be measured before optimization.
+
+Premature optimization can make code more complex without solving a real problem.
+
+Profiling tools can identify where an application spends time.
+
+A profiler can show which functions consume the most CPU time.
+
+Database query analysis can identify slow queries.
+
+Network inspection can reveal slow requests and large payloads.
+
+Frontend performance tools can identify expensive rendering and large assets.
+
+A bottleneck is a part of a system that limits overall performance.
+
+Optimizing a non-bottleneck may have little effect on the application.
+
+Testing distributed systems can be challenging.
+
+Network failures, timeouts, retries, and partial failures should be considered.
+
+A service may succeed in one part of an operation while another service fails.
+
+Systems should be designed to handle partial failure where possible.
+
+Timeouts prevent an application from waiting indefinitely for a response.
+
+Retries can help recover from temporary failures.
+
+Retries should use limits and appropriate delays.
+
+Retrying a non-idempotent operation can accidentally perform the operation multiple times.
+
+An idempotent operation produces the same final result when repeated.
+
+API testing verifies that endpoints behave correctly.
+
+An API test may send a request and verify the status code, response body, headers, and side effects.
+
+Authentication and authorization should be included in API tests.
+
+An API should reject missing credentials when authentication is required.
+
+An API should reject users who lack required permissions.
+
+Validation tests should verify that malformed requests are rejected.
+
+Database tests should verify important data operations.
+
+Tests may use an isolated database environment.
+
+Test data should be controlled and predictable.
+
+Tests should avoid depending on the order in which other tests run.
+
+A test that passes only when executed after another test is fragile.
+
+Tests should clean up data when necessary.
+
+Test isolation makes failures easier to understand.
+
+A flaky test sometimes passes and sometimes fails without a relevant code change.
+
+Flaky tests reduce confidence in the test suite.
+
+Flaky tests should be investigated rather than ignored.
+
+Time-dependent tests can become flaky when they depend on real clock timing.
+
+Randomness can make tests difficult to reproduce.
+
+Tests involving random values should use controlled seeds or predictable inputs when appropriate.
+
+External services can make tests unreliable.
+
+A test may use a mock or local test service instead of depending on a live external API.
+
+Integration tests should still verify important real integration behavior.
+
+The testing strategy should balance speed, realism, and reliability.
+
+A test pyramid is a model that encourages many fast unit tests, fewer integration tests, and a smaller number of end-to-end tests.
+
+Different applications may require different testing strategies.
+
+The best testing strategy depends on the system and its risks.
+
+A test should fail for a meaningful reason.
+
+A test that passes because an assertion is missing does not provide useful confidence.
+
+Tests should be reviewed like production code.
+
+Poor tests can create maintenance problems.
+
+A test can be too tightly coupled to implementation details.
+
+When implementation changes without changing behavior, tests should ideally continue to pass.
+
+This makes refactoring safer.
+
+Refactoring is the process of improving code structure without changing intended behavior.
+
+Tests can provide confidence during refactoring.
+
+A failing test after refactoring may reveal an unintended behavior change.
+
+A code review can identify bugs that automated tests do not detect.
+
+Reviewers can examine logic, security, maintainability, and clarity.
+
+Automated checks and human review complement each other.
+
+Static analysis tools can detect possible bugs before the program runs.
+
+Linters can identify style problems and suspicious code patterns.
+
+Type checking can identify incompatible values when a typed system is used.
+
+Security scanners can identify known vulnerable dependencies or patterns.
+
+A build process should fail when required checks fail.
+
+Continuous integration commonly runs formatting checks, linting, type checks, unit tests, integration tests, and builds.
+
+A failing check provides feedback before code reaches production.
+
+Deployment pipelines can include automated verification.
+
+A smoke test checks whether the most basic functionality works after deployment.
+
+A health check can verify that a service is running.
+
+A canary deployment sends a small amount of traffic to a new version before wider release.
+
+Monitoring can reveal problems after deployment.
+
+A rollback can return a system to a previous known-good version.
+
+A feature flag can enable or disable functionality without redeploying the entire application.
+
+Feature flags can help release functionality gradually.
+
+Feature flags should be managed carefully because unused flags can increase complexity.
+
+A production incident is an event that negatively affects system availability, performance, security, or data integrity.
+
+Incident response requires investigation and communication.
+
+The goal during an incident is to restore reliable service and reduce further damage.
+
+After an incident, a post-incident review can identify causes and improvements.
+
+A blameless review focuses on improving systems rather than assigning personal blame.
+
+Many failures result from combinations of technical and process conditions.
+
+A root cause analysis attempts to identify contributing factors.
+
+Fixing only the visible symptom may allow the problem to return.
+
+A durable fix addresses the underlying cause where possible.
+
+Software quality includes correctness, reliability, security, performance, maintainability, and usability.
+
+No single test can prove that software is completely free of bugs.
+
+Testing reduces risk but cannot eliminate all uncertainty.
+
+Good developers combine tests, code review, monitoring, debugging, and careful design.
+
+The goal of testing is not simply to achieve a high number of passing tests.
+
+The goal is to gain confidence that important behavior works correctly under expected and unexpected conditions.
+
+A strong development process makes failures easier to detect, understand, fix, and prevent.
+
+Testing and debugging are essential skills for building reliable software.

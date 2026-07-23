@@ -137,22 +137,23 @@ def main():
     model = GPTModel(
         config
     )
-
-    # Load checkpoint
+    
+    model.to(
+        config.device
+    )
+    # Load best_model
 
     model.load_state_dict(
 
         torch.load(
 
-            "model_checkpoint.pt",
+            "best_model.pt",
 
             map_location=config.device
         )
     )
-
-    model.to(
-        config.device
-    )
+    model.eval()
+    
 
     prompt = input(
         "\nEnter a prompt: "

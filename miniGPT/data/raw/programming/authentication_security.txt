@@ -1,0 +1,443 @@
+Authentication and security are essential parts of modern software systems.
+
+Authentication is the process of verifying the identity of a user or system.
+
+Authorization is the process of determining what an authenticated user or system is allowed to do.
+
+Authentication answers the question, "Who are you?"
+
+Authorization answers the question, "What are you allowed to access or modify?"
+
+These two concepts are related but different.
+
+A user may successfully authenticate but still lack permission to access a particular resource.
+
+For example, a user may be logged in but may not have permission to access an administrator dashboard.
+
+A secure application must enforce authorization on the backend.
+
+A frontend can hide buttons or pages, but a user can still send requests directly to the backend.
+
+The server must verify permissions for every protected operation.
+
+A typical registration process begins when a user submits information such as a name, email address, and password.
+
+The backend validates the submitted information.
+
+The backend checks whether the email address is already registered.
+
+The password is processed using a secure password hashing algorithm.
+
+The resulting password hash is stored in the database.
+
+The original plain-text password should not be stored.
+
+A password hash is designed to be difficult to reverse.
+
+A secure password hashing algorithm uses computational work to make large-scale password guessing more expensive.
+
+A salt is random data used during password hashing.
+
+Salts help ensure that identical passwords do not produce identical stored hashes.
+
+When a user logs in, the submitted password is compared with the stored password hash.
+
+The backend does not need to recover the original password.
+
+Instead, it hashes or verifies the submitted password using the appropriate password-hashing mechanism.
+
+If the verification succeeds, the user is authenticated.
+
+Passwords should not be logged.
+
+Passwords should not be sent in error messages.
+
+Passwords should not be included in URLs.
+
+Sensitive credentials should not be committed to source control.
+
+A secret is a value that should remain private.
+
+Examples include database passwords, API keys, encryption keys, and authentication secrets.
+
+Environment variables are commonly used to provide secrets to backend applications.
+
+Environment files containing secrets should generally be excluded from public source control.
+
+A secret should be rotated if it is accidentally exposed.
+
+Authentication can use sessions or tokens.
+
+In session-based authentication, the server creates a session after successful login.
+
+The client receives a session identifier.
+
+The session identifier is sent with future requests.
+
+The server uses the identifier to locate session information.
+
+Session data can be stored in memory, a database, or a dedicated session store.
+
+Storing sessions only in application memory can create problems when an application runs across multiple server instances.
+
+A shared session store can allow multiple application instances to access the same session information.
+
+Cookies are commonly used to store session identifiers.
+
+A cookie can contain security attributes.
+
+The Secure attribute instructs a browser to send the cookie only over HTTPS connections.
+
+The HttpOnly attribute prevents client-side JavaScript from directly reading the cookie.
+
+The SameSite attribute controls when cookies are sent in cross-site requests.
+
+Appropriate cookie configuration can reduce certain security risks.
+
+Token-based authentication uses a token to represent authentication information.
+
+A JSON Web Token is one commonly used token format.
+
+A token may contain claims describing information such as a user identifier or expiration time.
+
+A token is commonly signed so that the server can verify that it was created by a trusted issuer.
+
+A signed token should not be assumed to be secret.
+
+Information placed inside a token may be readable by the client depending on the token format.
+
+Sensitive information should not be placed in a token unless it is appropriately protected.
+
+Tokens can have expiration times.
+
+Short-lived access tokens reduce the time available for misuse if a token is stolen.
+
+A refresh token can sometimes be used to obtain a new access token.
+
+Refresh tokens require careful protection.
+
+Token revocation can be more difficult than session invalidation.
+
+An authentication system should define how logout works.
+
+For session authentication, logout can invalidate the session.
+
+For token authentication, logout may require token expiration, revocation, or another strategy.
+
+Authentication middleware can protect routes.
+
+The middleware can extract authentication information from a request.
+
+It can verify the credentials or token.
+
+It can attach the authenticated user information to the request.
+
+The route can then use the authenticated identity.
+
+Authentication middleware should reject missing or invalid credentials.
+
+A protected endpoint should not rely only on the frontend to prevent unauthorized access.
+
+Authorization can be based on roles.
+
+A role represents a category of permissions.
+
+Common roles include administrator, manager, editor, and regular user.
+
+Role-based access control allows permissions to be associated with roles.
+
+A permission-based system can provide more detailed control.
+
+A user may have permissions such as create_article, edit_article, or delete_article.
+
+A resource-based authorization system can determine whether a user owns or is allowed to access a specific resource.
+
+For example, a user may be allowed to edit only tasks created by that user.
+
+Authorization checks should happen on the server.
+
+An insecure direct object reference occurs when an application exposes an identifier and fails to verify whether the current user is allowed to access the referenced object.
+
+Changing an identifier in a URL should not allow a user to access another user's private data.
+
+The backend should verify ownership or permission before returning sensitive information.
+
+Passwords should have appropriate requirements.
+
+However, password rules should not make passwords unnecessarily difficult to use.
+
+Long, unique passwords are generally more valuable than overly complicated rules that encourage predictable patterns.
+
+Multi-factor authentication adds another verification factor beyond a password.
+
+A factor may be something the user knows, something the user has, or something related to the user.
+
+A second factor can reduce the impact of a stolen password.
+
+One-time codes can be used as an additional authentication factor.
+
+Authentication systems should protect recovery mechanisms.
+
+Password reset links should contain secure, unpredictable tokens.
+
+Password reset tokens should expire.
+
+A reset token should generally be invalidated after successful use.
+
+Account recovery procedures can be a security weakness if they are not designed carefully.
+
+Email addresses are often used for account verification and password recovery.
+
+Email verification can confirm that a user controls a particular email address.
+
+Verification tokens should be difficult to guess and should expire.
+
+Brute-force attacks attempt many possible credentials.
+
+Rate limiting can reduce the number of login attempts available to an attacker.
+
+Temporary account locks can also be used, but they should be designed carefully to avoid enabling attackers to lock out legitimate users.
+
+A login system should avoid revealing whether a particular email address is registered when this information is not necessary.
+
+Detailed error messages can help attackers discover valid accounts.
+
+Security should consider information disclosure.
+
+Cross-site scripting occurs when untrusted data is interpreted as executable code in a browser.
+
+An application should safely handle user-generated content.
+
+User input should not be inserted into HTML without appropriate protection.
+
+Modern frameworks often escape text content by default, but developers should understand situations where unsafe rendering can occur.
+
+HTML injection can allow untrusted content to alter the structure of a page.
+
+Content Security Policy can restrict the sources from which certain browser resources may be loaded.
+
+Cross-site request forgery occurs when a malicious website causes a user's browser to send an unwanted request to another website where the user is authenticated.
+
+Cookie-based authentication requires careful consideration of cross-site requests.
+
+CSRF protection can use tokens or appropriate cookie policies.
+
+Cross-origin resource sharing controls which origins can access resources through a browser.
+
+A backend should configure allowed origins carefully.
+
+Allowing every origin may be inappropriate for applications that handle sensitive information.
+
+SQL injection occurs when untrusted input changes the structure of a database query.
+
+Parameterized queries separate SQL instructions from user-provided values.
+
+Database libraries and ORMs can provide safe query mechanisms when used correctly.
+
+Input validation helps reject unexpected data.
+
+Command injection occurs when untrusted input is passed into operating system commands unsafely.
+
+Applications should avoid executing user-controlled commands.
+
+If system commands are required, input should be strictly controlled and appropriate safe APIs should be used.
+
+Path traversal occurs when attackers manipulate file paths to access files outside an intended directory.
+
+Applications handling file paths should validate and restrict accessible locations.
+
+File uploads require security controls.
+
+Uploaded files should be validated.
+
+File names should not be trusted.
+
+File size limits should be enforced.
+
+File storage locations should be carefully selected.
+
+Applications should avoid executing uploaded files as code.
+
+Server-side request forgery occurs when an attacker causes a server to make requests to unintended destinations.
+
+Applications that fetch URLs provided by users should validate allowed destinations carefully.
+
+Sensitive internal network services may be reachable from the server even though they are not publicly accessible.
+
+Security headers can provide browser protections.
+
+The Content-Security-Policy header can restrict executable content and resource sources.
+
+The X-Content-Type-Options header can prevent certain MIME-type guessing behavior.
+
+The Strict-Transport-Security header can instruct browsers to prefer HTTPS.
+
+The Referrer-Policy header controls information sent in referrer headers.
+
+Security configuration should match application requirements.
+
+HTTPS encrypts communication between the client and server.
+
+A certificate allows a browser to verify the identity of a server during a secure connection.
+
+Applications handling authentication should use HTTPS in production.
+
+Without encryption, sensitive information can potentially be observed during network transmission.
+
+Secure transport does not eliminate all security problems.
+
+An application can still be vulnerable to insecure authorization, injection, broken logic, or stolen credentials.
+
+Security is a system-wide concern.
+
+Dependencies can contain vulnerabilities.
+
+Applications should monitor dependencies and update them appropriately.
+
+Dependency updates should be tested because updates can introduce breaking changes.
+
+A software supply-chain attack can occur when a compromised dependency is included in an application.
+
+Dependencies should be selected carefully.
+
+Applications should avoid installing unnecessary packages.
+
+Least privilege is a security principle.
+
+A user, service, or process should have only the permissions required to perform its job.
+
+A database user used by an application should not automatically have unnecessary administrative privileges.
+
+A service account should have limited access to required resources.
+
+Secrets should be protected with appropriate access controls.
+
+Logging is important for security monitoring.
+
+Logs can record authentication events, failed login attempts, permission failures, and unusual activity.
+
+Logs should not contain passwords or sensitive authentication tokens.
+
+Security logs should be protected from unauthorized access.
+
+Monitoring can help identify suspicious behavior.
+
+An unusual number of failed login attempts may indicate an attack.
+
+A sudden increase in requests may indicate abuse or a denial-of-service attempt.
+
+Rate limiting can help protect public endpoints.
+
+Resource limits can prevent a single request from consuming excessive memory or processing time.
+
+Denial-of-service attacks attempt to make a service unavailable.
+
+Distributed denial-of-service attacks use many systems to generate traffic.
+
+Infrastructure providers can provide additional protection against large-scale attacks.
+
+Applications should handle unexpected input safely.
+
+Input validation should verify data types, lengths, formats, and allowed values.
+
+Validation should occur on the server even when the frontend also validates input.
+
+A validation error should provide enough information for a legitimate user to correct the input.
+
+Error messages should avoid exposing sensitive internal details.
+
+Security testing can identify vulnerabilities.
+
+Static analysis examines source code for potential problems.
+
+Dependency scanners examine packages for known vulnerabilities.
+
+Dynamic testing interacts with a running application.
+
+Penetration testing attempts to identify weaknesses through controlled security testing.
+
+Security testing should be performed responsibly and with authorization.
+
+A secure application should have a threat model.
+
+A threat model identifies important assets, possible attackers, attack paths, and defenses.
+
+Assets may include user data, credentials, financial information, private documents, or internal systems.
+
+The level of security required depends on the sensitivity and risk of the application.
+
+Authentication systems should consider account lifecycle.
+
+Accounts may be created, verified, disabled, suspended, or deleted.
+
+A disabled account should not be able to authenticate.
+
+User sessions may need to be invalidated when an account is disabled.
+
+Changing a password may require invalidating existing sessions depending on the application's security requirements.
+
+Administrative operations should be protected with stronger controls.
+
+An administrator account can affect many users and resources.
+
+Administrative actions should be logged where appropriate.
+
+Sensitive operations may require reauthentication or an additional verification factor.
+
+A security breach occurs when unauthorized parties gain access to systems or data.
+
+An incident response plan describes how an organization responds to security incidents.
+
+The response may include identifying the incident, containing the problem, investigating the cause, recovering systems, and learning from the event.
+
+Backups can help recover from data loss.
+
+Backups should be protected because attackers may target them.
+
+Encryption can protect data at rest.
+
+Encryption can also protect data in transit.
+
+Encryption keys must be protected.
+
+Losing an encryption key can make encrypted data inaccessible.
+
+A secure design should consider failure scenarios.
+
+Services may become unavailable.
+
+Credentials may be compromised.
+
+Requests may be malformed.
+
+Databases may be corrupted.
+
+External services may fail.
+
+Applications should fail safely where possible.
+
+Security should be included during design rather than added only after a system is built.
+
+A secure full-stack application protects the frontend, backend, database, infrastructure, credentials, and user data.
+
+Security is not a single feature.
+
+It is a collection of practices involving authentication, authorization, validation, encryption, secure configuration, dependency management, monitoring, testing, and careful software design.
+
+The most important security principle is to never assume that input, clients, users, networks, or external services are automatically trustworthy.
+
+A reliable application verifies important assumptions at the appropriate boundaries.
+
+The backend should enforce access control.
+
+The database should enforce data integrity.
+
+The application should protect secrets.
+
+The network should use secure communication.
+
+The system should monitor important events.
+
+Security should evolve as the application and its threats evolve.
+
+A developer who understands authentication and security can build applications that are not only functional but also safer for the people and organizations that depend on them.

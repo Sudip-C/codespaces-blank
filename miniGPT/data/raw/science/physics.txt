@@ -1,0 +1,421 @@
+Physics is the study of matter, energy, motion, forces, space, and time.
+
+The physical world contains objects, particles, fields, and energy.
+
+Physics attempts to describe how these things behave.
+
+A physical quantity is something that can be measured.
+
+Examples include length, time, mass, temperature, speed, and energy.
+
+A measurement consists of a numerical value and a unit.
+
+The International System of Units is commonly called the SI system.
+
+The meter is the SI unit of length.
+
+The kilogram is the SI unit of mass.
+
+The second is the SI unit of time.
+
+The ampere is the SI unit of electric current.
+
+The kelvin is the SI unit of temperature.
+
+A scalar quantity has magnitude but no direction.
+
+Examples of scalar quantities include mass, temperature, time, and energy.
+
+A vector quantity has both magnitude and direction.
+
+Examples include displacement, velocity, acceleration, and force.
+
+Distance is the total length of a path traveled by an object.
+
+Displacement is the change in position from an initial location to a final location.
+
+Speed describes how quickly distance changes with time.
+
+Velocity describes how quickly displacement changes with time.
+
+Acceleration describes how quickly velocity changes with time.
+
+An object can have constant speed while changing direction.
+
+In that situation, its velocity changes because velocity includes direction.
+
+Motion describes how an object's position changes over time.
+
+A reference frame provides a perspective from which motion is measured.
+
+An object may be stationary relative to one reference frame and moving relative to another.
+
+Newton's laws describe important relationships between force and motion.
+
+Newton's first law states that an object remains at rest or continues moving with constant velocity unless acted upon by a net external force.
+
+This property is called inertia.
+
+Mass measures an object's resistance to changes in motion.
+
+Newton's second law relates force, mass, and acceleration.
+
+The net force on an object equals its mass multiplied by its acceleration.
+
+A larger force can produce greater acceleration for the same mass.
+
+A larger mass requires more force to produce the same acceleration.
+
+Newton's third law states that forces occur in interacting pairs.
+
+When one object exerts a force on another object, the second object exerts an equal and opposite force on the first.
+
+The two forces act on different objects.
+
+Force is a vector quantity.
+
+The SI unit of force is the newton.
+
+Gravity is an attractive interaction between masses.
+
+Near Earth's surface, objects accelerate downward due to Earth's gravitational field.
+
+The acceleration due to Earth's gravity is approximately 9.8 meters per second squared near the surface.
+
+The exact value varies slightly with location.
+
+Mass and weight are different quantities.
+
+Mass measures the amount of matter or resistance to acceleration.
+
+Weight is the gravitational force acting on an object.
+
+An object's mass remains approximately the same when it moves to another planet.
+
+Its weight changes because the gravitational field may be different.
+
+Friction is a force that opposes relative motion between surfaces.
+
+Static friction can prevent an object from beginning to move.
+
+Kinetic friction acts when surfaces slide relative to each other.
+
+Friction can produce heat.
+
+Friction can be useful.
+
+Walking, braking, and gripping objects depend on friction.
+
+Air resistance is a type of drag force.
+
+Drag opposes motion through a fluid.
+
+The amount of drag depends on factors such as speed, shape, and the properties of the fluid.
+
+A free-body diagram represents the forces acting on an object.
+
+Free-body diagrams help analyze motion.
+
+The net force is the vector sum of all forces acting on an object.
+
+If the net force is zero, an object can remain at rest or move with constant velocity.
+
+Work describes energy transferred by a force acting through a displacement.
+
+When a force causes an object to move in the direction of the force, work is performed.
+
+The SI unit of work is the joule.
+
+Energy is the capacity to cause change or perform work.
+
+Kinetic energy is the energy associated with motion.
+
+An object's kinetic energy depends on its mass and speed.
+
+Potential energy is stored energy associated with position or configuration.
+
+Gravitational potential energy depends on position in a gravitational field.
+
+Elastic potential energy can be stored in stretched or compressed objects.
+
+The law of conservation of energy states that energy cannot be created or destroyed in an isolated system.
+
+Energy can be transferred or transformed between forms.
+
+Chemical energy can become thermal energy.
+
+Electrical energy can become light energy.
+
+Potential energy can become kinetic energy.
+
+The total energy of an isolated system remains constant.
+
+Power describes the rate at which work is performed or energy is transferred.
+
+The SI unit of power is the watt.
+
+A higher-power device transfers energy more quickly.
+
+Momentum is related to an object's mass and velocity.
+
+Momentum is a vector quantity.
+
+In an isolated system, total momentum is conserved.
+
+Collisions can transfer momentum between objects.
+
+An elastic collision conserves kinetic energy as well as momentum in the idealized case.
+
+An inelastic collision conserves momentum but not necessarily kinetic energy.
+
+Circular motion involves movement along a curved path.
+
+An object moving in a circle can have constant speed while continuously changing velocity.
+
+The change in velocity requires acceleration.
+
+Centripetal acceleration points toward the center of circular motion.
+
+A force directed toward the center can provide the centripetal force.
+
+Rotation describes motion around an axis.
+
+Torque describes the rotational effect of a force.
+
+A force applied farther from a pivot can produce greater torque.
+
+Angular momentum is associated with rotational motion.
+
+Angular momentum is conserved in an isolated system when no external torque acts.
+
+Pressure is force distributed over an area.
+
+The same force can produce different pressure depending on the area over which it acts.
+
+Fluids include liquids and gases.
+
+Fluid pressure can change with depth.
+
+Buoyancy is an upward force exerted by a fluid on an immersed object.
+
+An object can float when the upward buoyant force balances its weight.
+
+Density is mass per unit volume.
+
+An object with lower average density than a fluid may float in that fluid.
+
+Temperature describes the thermal state of matter.
+
+Heat is energy transferred because of a temperature difference.
+
+Heat naturally transfers from warmer objects to cooler objects until thermal equilibrium is approached.
+
+Conduction transfers thermal energy through direct interactions between particles.
+
+Convection transfers thermal energy through the movement of fluids.
+
+Radiation transfers energy through electromagnetic waves.
+
+Thermal energy is related to the microscopic motion of particles.
+
+The temperature of an object is related to the average kinetic energy of its particles.
+
+Different materials respond differently to heating.
+
+Thermal expansion occurs when many materials increase in size as their temperature rises.
+
+Phase changes include melting, freezing, vaporization, condensation, sublimation, and deposition.
+
+During a phase change, energy can be transferred without a corresponding change in temperature under certain conditions.
+
+The laws of thermodynamics describe relationships between heat, work, energy, and entropy.
+
+The first law of thermodynamics expresses conservation of energy.
+
+The second law describes the direction of natural processes and the behavior of entropy.
+
+Entropy is associated with the number of possible microscopic arrangements of a system.
+
+Natural processes tend to increase total entropy in an isolated system.
+
+Waves transfer energy through oscillations or disturbances.
+
+A wave can travel through a medium or, in some cases, through empty space.
+
+Mechanical waves require a medium.
+
+Sound is a mechanical wave.
+
+Electromagnetic waves can travel through a vacuum.
+
+A wave has properties including wavelength, frequency, amplitude, and speed.
+
+Wavelength is the distance between corresponding points on successive waves.
+
+Frequency is the number of cycles per unit time.
+
+Amplitude describes the size of the oscillation.
+
+The speed of a wave depends on the type of wave and the properties of the medium.
+
+Sound is produced by vibrations.
+
+Sound travels through a medium as a mechanical disturbance.
+
+Sound cannot travel through a perfect vacuum.
+
+The frequency of a sound is related to its perceived pitch.
+
+The amplitude of a sound wave is related to its intensity.
+
+Light is electromagnetic radiation.
+
+Visible light is one region of the electromagnetic spectrum.
+
+Other regions include radio waves, microwaves, infrared radiation, ultraviolet radiation, X-rays, and gamma rays.
+
+Electromagnetic waves differ in wavelength and frequency.
+
+The speed of light in vacuum is approximately 300,000 kilometers per second.
+
+Reflection occurs when a wave bounces from a surface.
+
+Refraction occurs when a wave changes direction as it enters a different medium.
+
+Refraction occurs because the wave speed changes between media.
+
+Diffraction is the spreading of waves around obstacles or through openings.
+
+Interference occurs when waves overlap.
+
+Constructive interference can increase amplitude.
+
+Destructive interference can reduce amplitude.
+
+Electric charge is a fundamental property of matter.
+
+There are positive and negative charges.
+
+Like charges repel.
+
+Opposite charges attract.
+
+Electric current is the flow of electric charge.
+
+Voltage represents electric potential difference.
+
+Resistance opposes the flow of electric current.
+
+Ohm's law relates voltage, current, and resistance for certain materials and conditions.
+
+Electrical power describes the rate of electrical energy transfer.
+
+A circuit provides a path through which current can flow.
+
+A closed circuit allows current to flow.
+
+An open circuit interrupts the path.
+
+Conductors allow charge to move relatively easily.
+
+Insulators strongly resist charge movement.
+
+Semiconductors have electrical properties between those of conductors and insulators.
+
+Magnetism is associated with moving electric charges and magnetic materials.
+
+Electric currents can produce magnetic fields.
+
+Changing magnetic fields can induce electric currents.
+
+This relationship forms the basis of electromagnetic induction.
+
+Generators convert mechanical energy into electrical energy.
+
+Motors convert electrical energy into mechanical energy.
+
+Electromagnetism describes the relationship between electricity and magnetism.
+
+Atoms consist of a nucleus surrounded by electrons.
+
+The nucleus contains protons and neutrons.
+
+Protons have positive electric charge.
+
+Electrons have negative electric charge.
+
+Neutrons have no net electric charge.
+
+The number of protons determines the atomic number of an element.
+
+Atoms of the same element can have different numbers of neutrons.
+
+These forms are called isotopes.
+
+Chemical elements are organized in the periodic table.
+
+Atoms can interact to form molecules and compounds.
+
+The behavior of matter depends on interactions between atoms and molecules.
+
+Quantum mechanics describes physical behavior at very small scales.
+
+Particles such as electrons can exhibit both particle-like and wave-like behavior.
+
+Quantum systems can have discrete energy levels.
+
+The act of measurement can affect certain quantum systems.
+
+Quantum mechanics differs from classical physics in important ways.
+
+Relativity describes relationships between space, time, motion, and gravity.
+
+Special relativity applies to objects moving at high speeds and systems without gravity being treated as spacetime curvature.
+
+The speed of light in vacuum is the same for all inertial observers.
+
+Time and space measurements can depend on the relative motion of observers.
+
+Mass and energy are related.
+
+General relativity describes gravity as a consequence of the geometry of spacetime.
+
+Mass and energy can influence spacetime geometry.
+
+Objects move through curved spacetime according to this geometry.
+
+Classical physics provides excellent approximations for many everyday situations.
+
+Quantum physics is required for many microscopic phenomena.
+
+Relativity becomes important at very high speeds or in strong gravitational fields.
+
+Physics uses mathematical models to describe natural phenomena.
+
+A model is an approximation of reality.
+
+A useful model captures important behavior while simplifying unnecessary details.
+
+Experiments test predictions made by physical theories.
+
+Measurements contain uncertainty.
+
+Experimental results should be interpreted with consideration of measurement uncertainty.
+
+A scientific theory is a well-supported explanation of observed phenomena.
+
+A scientific law describes a consistent relationship observed in nature.
+
+Scientific models can be refined when new evidence becomes available.
+
+Physics is closely connected to chemistry, biology, astronomy, engineering, and many other fields.
+
+Engineering applies physical principles to design systems and devices.
+
+Astronomy applies physics to understand stars, planets, galaxies, and the universe.
+
+The goal of physics is to develop quantitative descriptions of how nature behaves.
+
+Physics combines observation, experimentation, mathematics, and theoretical reasoning.
+
+Understanding physics provides a foundation for explaining motion, matter, energy, technology, and the behavior of the universe.

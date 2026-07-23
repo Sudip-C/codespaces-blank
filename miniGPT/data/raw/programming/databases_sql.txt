@@ -1,0 +1,413 @@
+A database is a system used to store, organize, retrieve, and manage data.
+
+Applications use databases to preserve information beyond the lifetime of a running program.
+
+A database can store users, products, orders, messages, tasks, payments, settings, and many other types of information.
+
+A database management system provides tools for creating, reading, updating, deleting, and organizing data.
+
+A relational database stores data in tables.
+
+A table represents a type of entity. For example, a users table can store information about users, while a products table can store information about products.
+
+A table contains rows and columns.
+
+A row represents one record.
+
+A column represents an attribute of a record.
+
+For example, a users table might contain columns such as id, name, email, and created_at.
+
+A database schema describes the structure of a database.
+
+A schema can define tables, columns, data types, relationships, constraints, and indexes.
+
+SQL stands for Structured Query Language.
+
+SQL is commonly used to interact with relational databases.
+
+A SELECT statement retrieves data.
+
+An INSERT statement creates new records.
+
+An UPDATE statement modifies existing records.
+
+A DELETE statement removes records.
+
+A basic SELECT query can retrieve columns from a table.
+
+A WHERE clause filters rows according to a condition.
+
+A query can combine multiple conditions using logical operators.
+
+The AND operator requires multiple conditions to be true.
+
+The OR operator allows at least one condition to be true.
+
+The NOT operator negates a condition.
+
+Comparison operators include equality, inequality, greater than, less than, greater than or equal to, and less than or equal to.
+
+The ORDER BY clause sorts query results.
+
+The LIMIT clause restricts the number of returned rows.
+
+Pagination can use LIMIT and OFFSET or another database-specific approach.
+
+The INSERT statement adds records to a table.
+
+An INSERT operation should provide values for the appropriate columns.
+
+The UPDATE statement modifies existing records.
+
+An UPDATE query should usually include a WHERE condition. Without a WHERE condition, every row in the table may be modified.
+
+The DELETE statement removes records.
+
+A DELETE query should also use a carefully designed WHERE condition.
+
+A primary key uniquely identifies a row.
+
+A primary key should be unique for each record.
+
+An ID column is commonly used as a primary key.
+
+A database may generate primary key values automatically.
+
+A foreign key creates a relationship between records in different tables.
+
+For example, an orders table may contain a user_id column that refers to a user.
+
+Relationships allow data to be organized across multiple tables.
+
+A one-to-one relationship connects one record to one other record.
+
+A one-to-many relationship allows one record to be related to many records.
+
+For example, one user may have many orders.
+
+A many-to-many relationship allows many records in one table to be related to many records in another table.
+
+Many-to-many relationships are commonly represented using a junction table.
+
+A junction table contains references to records from the related tables.
+
+Database constraints enforce rules about data.
+
+A NOT NULL constraint requires a value to be present.
+
+A UNIQUE constraint prevents duplicate values.
+
+A PRIMARY KEY constraint identifies a record.
+
+A FOREIGN KEY constraint enforces a relationship between tables.
+
+A CHECK constraint can enforce a condition on a value.
+
+Constraints help maintain data integrity.
+
+Data integrity means that stored data remains accurate, valid, and consistent.
+
+A database column has a data type.
+
+Common relational database types include integers, decimals, text, booleans, dates, timestamps, and binary data.
+
+Choosing an appropriate data type helps ensure correct storage and behavior.
+
+A text column can store character data.
+
+A numeric column can store numbers.
+
+A boolean column represents true or false values.
+
+A timestamp stores information about a date and time.
+
+A database can store a created_at timestamp to record when a record was created.
+
+An updated_at timestamp can record when a record was last modified.
+
+NULL represents the absence of a value.
+
+NULL is different from an empty string and different from zero.
+
+Queries involving NULL require special handling.
+
+The IS NULL and IS NOT NULL conditions can check for NULL values.
+
+Aggregate functions calculate values across multiple rows.
+
+Common aggregate functions include COUNT, SUM, AVG, MIN, and MAX.
+
+COUNT can count rows.
+
+SUM calculates a total.
+
+AVG calculates an average.
+
+MIN finds the smallest value.
+
+MAX finds the largest value.
+
+The GROUP BY clause groups rows according to one or more columns.
+
+Aggregate functions can be used with GROUP BY to calculate statistics for each group.
+
+The HAVING clause filters groups after aggregation.
+
+A JOIN combines data from multiple tables.
+
+An INNER JOIN returns matching rows from both tables.
+
+A LEFT JOIN returns all rows from the left table and matching rows from the right table.
+
+A RIGHT JOIN returns all rows from the right table and matching rows from the left table.
+
+A FULL JOIN can return rows from both sides, depending on the database system.
+
+Joins are useful for retrieving related data stored in separate tables.
+
+For example, a query can join users and orders to retrieve each user's orders.
+
+A database query can use aliases to make table and column references easier to read.
+
+A subquery is a query nested inside another query.
+
+Subqueries can be used to calculate values or filter results.
+
+A common table expression can define a temporary named result for use within a larger query.
+
+Database normalization is the process of organizing data to reduce unnecessary duplication and improve consistency.
+
+A normalized database often stores different types of information in separate related tables.
+
+Denormalization intentionally duplicates some data to improve read performance or simplify queries.
+
+Normalization and denormalization involve tradeoffs.
+
+An index is a data structure that can improve query performance.
+
+An index can help a database locate rows without scanning an entire table.
+
+Indexes are commonly created on columns frequently used for searching, filtering, sorting, or joining.
+
+Indexes require storage and can make inserts and updates more expensive.
+
+Adding indexes should be based on actual query requirements.
+
+A composite index contains multiple columns.
+
+The order of columns in a composite index can affect which queries benefit from it.
+
+A database query planner determines how a query should be executed.
+
+The query planner can choose indexes, join strategies, and other execution methods.
+
+Query performance can be investigated using an execution plan.
+
+A transaction groups multiple database operations into a single logical operation.
+
+A transaction can commit all changes if every operation succeeds.
+
+A transaction can roll back changes if an operation fails.
+
+Transactions help preserve consistency when multiple related operations must succeed together.
+
+The ACID properties describe important transaction characteristics.
+
+Atomicity means that a transaction is treated as a complete unit.
+
+Consistency means that a transaction preserves database rules.
+
+Isolation describes how concurrent transactions interact.
+
+Durability means that committed changes remain stored.
+
+Concurrent requests can attempt to modify the same data at the same time.
+
+Database systems use concurrency control mechanisms to manage these situations.
+
+A race condition can occur when the result depends on the timing of concurrent operations.
+
+Transactions and appropriate locking strategies can help prevent inconsistent results.
+
+A database migration changes the structure of a database in a controlled way.
+
+Migrations can create tables, add columns, remove columns, or modify constraints.
+
+Migration files provide a history of schema changes.
+
+A migration system allows development and production databases to be updated consistently.
+
+A seed script inserts initial or sample data into a database.
+
+Seed data can be useful for development and testing.
+
+An ORM, or Object-Relational Mapper, provides an abstraction for interacting with a relational database.
+
+An ORM maps application objects to database records.
+
+ORMs can simplify common database operations.
+
+However, developers should still understand SQL and database behavior because complex queries and performance issues may require direct database knowledge.
+
+A query builder provides programmatic methods for constructing database queries.
+
+Database drivers allow applications to communicate directly with a database system.
+
+A Node.js backend can connect to a database using a database driver, ORM, or query builder.
+
+A connection pool manages reusable database connections.
+
+Opening a new database connection for every request can be inefficient.
+
+A connection pool allows multiple requests to share a controlled set of connections.
+
+Database credentials should be stored securely.
+
+A database connection string often contains sensitive information.
+
+Secrets should not be committed to a public source code repository.
+
+Applications should use environment variables or secure secret-management systems for sensitive configuration.
+
+SQL injection is a security vulnerability caused by unsafe construction of database queries using untrusted input.
+
+An attacker may attempt to modify the meaning of a query by providing specially crafted input.
+
+Parameterized queries separate query structure from user-provided values.
+
+Parameterized queries help prevent SQL injection.
+
+Input validation provides an additional layer of protection.
+
+Authorization should be checked before allowing users to access or modify data.
+
+A user should not be able to access another user's private records simply by changing an identifier in a request.
+
+The server should verify ownership and permissions.
+
+A database should not be directly exposed to untrusted clients when the application architecture expects access through a backend.
+
+The backend can enforce authentication, authorization, validation, and business rules before interacting with the database.
+
+Soft deletion marks a record as deleted instead of physically removing it.
+
+A deleted_at column can represent whether a record has been soft deleted.
+
+Soft deletion can preserve historical information.
+
+Hard deletion permanently removes a record.
+
+The choice between soft and hard deletion depends on application requirements.
+
+Cascading actions can automatically affect related records when a parent record is deleted or updated.
+
+Cascades should be designed carefully because they can affect many records.
+
+A database backup is a copy of stored data that can be used for recovery.
+
+Backups should be tested because an untested backup may not be usable during an emergency.
+
+A recovery strategy determines how data can be restored after failure.
+
+Replication creates copies of data on multiple database servers.
+
+Replication can improve availability and read scalability.
+
+A read replica can handle read operations while a primary database handles writes.
+
+Distributed database systems introduce additional consistency and coordination challenges.
+
+A database may be deployed on a local machine, a private server, or a managed cloud service.
+
+Managed database services can provide backups, monitoring, scaling, and maintenance.
+
+Database performance depends on schema design, query design, indexes, data volume, hardware, and workload.
+
+A query that works well on a small dataset may become slow as the dataset grows.
+
+Performance should be tested with realistic amounts of data.
+
+A slow query can often be improved by examining its execution plan.
+
+Returning only the required columns can reduce unnecessary data transfer.
+
+Selecting every column from a large table may be inefficient when only a few columns are needed.
+
+Pagination can reduce the amount of data returned by an API.
+
+Filtering should be performed by the database when possible rather than retrieving all data and filtering it in application memory.
+
+A database transaction should be kept as short as practical.
+
+Long transactions can hold locks and reduce concurrency.
+
+A database connection should be released properly after use.
+
+Connection leaks can eventually prevent an application from creating new database connections.
+
+An application should handle database errors gracefully.
+
+A database may reject an operation because of a constraint violation, connection problem, invalid query, or unavailable service.
+
+Backend error handling should translate internal failures into appropriate API responses.
+
+Detailed database errors should not unnecessarily expose sensitive internal information to clients.
+
+Data modeling describes how application data is represented.
+
+Before creating tables, developers should understand the entities, relationships, and operations required by the application.
+
+For example, an e-commerce application may contain users, products, carts, orders, payments, and reviews.
+
+Each entity may have its own table.
+
+Relationships describe how entities connect.
+
+An order may belong to one user.
+
+An order may contain multiple products.
+
+A junction table may represent the relationship between orders and products.
+
+A schema should support the operations the application needs to perform.
+
+Database design should consider both current requirements and likely future changes.
+
+A database is part of the larger application architecture.
+
+A frontend sends a request to a backend.
+
+The backend validates the request and applies business rules.
+
+The backend communicates with the database.
+
+The database returns data or confirms a modification.
+
+The backend transforms the result into an API response.
+
+The frontend displays the result to the user.
+
+This separation allows database access to remain controlled by backend code.
+
+A repository or data-access module can hide database-specific details from the rest of the application.
+
+A service can call a repository to retrieve or modify data.
+
+A controller can call a service when handling an HTTP request.
+
+This layered structure can make applications easier to test and maintain.
+
+Database knowledge is essential for full-stack development.
+
+A developer who understands tables, relationships, constraints, indexes, transactions, queries, security, and performance can design more reliable applications.
+
+SQL remains an important skill even when an ORM is used.
+
+An ORM can make common operations convenient, but understanding the underlying database helps developers debug problems and optimize performance.
+
+The best database design balances correctness, simplicity, performance, maintainability, and security.
+
+A reliable application depends on reliable data.
+
+Database systems provide the foundation for storing application state and making that state available to backend services.

@@ -1,0 +1,161 @@
+The Transformer is a neural network architecture designed to process sequences using attention mechanisms. It became one of the most important architectures in modern artificial intelligence because it can model relationships between elements of a sequence while allowing highly parallel computation during training.
+
+Before Transformers became widely used, recurrent neural networks were commonly used for sequence processing. Recurrent networks process information step by step and maintain a hidden state that carries information through the sequence. This approach can make it difficult to efficiently process long sequences and can create challenges when learning relationships between distant elements.
+
+The Transformer introduced an architecture based primarily on attention. Instead of processing every token strictly one after another, the model can examine relationships between many positions in a sequence. During training, many operations can be performed in parallel.
+
+A Transformer language model begins by converting input tokens into numerical representations. Each token is mapped to an embedding vector. The embedding represents the token in a continuous mathematical space.
+
+Suppose a vocabulary contains thousands of possible tokens. The model stores a learned vector for each token. When a token ID enters the model, the corresponding row of the embedding matrix is selected. The result is a vector representation of that token.
+
+Token embeddings do not automatically indicate position. The same token may appear at different positions in a sequence. A Transformer therefore needs positional information to distinguish the order of tokens.
+
+Position information can be added to token embeddings. One approach uses learned positional embeddings. The model stores a separate vector for each possible position. The token embedding and positional embedding are combined before being passed into the Transformer layers.
+
+Another approach uses fixed mathematical functions to represent positions. Sinusoidal positional encodings are one example. Modern Transformer systems may also use alternative methods such as rotary position representations.
+
+The sequence representation is passed through one or more Transformer blocks. A typical Transformer block contains an attention mechanism, a feed-forward network, normalization layers, and residual connections.
+
+Self-attention is the central operation of the Transformer architecture. Self-attention allows every position in a sequence to consider information from other positions.
+
+For each token representation, the model produces a query vector, a key vector, and a value vector. These vectors are generated using learned linear transformations.
+
+The query represents the type of information a token is looking for. The key represents the information associated with a token that can be compared with queries. The value represents the information that can be passed to other positions.
+
+Attention begins by comparing queries with keys. A dot product can be used to measure similarity. If a query and key are strongly aligned, the corresponding attention score is larger.
+
+The attention scores are divided by a scaling factor related to the dimension of the key vectors. Scaling helps prevent the values from becoming too large before the softmax operation.
+
+The softmax function converts attention scores into weights. The weights sum to one across the positions being considered. The model then calculates a weighted combination of the value vectors.
+
+The output of attention is therefore a new representation for each position. This representation contains information gathered from other positions according to the learned attention weights.
+
+A causal language model uses a causal attention mask. The mask prevents a token from attending to future tokens. This is necessary for next-token prediction because the model must not see the answer before making its prediction.
+
+For a sequence containing tokens at positions one, two, three, and four, the representation at position two may attend to positions one and two but not positions three and four. The representation at position four can attend to positions one through four.
+
+The causal mask is usually implemented by assigning extremely negative values to forbidden attention scores before applying softmax. After softmax, the forbidden positions receive effectively zero attention weight.
+
+Multi-head attention uses multiple attention heads. Each head has its own query, key, and value projections. The heads can learn different relationships within the sequence.
+
+One attention head may focus on nearby words. Another may learn relationships between a pronoun and an earlier noun. Another may identify syntactic or semantic patterns. The model is not explicitly told what each head should learn; these patterns emerge during optimization.
+
+The outputs of the attention heads are concatenated and passed through another learned projection. This combines the information from the different heads into the model's main representation space.
+
+The model dimension is the size of the representation used throughout the Transformer. If the model dimension is 256 and there are 8 attention heads, each head may operate on a portion of that representation.
+
+The feed-forward network is applied independently to each sequence position after attention. It typically consists of a linear projection to a larger intermediate dimension, a nonlinear activation function, and a projection back to the model dimension.
+
+The feed-forward network allows the model to perform additional nonlinear transformations. Attention mixes information between positions, while the feed-forward network transforms the information at each position.
+
+Residual connections are used throughout Transformer blocks. A residual connection adds the input of a sublayer to its output. This creates a path through which information and gradients can travel more easily.
+
+A simplified Transformer block can be represented as an input followed by attention, a residual connection, normalization, a feed-forward network, another residual connection, and another normalization operation. Different Transformer implementations arrange normalization in slightly different ways.
+
+Layer normalization normalizes the features of a representation. It can make the optimization process more stable. Transformer architectures commonly use layer normalization around attention and feed-forward sublayers.
+
+The Transformer can be used in different configurations. An encoder processes an input sequence to create representations. A decoder generates outputs autoregressively. Encoder-decoder architectures combine both components.
+
+A decoder-only Transformer is commonly used for causal language modeling. The model receives a sequence of tokens and predicts the next token at each position. GPT-style models are examples of decoder-only language models.
+
+An encoder-only Transformer can process an entire input sequence and create representations useful for tasks such as classification. An encoder can use information from both earlier and later positions because it is not necessarily restricted to causal attention.
+
+An encoder-decoder Transformer can receive one sequence and generate another. Machine translation is a classic example. The encoder processes the source sequence, while the decoder generates the target sequence.
+
+Autoregressive generation means producing one token at a time. The model receives the current context, predicts a probability distribution over the vocabulary, selects a token, adds it to the context, and repeats the process.
+
+During training, autoregressive language models can process many positions in parallel. A complete sequence is provided, and the causal mask ensures that each position can only use allowed previous information.
+
+This difference between training and generation is important. During training, the actual previous tokens are available. During generation, the model must use its own previously generated tokens.
+
+The vocabulary is the set of tokens that the model can represent. A tokenizer converts raw text into token IDs. The model operates on these IDs through an embedding layer.
+
+A token may be a complete word, part of a word, punctuation mark, or special symbol. Subword tokenization allows a tokenizer to represent rare words by combining smaller pieces.
+
+The vocabulary size affects the model's parameter count. The input embedding matrix contains one vector per token. The output projection also produces scores for every vocabulary token.
+
+The output logits have a shape related to batch size, sequence length, and vocabulary size. If a batch contains several sequences, each with a fixed number of positions, the model produces a vocabulary score for every position.
+
+For language modeling, the logits are compared with target token IDs. The input sequence and target sequence are shifted by one position.
+
+Consider the token sequence "The model learns quickly". The input may contain "The model learns", while the targets contain "model learns quickly". The model is trained to predict the next token at each position.
+
+Cross-entropy loss compares the predicted probability distribution with the correct token. If the model assigns high probability to the correct token, the loss is relatively low. If the model assigns low probability to the correct token, the loss is higher.
+
+The Transformer does not directly output words. It outputs numerical logits. A tokenizer converts selected token IDs back into text after generation.
+
+The model's output distribution can be modified before selecting the next token. Temperature changes the distribution's sharpness. Top-k sampling limits the candidates to the most probable tokens. Top-p sampling selects candidates according to cumulative probability.
+
+Greedy decoding always chooses the token with the highest probability. It is deterministic and easy to implement. However, it may produce repetitive or less creative text.
+
+Random sampling allows the model to produce different outputs from the same prompt. The result depends on the probability distribution and the random seed.
+
+A Transformer language model's context window is the maximum number of tokens that can be processed together. A longer context allows the model to consider more information but increases computational requirements.
+
+In a simple implementation, the maximum sequence length is determined by the positional embedding table and the attention mechanism. If a sequence is longer than the configured maximum length, the model may not be able to process it directly.
+
+The computational cost of self-attention increases as the sequence length grows. For every position, the model calculates relationships with other positions. This makes long-context processing expensive.
+
+The number of Transformer layers controls the depth of the model. Each layer can refine the representation. More layers increase capacity but also increase computation and memory requirements.
+
+The number of attention heads controls the number of parallel attention patterns. Increasing the number of heads changes how the model divides its representation space.
+
+The feed-forward dimension controls the size of the intermediate representation inside each Transformer block. It is often larger than the model dimension.
+
+The model's parameter count depends on the vocabulary size, embedding dimension, number of layers, number of attention heads, and feed-forward dimension.
+
+A small Transformer can be useful for learning how language models work. It may not have enough capacity or data to produce high-quality general-purpose text, but it can demonstrate the core principles of modern language modeling.
+
+Training a Transformer involves repeated forward and backward passes. The model receives batches of token sequences. It predicts the next token. The loss is calculated. Backpropagation calculates gradients. The optimizer updates the parameters.
+
+The learning rate is one of the most important training settings. A learning rate that is too high can make the loss unstable. A learning rate that is too low can make training extremely slow.
+
+The batch size affects the number of sequences processed before each parameter update. The sequence length affects how much context each example contains.
+
+The dataset determines the patterns the Transformer can learn. A model trained mainly on classic literature will learn literary vocabulary and sentence patterns. A model trained on programming text will learn programming-related patterns.
+
+A model cannot reliably generate knowledge that is completely absent from its training data. If a small model has never encountered meaningful examples about a topic, prompting it about that topic will not automatically give it accurate knowledge.
+
+This is why dataset design is fundamental to language model development. The model architecture provides the learning mechanism, while the training data provides the examples from which patterns are learned.
+
+A diverse dataset can expose a model to different writing styles, subjects, vocabulary, and structures. However, diversity should be combined with quality. Noisy, duplicated, incorrect, or poorly formatted text can reduce the usefulness of training.
+
+Deduplication removes repeated or nearly repeated examples. Duplicate data can cause the model to see the same information many times and may contribute to memorization.
+
+Data contamination occurs when evaluation examples or information derived from evaluation data accidentally enters the training set. This can produce misleadingly good evaluation results.
+
+A validation set should represent the type of data on which the model is expected to perform. If a model is intended to generate technical explanations, the validation data should contain suitable technical text.
+
+The training loss and validation loss provide different information. Training loss measures how well the model fits the examples it is learning from. Validation loss measures performance on data that was held out from parameter updates.
+
+A model can achieve very low training loss while producing poor results on new prompts. This may happen when the model has memorized a small dataset.
+
+For small language models, increasing the amount of varied training data can often be more useful than immediately increasing the number of parameters.
+
+The Transformer architecture is powerful because it provides a flexible mechanism for representing relationships between tokens. However, the architecture does not eliminate the need for good data, appropriate optimization, and careful evaluation.
+
+Modern language models often include additional techniques such as learning-rate warmup, weight decay, mixed-precision training, distributed training, gradient accumulation, and efficient attention implementations.
+
+Gradient accumulation allows a model to simulate a larger batch size by accumulating gradients across multiple smaller batches before performing an optimizer update. This can be useful when hardware memory is limited.
+
+Mixed-precision training uses lower numerical precision for some computations. This can reduce memory usage and improve performance on compatible hardware.
+
+Distributed training divides computation across multiple devices. Large models often require multiple GPUs or specialized hardware for practical training.
+
+Model compression techniques attempt to reduce model size or computational requirements. Quantization represents parameters using lower precision. Pruning removes some parameters or structures. Knowledge distillation trains a smaller model using information from a larger model.
+
+A trained language model can be adapted for specialized tasks. Fine-tuning continues training on a smaller domain-specific dataset. Instruction tuning trains a model to respond to instructions using examples of desired behavior.
+
+Retrieval systems can provide external information to a language model. A retrieval-augmented system searches documents and places relevant information into the model's context before generation.
+
+Tool use allows a language model to interact with external systems. A model may call a calculator, search system, database, or programming environment. The model itself generates actions, while external tools perform operations that may require current information or exact computation.
+
+The Transformer architecture continues to evolve. Researchers explore more efficient attention, longer context windows, alternative positional representations, sparse computation, mixture-of-experts models, multimodal systems, and new training methods.
+
+Understanding a small Transformer implementation provides a foundation for understanding larger language models. The core ideas remain similar: token representations, positional information, attention, feed-forward transformations, residual connections, normalization, next-token prediction, loss calculation, and optimization.
+
+A small GPT-style model is therefore a useful educational project. By implementing the tokenizer, dataset, Transformer layers, training loop, checkpoint system, and inference process, a developer can observe how the major components of a language model work together.
+
+The most important lesson is that a language model is not a single magical algorithm. It is a complete system composed of data processing, numerical representations, neural network architecture, optimization, evaluation, and inference.
+
+When the components are connected correctly, training gradually changes the model's parameters so that it becomes better at predicting patterns in the training data. The quality and usefulness of the final behavior depend on the interaction between all of these components.

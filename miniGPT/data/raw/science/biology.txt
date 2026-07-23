@@ -1,0 +1,457 @@
+Biology is the scientific study of life.
+
+Living organisms include animals, plants, fungi, microorganisms, and many other forms of life.
+
+Biology studies how organisms are structured, how they function, how they reproduce, how they interact with their environment, and how they evolve.
+
+All living organisms share certain characteristics.
+
+Living organisms are composed of one or more cells.
+
+They use energy.
+
+They maintain internal conditions.
+
+They respond to their environment.
+
+They grow and develop.
+
+They reproduce.
+
+They contain genetic information.
+
+Cells are the basic structural and functional units of life.
+
+Some organisms consist of a single cell.
+
+These organisms are called unicellular organisms.
+
+Other organisms are composed of many specialized cells.
+
+These organisms are called multicellular organisms.
+
+A cell is surrounded by a cell membrane.
+
+The cell membrane controls the movement of many substances into and out of the cell.
+
+The cell membrane helps maintain the internal environment of the cell.
+
+The cytoplasm is the region inside the cell where many chemical reactions occur.
+
+Eukaryotic cells contain a nucleus.
+
+The nucleus stores most of the cell's genetic material.
+
+Prokaryotic cells do not have a membrane-bound nucleus.
+
+Bacteria and archaea are prokaryotic organisms.
+
+Animal, plant, fungal, and many other cells are eukaryotic.
+
+Organelles are specialized structures inside cells.
+
+Mitochondria produce much of the usable energy in many eukaryotic cells.
+
+Ribosomes build proteins.
+
+The endoplasmic reticulum is involved in producing and processing certain proteins and lipids.
+
+The Golgi apparatus modifies, sorts, and packages molecules.
+
+Lysosomes contain enzymes that help break down certain materials.
+
+Plant cells contain chloroplasts.
+
+Chloroplasts perform photosynthesis.
+
+Plant cells also commonly have a large central vacuole.
+
+The cell wall provides structural support in plants and some other organisms.
+
+Cells require energy to perform their functions.
+
+Cellular respiration releases energy from nutrients.
+
+In many organisms, glucose can be broken down to produce ATP.
+
+ATP is a molecule used to transfer usable energy within cells.
+
+Photosynthesis converts light energy into chemical energy.
+
+Plants, algae, and some microorganisms perform photosynthesis.
+
+During photosynthesis, light energy is used to produce energy-rich molecules.
+
+Carbon dioxide and water are important reactants in photosynthesis.
+
+Oxygen is released during the photosynthetic process used by many plants.
+
+Metabolism is the collection of chemical reactions occurring in an organism.
+
+Some metabolic reactions build molecules.
+
+Other metabolic reactions break molecules down.
+
+Enzymes are biological catalysts.
+
+They increase the rate of specific chemical reactions.
+
+Enzymes are not usually consumed by the reactions they catalyze.
+
+The function of an enzyme depends on its structure.
+
+Temperature and pH can affect enzyme activity.
+
+Extreme conditions can change the structure of an enzyme.
+
+Proteins are large biological molecules made from amino acids.
+
+The sequence of amino acids influences the structure and function of a protein.
+
+Proteins perform many functions.
+
+They can act as enzymes.
+
+They can provide structure.
+
+They can transport substances.
+
+They can send and receive signals.
+
+They can participate in immune responses.
+
+Nucleic acids store and transmit genetic information.
+
+DNA is a nucleic acid that stores genetic instructions.
+
+RNA performs several important roles in cells.
+
+DNA is composed of nucleotides.
+
+A nucleotide contains a sugar, a phosphate group, and a nitrogen-containing base.
+
+The bases in DNA include adenine, thymine, cytosine, and guanine.
+
+DNA commonly exists as a double helix.
+
+Specific base-pairing rules help the two DNA strands interact.
+
+A gene is a segment of genetic material associated with a functional product.
+
+Genes provide instructions for producing functional molecules or influencing biological traits.
+
+The complete genetic material of an organism is its genome.
+
+Chromosomes are structures that organize genetic material.
+
+Different organisms have different numbers and arrangements of chromosomes.
+
+DNA replication produces a copy of genetic material.
+
+Replication allows genetic information to be passed to new cells.
+
+Transcription produces an RNA molecule using DNA information.
+
+Translation uses information in messenger RNA to help build a protein.
+
+The flow of genetic information is often described as DNA to RNA to protein.
+
+Mutations are changes in genetic material.
+
+Some mutations have little effect.
+
+Some mutations can alter biological function.
+
+Some mutations can be harmful.
+
+Some mutations can be beneficial in particular environments.
+
+Genetic variation is important for evolution.
+
+Cells can divide through different processes.
+
+Mitosis produces genetically similar daughter cells in many situations.
+
+Mitosis supports growth, repair, and asexual reproduction in some organisms.
+
+Meiosis produces reproductive cells with reduced chromosome numbers.
+
+Sexual reproduction combines genetic material from reproductive cells.
+
+This creates genetic variation among offspring.
+
+An organism's genotype is its genetic makeup.
+
+An organism's phenotype includes observable characteristics.
+
+The phenotype is influenced by genotype and environment.
+
+An allele is one version of a gene.
+
+Individuals may inherit different alleles from their parents.
+
+Dominant and recessive patterns describe certain inheritance relationships.
+
+A dominant allele can influence a phenotype when one copy is present in some genetic systems.
+
+A recessive phenotype may require two copies of a recessive allele in simple inheritance patterns.
+
+Many traits are influenced by multiple genes and environmental factors.
+
+Genetics is the study of heredity and variation.
+
+Gregor Mendel's experiments helped establish important principles of inheritance.
+
+Modern genetics has expanded beyond simple Mendelian inheritance.
+
+Evolution is the change in inherited characteristics of populations over generations.
+
+Natural selection is one mechanism of evolution.
+
+Individuals in a population vary.
+
+Some variations can affect survival and reproduction.
+
+Traits that increase reproductive success can become more common over generations.
+
+Natural selection acts on existing variation.
+
+Mutations and other processes can introduce genetic variation.
+
+Genetic drift is a change in allele frequencies caused by chance.
+
+Gene flow occurs when genetic material moves between populations.
+
+Populations can evolve over time.
+
+Individual organisms do not evolve during their own lifetime in the biological sense of changing their inherited genetic composition.
+
+Evolution occurs across generations of populations.
+
+A species is a group of organisms defined according to biological criteria.
+
+The exact definition of species can vary depending on context.
+
+Speciation occurs when populations become sufficiently different that new species arise.
+
+Geographic isolation can contribute to speciation.
+
+The fossil record provides evidence of past life.
+
+Comparative anatomy can reveal similarities among organisms.
+
+Homologous structures share evolutionary origins even when their functions differ.
+
+Molecular biology can reveal similarities in DNA and proteins.
+
+These lines of evidence support the theory of evolution.
+
+Classification organizes organisms into groups.
+
+Taxonomy uses shared characteristics and evolutionary relationships.
+
+Modern classification often uses genetic evidence.
+
+Ecology studies interactions between organisms and their environment.
+
+An organism is an individual living thing.
+
+A population is a group of organisms of the same species in an area.
+
+A community includes multiple interacting populations.
+
+An ecosystem includes organisms and their physical environment.
+
+The biosphere includes the regions of Earth where life exists.
+
+A habitat is the environment in which an organism lives.
+
+A niche describes the role of an organism in its environment.
+
+Food chains represent the transfer of energy through feeding relationships.
+
+A food web shows interconnected feeding relationships.
+
+Producers create organic matter using energy from sunlight or other sources.
+
+Consumers obtain energy by consuming other organisms.
+
+Decomposers break down organic material.
+
+Energy flows through ecosystems.
+
+Matter cycles through ecosystems.
+
+The carbon cycle moves carbon through the atmosphere, organisms, soil, oceans, and geological systems.
+
+The nitrogen cycle moves nitrogen through the environment and living organisms.
+
+Water moves through the water cycle.
+
+Populations are affected by available resources.
+
+Competition occurs when organisms require the same limited resources.
+
+Predation occurs when one organism consumes another.
+
+Parasitism occurs when one organism benefits while another is harmed.
+
+Mutualism occurs when both organisms benefit.
+
+Commensalism describes an interaction in which one organism benefits while the other is not significantly affected.
+
+Biodiversity describes the variety of life.
+
+Biodiversity can refer to genetic diversity, species diversity, and ecosystem diversity.
+
+Human activities can affect biodiversity.
+
+Habitat destruction can reduce populations.
+
+Pollution can damage ecosystems.
+
+Climate changes can alter environmental conditions.
+
+Conservation biology studies ways to protect biodiversity and ecosystems.
+
+Plants are multicellular organisms that perform photosynthesis.
+
+Roots anchor plants and absorb water and minerals.
+
+Stems provide support and transport materials.
+
+Leaves are important sites of photosynthesis in many plants.
+
+The vascular tissues of plants transport water and nutrients.
+
+Xylem transports water and minerals from roots.
+
+Phloem transports sugars and other organic materials.
+
+Plants respond to environmental signals.
+
+Hormones regulate many plant processes.
+
+Animals are multicellular organisms with specialized tissues and organs.
+
+Animal bodies maintain internal conditions through homeostasis.
+
+Homeostasis is the regulation of internal conditions.
+
+Examples include regulation of temperature, water balance, and blood glucose.
+
+The nervous system allows rapid communication through electrical and chemical signals.
+
+The brain and spinal cord form the central nervous system.
+
+Peripheral nerves connect the central nervous system with other parts of the body.
+
+Neurons transmit information.
+
+The endocrine system uses hormones to regulate biological processes.
+
+Hormones are chemical signals released by specialized cells or glands.
+
+The circulatory system transports substances throughout the body.
+
+Blood can transport oxygen, nutrients, hormones, and waste products.
+
+The heart pumps blood through blood vessels.
+
+Arteries generally carry blood away from the heart.
+
+Veins generally carry blood toward the heart.
+
+Capillaries allow exchange between blood and tissues.
+
+The respiratory system exchanges gases.
+
+In humans, oxygen enters the body through the respiratory system.
+
+Carbon dioxide is removed as a waste product of cellular respiration.
+
+The digestive system breaks food into molecules that can be absorbed.
+
+Nutrients provide materials and energy needed by the body.
+
+The immune system protects organisms from many harmful biological agents.
+
+The immune system can recognize and respond to foreign substances.
+
+Innate immunity provides general defenses.
+
+Adaptive immunity can produce specific responses to particular targets.
+
+Antibodies are proteins involved in certain immune responses.
+
+Microorganisms are microscopic organisms or biological entities.
+
+Bacteria are single-celled prokaryotic organisms.
+
+Many bacteria are harmless or beneficial.
+
+Some bacteria can cause disease.
+
+Archaea are also prokaryotic organisms but differ from bacteria in important biological characteristics.
+
+Fungi include yeasts, molds, and mushrooms.
+
+Fungi obtain nutrients by absorbing materials from their surroundings.
+
+Many fungi are important decomposers.
+
+Some fungi form beneficial relationships with plants.
+
+Viruses are infectious biological particles that require host cells to reproduce.
+
+A virus contains genetic material surrounded by a protein structure.
+
+Viruses can infect many types of organisms.
+
+The immune system can respond to viral infections.
+
+Vaccines can train the immune system to recognize specific biological targets.
+
+Disease can result from many causes.
+
+Pathogens include certain bacteria, viruses, fungi, and parasites.
+
+Not all microorganisms cause disease.
+
+The human microbiome consists of communities of microorganisms associated with the human body.
+
+Some microorganisms contribute to digestion and other biological processes.
+
+Biotechnology uses biological systems to develop products and technologies.
+
+Genetic engineering modifies genetic material using biological techniques.
+
+DNA sequencing determines the order of nucleotides in genetic material.
+
+Modern biology uses technologies to study genes, proteins, cells, organisms, and ecosystems.
+
+Biology is connected to chemistry because life depends on chemical reactions.
+
+Biology is connected to physics because organisms use physical processes.
+
+Biology is connected to environmental science because organisms interact with ecosystems.
+
+Biology is connected to medicine because understanding biological systems helps explain health and disease.
+
+Life is organized at multiple levels.
+
+Molecules form cellular structures.
+
+Cells form tissues.
+
+Tissues form organs.
+
+Organs form organ systems.
+
+Organ systems work together within organisms.
+
+Organisms interact within populations and ecosystems.
+
+Biology studies life across all these levels.
+
+The study of biology helps explain how living systems are built, how they function, how they change, and how they interact with the world around them.

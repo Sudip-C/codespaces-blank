@@ -7,7 +7,7 @@ class GPTConfig:
 
     vocab_size: int = 50257
 
-    max_seq_len: int = 32
+    max_seq_len: int = 128
 
     d_model: int = 256
 
@@ -15,7 +15,7 @@ class GPTConfig:
 
     n_layers: int = 6
 
-    d_ff: int = 1024
+    d_ff: int = 1536
 
     dropout: float = 0.1
 

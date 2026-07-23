@@ -1,0 +1,151 @@
+Deep learning is a branch of machine learning that uses neural networks with multiple layers to learn representations from data. The word deep refers to the presence of multiple computational layers between the input and output. Each layer transforms the representation produced by the previous layer. Through training, the network learns parameters that allow it to transform raw inputs into useful predictions.
+
+A neural network is a mathematical model composed of connected computational operations. The network receives numerical inputs, applies transformations, and produces outputs. The transformations are controlled by learned parameters called weights and biases. During training, these parameters are adjusted so that the network's predictions become more accurate.
+
+A simple neural network can be represented as a sequence of layers. The input layer receives the data. Hidden layers perform intermediate computations. The output layer produces the final prediction. A network with many hidden layers is generally considered a deep neural network.
+
+A neuron in an artificial neural network receives numerical values and combines them using learned weights. A bias is then added to the result. An activation function transforms the result before it is passed to the next layer. A simplified neuron can be represented as a weighted sum followed by an activation function.
+
+Activation functions allow neural networks to learn nonlinear relationships. Without nonlinear activation functions, multiple layers of linear operations could be mathematically combined into a single linear transformation. Nonlinearity allows a deep network to represent more complex functions.
+
+The sigmoid function maps values to a range between zero and one. It can be useful when interpreting an output as a probability, but it can suffer from vanishing gradients when used extensively in deep networks.
+
+The hyperbolic tangent function maps values approximately between negative one and one. It is centered around zero but can also suffer from vanishing gradients.
+
+The ReLU activation function returns zero for negative values and the input value for positive values. ReLU became widely used because it is simple and often allows neural networks to train effectively.
+
+Variants of ReLU include Leaky ReLU, which allows a small negative output for negative inputs. These variants can reduce some problems associated with neurons that always output zero.
+
+The output layer of a neural network depends on the task. A regression model may produce a numerical value. A classification model may produce class scores. A language model may produce a vector of scores for every token in its vocabulary.
+
+The forward pass is the process by which input data travels through the network. Each layer performs its computations and passes the result to the next layer. The final output is compared with the target using a loss function.
+
+The backward pass calculates how much each parameter contributed to the error. This process is called backpropagation. The chain rule of calculus is used to calculate gradients through the sequence of operations that produced the output.
+
+A gradient indicates how the loss changes with respect to a parameter. If the gradient is positive, changing the parameter in one direction may increase the loss. If the gradient is negative, changing the parameter in the opposite direction may increase the loss. Optimization algorithms use this information to update parameters.
+
+Gradient descent updates model parameters in the direction that reduces the loss. The learning rate determines the size of each update. The training process repeats forward passes, loss calculation, backward passes, and parameter updates many times.
+
+The vanishing gradient problem occurs when gradients become extremely small as they move backward through a deep network. Very small gradients can make early layers learn slowly. The exploding gradient problem occurs when gradients become extremely large. Gradient clipping can limit the size of gradients and improve training stability.
+
+Weight initialization affects the beginning of training. If all weights are initialized identically, neurons may learn identical representations. Random initialization helps break symmetry. Modern initialization methods attempt to select initial values that support stable signal propagation.
+
+Batch normalization normalizes intermediate activations during training. It can improve optimization and sometimes make training more stable. Layer normalization performs normalization across features within individual examples and is widely used in Transformer architectures.
+
+A residual connection allows information to bypass one or more layers. Instead of requiring a layer to learn an entire transformation, it can learn a modification to the input. Residual connections help information and gradients travel through deep networks.
+
+Dropout is a regularization technique. During training, some activations are randomly set to zero. This prevents the network from relying too heavily on particular pathways and can improve generalization. During evaluation, dropout is disabled.
+
+A convolutional neural network is designed to process structured grid-like data such as images. A convolution operation applies a small filter across different parts of an input. The same filter can detect a pattern in different locations.
+
+Early convolutional layers may learn to detect edges and simple textures. Deeper layers can combine these features into more complex structures. Convolutional neural networks have been widely used for image classification, object detection, and image segmentation.
+
+Recurrent neural networks were designed to process sequences. An RNN maintains a hidden state that is updated as it processes successive inputs. The hidden state can carry information from earlier parts of a sequence.
+
+Traditional recurrent networks can have difficulty learning long-range relationships because of vanishing and exploding gradients. Long short-term memory networks and gated recurrent units introduced mechanisms designed to preserve useful information over longer sequences.
+
+The Transformer architecture provides a different approach to sequence processing. Instead of processing a sequence strictly one step at a time, a Transformer uses attention mechanisms to allow representations to interact.
+
+An embedding converts a discrete item into a continuous numerical vector. In natural language processing, tokens are mapped to embedding vectors. Tokens with similar learned usage patterns may develop related representations.
+
+An embedding matrix contains a vector for every token in the vocabulary. If the vocabulary contains thousands of tokens and each token is represented by a vector of a particular dimension, the embedding matrix becomes a large collection of learned parameters.
+
+Token embeddings alone do not contain information about the order of a sequence. The sequence "dog bites man" has a different meaning from "man bites dog". Positional information allows the model to distinguish different token positions.
+
+A Transformer layer commonly contains an attention mechanism followed by a feed-forward network. Residual connections and normalization are used around these components. Multiple Transformer layers can be stacked to build a deeper model.
+
+Self-attention allows each token representation to interact with other tokens in the same sequence. The model calculates how strongly different positions should influence one another.
+
+The attention mechanism uses queries, keys, and values. A query represents what a position is looking for. A key represents information that can be matched against queries. A value contains information that can be passed to the output.
+
+Attention scores are calculated by comparing queries with keys. The scores are transformed into weights, often using the softmax function. The weighted values are then combined to produce the attention output.
+
+Scaled dot-product attention calculates similarities between queries and keys using dot products. The result is scaled to help maintain stable values when the dimensionality of the key vectors is large.
+
+Softmax converts a group of numerical scores into values that sum to one. This allows attention scores to be interpreted as a probability-like distribution over possible positions.
+
+Multi-head attention uses multiple attention mechanisms operating in parallel. Each head can learn different relationships between tokens. The outputs of the heads are combined and transformed.
+
+One attention head might learn relationships between a word and its subject. Another might learn relationships between a word and a nearby phrase. Different heads can represent different types of interactions.
+
+A causal language model must not use future tokens when predicting the next token. A causal attention mask prevents a position from attending to positions that occur later in the sequence.
+
+For example, when predicting the fourth token, the model can use the first three tokens but cannot directly use the fifth token. This prevents the model from seeing the answer during training.
+
+In next-token prediction, an input sequence and target sequence are shifted by one position. For example, an input sequence might contain the tokens "The cat sat on". The target sequence contains "cat sat on the". Each input position is trained to predict the following token.
+
+A language model produces logits. A logit is an unnormalized numerical score for a possible output token. The model produces one score for each token in the vocabulary at each position in the sequence.
+
+The logits are passed to a loss function during training. Cross-entropy loss compares the predicted distribution with the correct target token. The loss provides the training signal used to calculate gradients.
+
+The vocabulary size determines how many possible tokens the model can predict. A larger vocabulary can represent more complete words and subword units but increases the size of the output layer.
+
+The sequence length determines how many tokens the model can process at one time. A longer sequence allows the model to use more context but increases computational and memory requirements.
+
+The computational cost of standard self-attention grows significantly as sequence length increases. This is because the model calculates relationships between many pairs of positions.
+
+The hidden dimension, sometimes called the model dimension, determines the size of the vector representation used throughout a Transformer. A larger dimension can provide more representational capacity but increases the number of parameters and computation.
+
+The number of attention heads determines how many parallel attention mechanisms are used. The model dimension must generally be divisible by the number of heads so that the representation can be divided among them.
+
+The feed-forward network inside a Transformer layer expands the representation to a larger intermediate dimension and then projects it back to the model dimension. This provides additional nonlinear computation for each token position.
+
+A Transformer language model can be built by stacking multiple Transformer blocks. Each block processes the sequence and produces a refined representation. Deeper networks can represent more complex transformations but are more expensive to train.
+
+The number of trainable parameters is an important measure of model size. Parameters include embedding weights, attention projections, feed-forward weights, normalization parameters, and output projections.
+
+A model with more parameters generally has greater capacity, but model size alone does not determine quality. A large model trained on poor or insufficient data can perform worse than a smaller model trained on high-quality data.
+
+The relationship between model size, dataset size, and computational resources is important. A model with millions of parameters may require substantial data to learn useful general patterns. If the dataset is too small, the model may memorize the training data.
+
+Training a deep learning model requires an iterative optimization process. Each batch is processed through the model. The loss is calculated. Gradients are computed. The optimizer updates the parameters. This process repeats across many batches and epochs.
+
+A batch is a collection of examples processed together. Larger batches can improve hardware utilization but require more memory. Smaller batches use less memory but may produce noisier gradient estimates.
+
+An epoch represents a complete pass through the training dataset. Training for multiple epochs allows the model to repeatedly process the data. However, excessive epochs can lead to overfitting.
+
+A learning rate scheduler changes the learning rate during training. Some schedules reduce the learning rate over time. A high learning rate may be useful during early training, while smaller updates may be useful later.
+
+Cosine annealing is one scheduling strategy. The learning rate follows a curve that gradually changes during training. The exact schedule depends on the configuration of the optimizer and scheduler.
+
+Gradient clipping limits the maximum size of gradients. This can help prevent unstable parameter updates, especially when training deep networks or sequence models.
+
+Checkpointing is important for long-running training jobs. A checkpoint can store the model state, optimizer state, scheduler state, current epoch, current batch, and other information needed to continue training.
+
+A model checkpoint is different from a complete training history. If only the model weights are saved, the model can be used for inference but training cannot necessarily be resumed exactly. Restoring optimizer and scheduler state provides a more accurate continuation.
+
+Inference is the process of using a trained model to generate predictions. During inference, parameters are not updated. Gradient calculations can usually be disabled to reduce computational overhead.
+
+A language model generates text by starting with a prompt and repeatedly predicting the next token. The selected token is appended to the sequence and becomes part of the context for the next prediction.
+
+Greedy decoding selects the token with the highest probability at every step. This method is simple and deterministic but can produce repetitive or predictable text.
+
+Sampling selects tokens according to their predicted probabilities. Sampling can produce more varied outputs but may occasionally select unlikely tokens.
+
+Temperature modifies the sharpness of the probability distribution before sampling. Lower temperatures make the model more conservative. Higher temperatures increase diversity.
+
+Top-k sampling limits the candidate tokens to the k highest-scoring choices. Top-p sampling selects a dynamic set of candidates based on cumulative probability.
+
+A language model can appear fluent even when it has learned only limited knowledge. The quality of generated text depends heavily on the training data. A model trained primarily on novels will tend to generate literary patterns. A model trained on programming text will tend to generate programming-related patterns.
+
+This relationship between data and model behavior is fundamental. The architecture determines the types of computations the model can perform, while the dataset determines many of the patterns the model learns.
+
+A model trained on a narrow dataset may be useful for a specialized purpose. A model trained on diverse data may learn a broader range of patterns. However, increasing diversity also requires careful data quality control.
+
+Deep learning models do not learn concepts in exactly the same way humans do. They learn numerical representations and statistical relationships through optimization. The resulting representations can support sophisticated behavior without necessarily corresponding to human understanding.
+
+The success of deep learning depends on the interaction between architecture, data, optimization, and computation. Improving one component while ignoring the others may not improve the final system.
+
+For a small Transformer language model, the most important practical factors include the quality and diversity of the dataset, the tokenizer, the vocabulary size, the sequence length, the model architecture, the learning rate, the training duration, and the evaluation procedure.
+
+When training a small model, it is useful to monitor both training and validation loss. A decreasing training loss indicates that the model is fitting the training data. Validation loss provides information about performance on unseen examples.
+
+If training loss becomes extremely low while validation loss increases, the model is likely overfitting. Possible responses include using more data, reducing model size, adding regularization, reducing training duration, or improving the validation dataset.
+
+A model should be evaluated using prompts and test examples that represent the intended use. A language model trained on technical text should be tested with technical prompts. A model trained on literature should be tested with literary prompts.
+
+The development of a deep learning system is an iterative process. A researcher creates a dataset, defines an architecture, trains a model, evaluates results, examines failures, and modifies the system. Each experiment provides information that can guide the next experiment.
+
+The long-term goal of deep learning research is not simply to create models with more parameters. Researchers also seek better data efficiency, faster training, improved reasoning, stronger generalization, lower computational costs, and more reliable behavior.
+
+Understanding the basic mechanics of neural networks makes it easier to understand modern artificial intelligence systems. Every large neural model is ultimately built from mathematical operations, learned parameters, data, optimization algorithms, and a training process that repeatedly adjusts the parameters to reduce prediction error.

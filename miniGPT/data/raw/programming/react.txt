@@ -1,0 +1,287 @@
+React is a JavaScript library for building user interfaces. It is commonly used to create interactive web applications and is based on the idea of composing an interface from reusable components.
+
+A React application is made up of components. A component is a reusable unit of user interface logic. Components can receive data, maintain state, respond to events, and render other components.
+
+A component should generally have a clear responsibility. A large interface can be divided into smaller components that are easier to understand, test, and reuse.
+
+Modern React applications commonly use function components. A function component is a JavaScript function that returns a description of the user interface.
+
+JSX is a syntax extension commonly used with React. JSX allows JavaScript code to describe elements that resemble HTML.
+
+JSX is not exactly HTML. It is transformed into JavaScript before the browser executes it.
+
+A JSX element can contain attributes. In React, attributes are commonly called props when they are passed to components.
+
+A component can receive props from its parent component. Props allow a component to be configured with different data.
+
+Props are read-only from the perspective of the receiving component. A child component should not directly modify the props it receives.
+
+A parent component can pass data to a child component. Data normally flows downward through the component tree.
+
+A component can receive strings, numbers, objects, arrays, functions, and other components through props.
+
+A component can also receive children. The children prop represents content placed between the opening and closing tags of a component.
+
+Conditional rendering displays different user interface elements depending on application state.
+
+A component can use an if statement, a ternary expression, or logical operators to decide what should be rendered.
+
+Lists are commonly rendered using the map method. Each item in a list should have a stable key.
+
+The key prop helps React identify which items have changed, been added, or removed. Keys should generally be stable and unique among sibling elements.
+
+Using an array index as a key can cause problems when list items are reordered or removed. A stable identifier is generally preferable.
+
+State represents information that can change during the lifetime of a component.
+
+The useState hook allows a function component to store state. It returns the current state value and a function that can update that value.
+
+When state is updated, React schedules a re-render of the component. The user interface can then reflect the new state.
+
+State updates may be scheduled rather than applied immediately. Code should not assume that a state update has already changed the value immediately after the setter is called.
+
+When the next state depends on the previous state, a functional state update can be used.
+
+State should generally be treated as immutable. Instead of modifying an existing object or array directly, a new value should be created.
+
+For an array, methods such as map and filter can create updated arrays without mutating the original state.
+
+For an object, the spread operator can create a new object containing existing properties and updated values.
+
+A component can have multiple pieces of state. Each piece of state should represent a meaningful part of the component's data.
+
+A controlled input is an input whose value is controlled by React state. The input value and change handler are connected to the component's state.
+
+Controlled forms make it easier to validate input and control form behavior.
+
+An uncontrolled input stores its value in the DOM rather than React state. A ref can be used to access the input when needed.
+
+Form submission should usually prevent the browser's default page reload behavior when building a single-page application.
+
+The useEffect hook is used for side effects. Side effects include network requests, subscriptions, timers, and interactions with systems outside React's rendering process.
+
+An effect can run after a component renders. Its dependency array controls when the effect should run.
+
+An empty dependency array usually indicates that the effect should run after the initial mount and not repeat because of normal state or prop changes.
+
+When dependencies are included, the effect can run again when those dependencies change.
+
+An effect can return a cleanup function. Cleanup is important for removing event listeners, cancelling subscriptions, and clearing timers.
+
+Fetching data from an API is a common use of effects. A component can request data, update state when the request completes, and render loading or error states.
+
+Asynchronous operations inside effects should be handled carefully. The effect callback itself should not generally be made directly asynchronous in a way that causes it to return a Promise instead of a cleanup function.
+
+A separate asynchronous function can be created inside the effect and called from there.
+
+Loading state indicates that data is currently being requested. Error state indicates that an operation failed. Data state stores the successful result.
+
+A robust interface commonly handles loading, success, empty, and error states.
+
+React re-renders components when relevant state or props change. Rendering should generally remain predictable and free from unnecessary side effects.
+
+A component should not perform side effects directly during the render process. Side effects belong in appropriate lifecycle mechanisms such as effects or event handlers.
+
+The virtual DOM is a conceptual representation used to describe the desired user interface. React compares changes and updates the actual DOM as necessary.
+
+React uses reconciliation to determine how the rendered tree should be updated.
+
+Component composition allows complex interfaces to be built from smaller components.
+
+A layout component can provide the overall structure of an application. Smaller components can represent navigation, forms, cards, tables, buttons, and other interface elements.
+
+Reusable components should avoid unnecessary assumptions about the data they receive.
+
+A component can be made flexible by accepting props that control its content and behavior.
+
+A component can receive a function prop to notify its parent when an event occurs. This allows child components to communicate events upward.
+
+A common pattern is lifting state up. When multiple components need to share state, the state can be moved to their closest common parent.
+
+The parent can then pass the state and update functions to child components through props.
+
+Context provides another way to make data available to components without passing props through every intermediate component.
+
+The createContext function creates a context. A provider makes a value available to components below it in the tree.
+
+The useContext hook reads a context value.
+
+Context can be useful for application-wide information such as themes, authentication state, or localization.
+
+Context should not automatically be used for all shared state. Excessive context usage can make data dependencies less obvious.
+
+A reducer is a function that calculates a new state based on the current state and an action.
+
+The useReducer hook is useful when state transitions are complex or when multiple related actions modify the same state.
+
+An action describes what happened. A reducer determines how state should change in response.
+
+A reducer should be predictable and should not mutate the existing state directly.
+
+React applications often use routing to display different views based on the URL.
+
+A router maps URL paths to components. Routes can represent pages such as a home page, dashboard, profile, settings, or product details.
+
+Dynamic routes can include parameters. A route may use an identifier to display information about a specific resource.
+
+Navigation can be performed using links or programmatic navigation.
+
+A single-page application can update the displayed view without performing a complete browser page reload.
+
+Code splitting allows parts of an application to be loaded only when they are needed. This can reduce the initial JavaScript bundle size.
+
+Lazy loading allows a component or module to be loaded dynamically.
+
+Suspense can display fallback content while a lazy component or asynchronous resource is being prepared.
+
+Performance optimization should be based on measurement. Not every component needs manual optimization.
+
+Memoization stores a previously calculated result so that it can be reused when inputs have not changed.
+
+The useMemo hook can memoize a calculated value. The useCallback hook can memoize a function reference.
+
+The memo function can prevent a component from re-rendering when its props have not changed.
+
+Memoization can improve performance in some situations but can also add complexity. It should be used when it provides a meaningful benefit.
+
+A component may re-render because its state changes, its props change, its parent renders, or a context value changes.
+
+A re-render does not necessarily mean that the entire browser DOM is recreated. React determines which actual changes are necessary.
+
+Keys are important when rendering lists because they help React preserve the identity of elements between renders.
+
+Refs provide a way to access a DOM element or store a mutable value that does not cause a re-render when changed.
+
+The useRef hook returns a ref object whose current property can hold a value.
+
+Refs are commonly used for focusing inputs, integrating with third-party libraries, and storing values that persist between renders.
+
+React's component lifecycle describes the stages through which a component is created, updated, and removed.
+
+Function components use rendering and effects rather than the older class lifecycle methods.
+
+A component can be unmounted when it is removed from the user interface. Cleanup functions can release resources during unmounting.
+
+A custom hook is a JavaScript function whose name begins with use and that uses React hooks.
+
+Custom hooks allow reusable stateful logic to be shared between components.
+
+A custom hook can manage data fetching, form behavior, browser storage, authentication state, or other reusable logic.
+
+Custom hooks should follow the Rules of Hooks.
+
+Hooks should generally be called at the top level of a function component or custom hook. Hooks should not normally be called conditionally or inside loops.
+
+The order in which hooks are called must remain consistent between renders.
+
+React applications often communicate with backend APIs. A component can send an HTTP request and store the response in state.
+
+A data-fetching layer can separate API communication from user interface components.
+
+A service module may contain functions such as fetchUsers, createUser, updateUser, and deleteUser.
+
+Separating API operations from components can improve organization and reusability.
+
+Authentication state can be represented using a context, state management system, or another application-level mechanism.
+
+A protected route restricts access to authenticated users.
+
+Authorization determines whether an authenticated user has permission to perform an operation.
+
+The frontend should not be considered the ultimate authority for security. The backend must enforce authorization rules.
+
+React can be used with TypeScript to add static type checking. Type definitions describe the expected shape of props, state, and data.
+
+Static type checking can identify certain errors before runtime.
+
+React applications can be tested using unit tests, component tests, and end-to-end tests.
+
+A component test can render a component and simulate user interactions.
+
+Testing should focus on observable behavior rather than implementation details when practical.
+
+Accessibility is an important part of user interface development. Interactive elements should be usable with keyboards and assistive technologies.
+
+Semantic HTML provides meaningful structure. Buttons should be used for actions, while links should be used for navigation.
+
+Form inputs should have appropriate labels. Images should have meaningful alternative text when necessary.
+
+Responsive design allows an interface to adapt to different screen sizes.
+
+A responsive React application can use CSS media queries, flexible layouts, and responsive component designs.
+
+Tailwind CSS provides utility classes for styling React components. Utility classes can represent spacing, colors, typography, layout, and responsive behavior.
+
+A component library can provide reusable interface elements such as buttons, dialogs, menus, inputs, and tables.
+
+Design systems define consistent visual rules and reusable components.
+
+React applications can use client-side state management libraries when application state becomes complex.
+
+Local component state is often sufficient for state that belongs to one component or a small part of the component tree.
+
+Global state may be useful for information shared across many unrelated parts of an application.
+
+State should be kept as close as practical to the components that use it.
+
+A common mistake is storing derived data as separate state when it can be calculated from existing state or props.
+
+Derived data can often be calculated during rendering or with a memoization technique when calculation is expensive.
+
+A React component should avoid unnecessary duplication of data.
+
+A form may contain multiple fields. Form state can be stored as one object or as separate state values depending on the application's needs.
+
+Validation can occur as the user types, when a field loses focus, or when the form is submitted.
+
+User interfaces should communicate validation errors clearly.
+
+An error boundary can catch certain rendering errors in a component subtree and display fallback content.
+
+Error boundaries are useful for preventing one rendering failure from taking down the entire interface.
+
+React applications are often built using a development tool that provides a development server, module handling, and production build support.
+
+A production build optimizes source code for deployment.
+
+Environment configuration allows different values to be used during development, testing, and production.
+
+Frontend applications should be careful about exposing environment variables. Values included in browser code can generally be viewed by users.
+
+A backend can protect secrets such as private API keys and database credentials.
+
+React can be used with server-side rendering. In server-side rendering, HTML is generated on a server before being sent to the browser.
+
+Static generation creates HTML ahead of time. Different rendering strategies can be selected depending on application requirements.
+
+Hydration connects server-rendered HTML with client-side JavaScript so the application can become interactive.
+
+Rendering strategies affect performance, search engine optimization, and application architecture.
+
+The component tree represents the hierarchy of components in an application. A parent component can contain child components.
+
+Data usually flows from parent to child through props. Events can be communicated upward through callback functions.
+
+This one-way data flow makes application behavior easier to reason about.
+
+React's flexibility allows applications to be built in many different ways. This flexibility means that developers should establish consistent conventions for file organization, naming, data fetching, error handling, and component design.
+
+A good React application is not simply a collection of components. It is a system in which data flow, state management, user interactions, network communication, and visual presentation work together.
+
+The most important React concepts are components, JSX, props, state, events, hooks, effects, context, component composition, and one-way data flow.
+
+Learning these concepts provides a foundation for building interactive web applications.
+
+React is especially useful in full-stack development because it can communicate with backend APIs and display dynamic data.
+
+A typical application may contain a React frontend, an Express backend, a database, authentication, API endpoints, and deployment infrastructure.
+
+The frontend requests information from the backend. The backend validates the request, performs business logic, accesses the database, and returns a response.
+
+React then updates its state and renders the result.
+
+This separation between presentation and backend services allows each part of an application to evolve independently.
+
+React development involves both programming and user experience design. A successful application should be functional, understandable, responsive, accessible, and maintainable.
+
+The best React code is not necessarily the shortest code. It is code that clearly represents the behavior of the application and can be changed safely as requirements evolve.

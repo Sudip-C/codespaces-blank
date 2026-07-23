@@ -1,0 +1,381 @@
+Astronomy is the scientific study of objects and phenomena beyond Earth.
+
+It studies planets, moons, stars, galaxies, nebulae, black holes, and the universe as a whole.
+
+Astronomy uses observations, mathematics, physics, and technology to understand the cosmos.
+
+The universe contains matter, energy, space, and time.
+
+The observable universe is the portion of the universe whose light or other information can reach us.
+
+Because light travels at a finite speed, observing distant objects means looking into the past.
+
+The farther away an object is, the older the light we receive from it may be.
+
+A light-year is a unit of distance.
+
+It is the distance light travels in one year.
+
+A parsec is another astronomical unit of distance.
+
+Astronomical distances are often extremely large.
+
+The Sun is the star at the center of our solar system.
+
+The solar system contains the Sun and objects gravitationally bound to it.
+
+The planets orbit the Sun.
+
+The eight planets are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.
+
+The inner planets are generally rocky.
+
+The outer planets are much larger and include gas giants and ice giants.
+
+Mercury is the closest planet to the Sun.
+
+Venus has a thick atmosphere and an extremely hot surface.
+
+Earth has liquid surface water and supports known life.
+
+Mars is a rocky planet with a thin atmosphere.
+
+Jupiter is the largest planet in the solar system.
+
+Saturn is known for its prominent ring system.
+
+Uranus rotates with an extreme axial tilt.
+
+Neptune is a distant ice giant with powerful winds.
+
+A planet orbits a star and has sufficient mass for gravity to shape it approximately into a round form.
+
+The exact scientific classification of a planet depends on the adopted definition.
+
+Dwarf planets also orbit the Sun and are approximately round but do not meet all the criteria used for full planet classification.
+
+Pluto is classified as a dwarf planet.
+
+Asteroids are rocky or metallic objects that orbit the Sun.
+
+Many asteroids are found in the asteroid belt between Mars and Jupiter.
+
+Comets contain significant amounts of ice and dust.
+
+When a comet approaches the Sun, heating can cause material to escape and form a coma and tail.
+
+The tail of a comet generally points away from the Sun because of solar radiation and the solar wind.
+
+Meteoroids are relatively small objects moving through space.
+
+A meteor is the visible streak produced when a meteoroid enters an atmosphere and heats the surrounding gas.
+
+A meteorite is a fragment that reaches the ground.
+
+The Moon is Earth's natural satellite.
+
+The Moon orbits Earth.
+
+The Moon does not produce its own visible light.
+
+It reflects sunlight.
+
+The phases of the Moon result from the changing geometry of the Sun, Earth, and Moon.
+
+A lunar eclipse occurs when Earth passes between the Sun and Moon in an appropriate alignment.
+
+A solar eclipse occurs when the Moon passes between the Sun and Earth in an appropriate alignment.
+
+The Moon's gravity contributes to Earth's ocean tides.
+
+Tides are also influenced by the Sun and the geometry of the Earth-Moon system.
+
+Gravity is a fundamental force that influences astronomical motion.
+
+Objects with mass attract one another gravitationally.
+
+The strength of gravitational attraction depends on mass and distance.
+
+Orbital motion occurs when an object moves under the influence of gravity.
+
+An orbit is a path determined by motion and gravitational forces.
+
+An orbit does not require a planet to constantly use an engine to remain in space.
+
+An orbiting object is continuously falling toward the central body while moving sideways.
+
+The combination of motion and gravity produces the orbital path.
+
+A satellite is an object that orbits another object.
+
+Natural satellites include moons.
+
+Artificial satellites are built and launched by humans.
+
+Artificial satellites support communication, navigation, weather observation, science, and Earth monitoring.
+
+A star is a massive object composed primarily of hot plasma.
+
+Stars produce energy through nuclear processes.
+
+The Sun is a typical star in some respects, although stars vary greatly in mass, temperature, age, and composition.
+
+Stars form in large clouds of gas and dust.
+
+These clouds are called molecular clouds or stellar nurseries.
+
+Gravity can cause regions of a cloud to collapse.
+
+As material collapses, the central region becomes denser and hotter.
+
+A protostar forms before sustained hydrogen fusion begins.
+
+When the core becomes sufficiently hot and dense, nuclear fusion can begin.
+
+During the main sequence stage, many stars fuse hydrogen into helium in their cores.
+
+The energy released by fusion helps support the star against gravitational collapse.
+
+The balance between inward gravity and outward pressure is important in a star.
+
+The mass of a star strongly influences its evolution.
+
+Massive stars generally burn their fuel faster than less massive stars.
+
+A star's color is related to its surface temperature.
+
+Blue stars are generally hotter than red stars.
+
+The brightness of a star can be described using different measurements.
+
+Apparent brightness describes how bright a star appears from Earth.
+
+Intrinsic luminosity describes the total energy emitted by a star per unit time.
+
+A nearby dim star can appear brighter than a distant luminous star.
+
+A stellar spectrum contains information about a star.
+
+Spectral lines can reveal chemical composition.
+
+Spectral features can also provide information about temperature and motion.
+
+The Doppler effect changes the observed wavelength of waves when the source and observer move relative to each other.
+
+Astronomers can use Doppler shifts to study the motion of stars and galaxies.
+
+A star eventually changes when its nuclear fuel changes.
+
+A low- or medium-mass star can expand into a red giant.
+
+The outer layers may eventually be expelled.
+
+The remaining core can become a white dwarf.
+
+A white dwarf is a dense stellar remnant.
+
+A massive star can undergo a supernova explosion.
+
+The core may collapse during the final stages of a massive star's evolution.
+
+A neutron star is an extremely dense stellar remnant.
+
+Some neutron stars rotate rapidly and emit beams of radiation.
+
+A pulsar is a rotating neutron star whose radiation can appear as regular pulses to an observer.
+
+If a sufficiently massive stellar core collapses, it can form a black hole.
+
+A black hole is a region of spacetime from which no information can escape once it passes the event horizon according to our current physical theories.
+
+The event horizon is a boundary associated with a black hole.
+
+The center of a black hole is described by general relativity as a region where the theory predicts extreme conditions.
+
+Black holes can have different masses.
+
+Stellar-mass black holes can form from the collapse of massive stars.
+
+Supermassive black holes can exist at the centers of galaxies.
+
+Matter falling toward a black hole can form an accretion disk.
+
+Friction and other processes in the disk can produce intense radiation.
+
+Black holes can influence surrounding stars and gas through gravity.
+
+A galaxy is a large system of stars, gas, dust, dark matter, and other components bound together by gravity.
+
+The Milky Way is the galaxy containing our solar system.
+
+Galaxies can have different shapes.
+
+Spiral galaxies have disk-like structures with spiral arms.
+
+Elliptical galaxies have more rounded or elongated shapes.
+
+Irregular galaxies do not fit common regular classifications.
+
+The Milky Way is a large spiral galaxy.
+
+The solar system lies in one of the Milky Way's spiral regions.
+
+The center of the Milky Way contains a supermassive black hole.
+
+Galaxies can interact gravitationally.
+
+A galaxy collision can distort their structures.
+
+The stars within colliding galaxies do not necessarily collide with one another because the distances between stars are extremely large.
+
+Galaxy clusters are groups of galaxies bound together by gravity.
+
+Superclusters are larger structures containing groups and clusters of galaxies.
+
+The large-scale structure of the universe includes enormous networks of galaxies and matter.
+
+Dark matter is a form of matter inferred from gravitational effects.
+
+Dark matter does not appear to interact strongly with light in the way ordinary matter does.
+
+Its exact nature remains an active area of scientific research.
+
+Dark energy is a term associated with the observed accelerated expansion of the universe.
+
+Its physical nature is not fully understood.
+
+The universe is expanding.
+
+Distant galaxies generally appear to be moving away from one another on large scales.
+
+The expansion of space is different from ordinary motion through space.
+
+The cosmic microwave background is radiation left from the early universe.
+
+It provides important evidence about the history and structure of the universe.
+
+The Big Bang model describes the early hot, dense state and subsequent expansion of the universe.
+
+The Big Bang was not an explosion into preexisting ordinary space in the simple everyday sense.
+
+Space itself has expanded over cosmic history according to modern cosmological models.
+
+The universe has evolved over billions of years.
+
+The early universe contained mostly simple elements.
+
+Stars later produced heavier elements through nuclear processes.
+
+Supernovae and other stellar events distributed many elements into space.
+
+Planets and other objects formed from material enriched by previous generations of stars.
+
+Many elements found on Earth were produced in ancient stars or extreme cosmic events.
+
+Exoplanets are planets orbiting stars outside the solar system.
+
+Thousands of exoplanets have been discovered using different methods.
+
+The transit method detects small changes in a star's brightness when a planet passes in front of it.
+
+The radial velocity method detects motion of a star caused by the gravitational influence of an orbiting planet.
+
+Other methods can directly or indirectly detect planets.
+
+Some exoplanets may have conditions that could potentially support life.
+
+Habitability depends on many factors.
+
+Liquid water may be important for life as we know it.
+
+Atmosphere, temperature, chemistry, radiation, and geological activity can also influence habitability.
+
+The habitable zone is a region around a star where conditions may allow liquid water on a planet's surface under suitable atmospheric conditions.
+
+Being in a habitable zone does not guarantee that a planet supports life.
+
+Astrobiology studies the origin, evolution, distribution, and potential existence of life in the universe.
+
+Scientists search for evidence of life in places such as Mars and icy moons.
+
+Some moons of the outer solar system may contain subsurface oceans.
+
+Life beyond Earth has not been confirmed.
+
+The search for extraterrestrial intelligence examines possible signs of technological civilizations.
+
+Radio signals and other forms of evidence can be studied.
+
+No confirmed evidence of extraterrestrial intelligent life has been established.
+
+Telescopes collect electromagnetic radiation.
+
+Optical telescopes observe visible light.
+
+Radio telescopes observe radio waves.
+
+Infrared telescopes detect infrared radiation.
+
+Ultraviolet, X-ray, and gamma-ray observatories study high-energy or short-wavelength phenomena.
+
+Atmospheric absorption affects which wavelengths can be observed from Earth's surface.
+
+Space telescopes can observe wavelengths blocked or weakened by Earth's atmosphere.
+
+Astronomers use multiple wavelengths to study the same object.
+
+Different wavelengths reveal different physical processes.
+
+Spectroscopy analyzes the distribution of light by wavelength.
+
+Spectroscopy can reveal chemical composition, temperature, density, and motion.
+
+Astronomical images can be processed to reveal faint structures.
+
+The colors in scientific astronomical images may represent wavelengths that are not visible to human eyes.
+
+Space exploration involves sending spacecraft beyond Earth.
+
+A spacecraft can be robotic or crewed.
+
+Robotic spacecraft have explored planets, moons, asteroids, comets, and the outer solar system.
+
+Space probes can collect measurements and transmit data back to Earth.
+
+A rocket provides the thrust needed to overcome gravity and achieve the required trajectory.
+
+Orbital velocity depends on the gravitational environment and desired orbit.
+
+A spacecraft can use gravity assists to change its trajectory and speed.
+
+A gravity assist uses the motion and gravity of a planet or moon.
+
+Spacecraft must manage energy, communication, navigation, and thermal conditions.
+
+The vacuum of space creates unique engineering challenges.
+
+Spacecraft may experience extreme temperatures.
+
+Radiation can damage electronics and biological systems.
+
+Long-duration human spaceflight presents additional challenges.
+
+Astronauts experience reduced gravity in orbit.
+
+Long periods in microgravity can affect the human body.
+
+Life-support systems provide oxygen, remove carbon dioxide, regulate temperature, and manage water.
+
+Space science helps improve understanding of Earth.
+
+Earth observation satellites monitor weather, climate, oceans, vegetation, and natural disasters.
+
+Astronomy also helps improve technologies used in communication, navigation, imaging, and scientific measurement.
+
+The universe contains structures on scales ranging from subatomic particles to galaxies and cosmic networks.
+
+Astronomy connects physics, chemistry, geology, biology, mathematics, and engineering.
+
+The study of astronomy helps humans understand the origin and evolution of stars, planets, galaxies, and the universe itself.
+
+Astronomy continues to develop as new observations, instruments, and theories expand our understanding of the cosmos.

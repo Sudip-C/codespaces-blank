@@ -1,0 +1,371 @@
+Node.js is a runtime environment that allows JavaScript code to run outside a web browser. It is commonly used to build backend applications, APIs, command-line tools, automation systems, and real-time services.
+
+Node.js is built on the V8 JavaScript engine. V8 converts JavaScript into machine code and executes it.
+
+Node.js uses an event-driven architecture. Applications can respond to events such as incoming network requests, completed file operations, timers, and database responses.
+
+A major feature of Node.js is its asynchronous programming model. Many input and output operations can begin without blocking the main JavaScript execution thread.
+
+A blocking operation prevents other work from continuing until the operation completes. A non-blocking operation allows the program to continue while the operation is being processed.
+
+This model is particularly useful for web servers that handle many simultaneous requests involving network and database operations.
+
+Node.js uses an event loop to coordinate asynchronous operations. JavaScript code runs through the event loop while completed operations produce callbacks or Promise results.
+
+The event loop allows a Node.js application to handle many connections efficiently. However, CPU-intensive synchronous operations can block the event loop and reduce responsiveness.
+
+A Node.js application should avoid unnecessary long-running synchronous operations on the main thread.
+
+The process object provides information about the current Node.js process. It can be used to access environment variables, command-line arguments, and process-related information.
+
+Environment variables are commonly used to configure applications. They can store values such as the application port, database connection string, or external service configuration.
+
+Sensitive values should not be hardcoded into source code or committed to public repositories.
+
+The package.json file describes a Node.js project. It commonly contains the project name, version, dependencies, development dependencies, and scripts.
+
+A dependency is an external package required by an application. A development dependency is generally used during development or testing.
+
+npm is a package manager commonly used with Node.js. It can install packages and execute project scripts.
+
+A package-lock file records the specific versions of installed dependencies. This helps make installations reproducible.
+
+A module is a reusable unit of JavaScript code. Node.js supports module systems that allow code to be organized across multiple files.
+
+A module can export functions, objects, classes, or other values. Another module can import those values.
+
+The built-in http module can be used to create a basic HTTP server.
+
+An HTTP server receives requests and sends responses. A request contains information about what the client wants. A response contains the server's result.
+
+Express is a web framework built for Node.js. It simplifies the creation of HTTP servers and APIs.
+
+An Express application can define routes. A route associates an HTTP method and URL path with a handler function.
+
+A GET route commonly retrieves data. A POST route commonly creates data. A PUT route commonly replaces data. A PATCH route commonly updates part of a resource. A DELETE route commonly removes data.
+
+A route handler receives a request object and a response object.
+
+The request object contains information about the incoming request. It can contain URL parameters, query parameters, headers, body data, and other information.
+
+The response object provides methods for sending data back to the client.
+
+A response can contain a status code, headers, and a body.
+
+HTTP status codes communicate the result of an operation. A successful request commonly uses a status code in the 200 range.
+
+A newly created resource commonly uses a 201 status code. A successful request without a response body may use a 204 status code.
+
+A client error commonly uses a status code in the 400 range. A server error commonly uses a status code in the 500 range.
+
+A 400 status code can indicate an invalid request. A 401 status code generally indicates missing or invalid authentication. A 403 status code indicates that the request is understood but not permitted.
+
+A 404 status code indicates that a requested resource was not found.
+
+An API is an interface through which software systems communicate. A REST-style API commonly represents resources through URLs and HTTP methods.
+
+A resource might represent users, products, orders, tasks, articles, or messages.
+
+A REST API should use consistent resource naming. A collection endpoint may represent multiple resources, while an endpoint containing an identifier may represent one specific resource.
+
+For example, an API can provide a collection endpoint for users and a separate endpoint for one user identified by an ID.
+
+Query parameters are commonly used for filtering, searching, sorting, and pagination.
+
+A path parameter identifies a resource directly within the URL path.
+
+The request body contains data sent by the client. JSON is commonly used for request bodies in modern APIs.
+
+Express middleware is a function that executes during the request-response process.
+
+Middleware can inspect a request, modify the request or response, perform authentication, log information, validate data, or terminate the request.
+
+Middleware can call the next function to pass control to the next middleware or route handler.
+
+If middleware does not send a response or call next, the request may remain unfinished.
+
+Middleware can be applied globally to an Express application or to specific routes.
+
+A logging middleware can record the HTTP method, URL, response status, and request duration.
+
+A JSON parsing middleware allows Express to interpret JSON request bodies.
+
+Authentication middleware can check whether a request contains valid credentials.
+
+Authorization middleware can determine whether an authenticated user has permission to perform a particular action.
+
+Error-handling middleware has a special function signature that allows it to receive errors.
+
+Centralized error handling can make API behavior more consistent.
+
+An application should avoid exposing unnecessary internal error details to clients in production.
+
+Validation checks whether incoming data satisfies expected requirements.
+
+A request body may require a particular field, data type, length, or format.
+
+Validation should occur before business logic is executed.
+
+A client can perform validation to improve user experience, but the server must perform its own validation because client requests can be modified.
+
+Business logic represents the rules of an application.
+
+For example, a service may determine whether a user is allowed to perform an action or whether a transaction is valid.
+
+Separating business logic from route handlers can improve maintainability.
+
+A controller can receive a request, call a service, and send a response.
+
+A service can perform business operations without being tightly coupled to HTTP details.
+
+A data access layer can communicate with a database.
+
+This separation can create a structure in which routes receive requests, controllers coordinate operations, services implement business rules, and repositories access persistent data.
+
+A database stores information beyond the lifetime of a single application process.
+
+Relational databases store data in tables containing rows and columns.
+
+A primary key uniquely identifies a record.
+
+A foreign key represents a relationship between records in different tables.
+
+A query retrieves or modifies database data.
+
+Database transactions allow multiple operations to be treated as a single unit. If an operation fails, the transaction can be rolled back.
+
+A NoSQL database may store data in documents, key-value structures, graphs, or other formats.
+
+The choice of database depends on application requirements.
+
+CRUD operations represent Create, Read, Update, and Delete.
+
+An API endpoint can map HTTP operations to CRUD operations.
+
+Creating a resource commonly uses POST. Reading commonly uses GET. Updating commonly uses PUT or PATCH. Deleting commonly uses DELETE.
+
+Pagination prevents an API from returning an unnecessarily large amount of data at once.
+
+A paginated response may contain a list of results and metadata describing the current page and total results.
+
+Filtering allows clients to request only resources matching particular conditions.
+
+Sorting allows clients to control the order of returned resources.
+
+Searching allows clients to find resources based on text or other criteria.
+
+Authentication verifies the identity of a user.
+
+A common authentication process begins when a user submits credentials. The server verifies the credentials and creates an authenticated session or token.
+
+Passwords should never be stored as plain text.
+
+Password hashing transforms a password into a value that can be stored more safely. A secure password-hashing algorithm should be used.
+
+A salt is additional random data used during password hashing. It helps prevent attackers from using precomputed tables of hashes.
+
+A session-based authentication system stores session information on the server or in a session store. The client receives a session identifier.
+
+Token-based authentication uses a token that represents authentication information. The client sends the token with future requests.
+
+A JSON Web Token is one format that can be used for token-based authentication.
+
+Tokens should be protected appropriately. Sensitive authentication information should not be exposed unnecessarily.
+
+Authentication and authorization are different concepts. Authentication asks who the user is. Authorization asks what the user can do.
+
+A role-based authorization system assigns users roles such as administrator, editor, or regular user.
+
+Permission-based authorization can provide more detailed control over specific actions.
+
+The backend must enforce authorization. A frontend restriction alone is not sufficient because clients can send requests directly to the API.
+
+CORS stands for Cross-Origin Resource Sharing. It controls whether a browser allows a web application from one origin to access resources from another origin.
+
+A backend may configure CORS to allow specific frontend origins.
+
+An origin is generally defined by a combination of protocol, domain, and port.
+
+HTTP headers provide additional information about requests and responses.
+
+Common headers include content type, authorization information, caching instructions, and security-related settings.
+
+The Content-Type header indicates the format of the request or response body.
+
+A JSON API commonly uses an application/json content type.
+
+An API should return consistent response structures.
+
+A successful response might contain data. An error response might contain an error message, code, or validation details.
+
+Consistent error formats make frontend integration easier.
+
+Logging is important for debugging and monitoring backend applications.
+
+A production application should record useful information without exposing sensitive data.
+
+Logs may include request identifiers, timestamps, response status, and error details.
+
+A request ID can help connect related log entries across different parts of an application.
+
+Monitoring provides information about application health and performance.
+
+Metrics can include request count, response time, error rate, memory usage, and CPU usage.
+
+A health-check endpoint can indicate whether a service is running.
+
+A readiness check can indicate whether a service is ready to receive traffic.
+
+Testing is important for backend systems.
+
+Unit tests can test individual functions. Integration tests can test interactions between routes, services, and databases.
+
+End-to-end tests can test complete workflows from the perspective of a client.
+
+A test database can isolate tests from production data.
+
+Mocks and stubs can replace external dependencies during tests.
+
+A backend application should handle unexpected errors safely.
+
+Unhandled errors can cause requests to fail or even terminate a process depending on the situation.
+
+Asynchronous errors should be handled correctly.
+
+Promises that reject should be caught or handled through appropriate error-handling mechanisms.
+
+The async and await syntax makes asynchronous code easier to read.
+
+A route handler can await a database operation before sending a response.
+
+A try-catch block can handle errors from awaited operations.
+
+A database connection should be managed efficiently.
+
+Creating a new database connection for every request can be inefficient. Connection pools allow connections to be reused.
+
+A connection pool maintains a collection of database connections.
+
+Transactions are useful when multiple database operations must succeed together.
+
+Database indexes improve the speed of certain queries.
+
+An index can make searching or sorting more efficient but requires additional storage and may increase the cost of writes.
+
+Database queries should be designed carefully.
+
+Applications should avoid constructing unsafe queries directly from untrusted user input.
+
+Parameterized queries and appropriate database APIs help reduce injection risks.
+
+Input validation and authorization should occur before sensitive operations.
+
+Rate limiting restricts how frequently a client can make requests.
+
+Rate limiting can reduce abuse and help protect services from excessive traffic.
+
+A backend may apply different limits to authenticated users and anonymous clients.
+
+Caching can improve performance by storing frequently used data.
+
+A cache should have a clear expiration or invalidation strategy.
+
+Stale cached data can produce incorrect application behavior.
+
+A reverse proxy can sit between clients and application servers.
+
+Reverse proxies can handle TLS termination, routing, caching, and load balancing.
+
+Load balancing distributes requests across multiple application instances.
+
+Horizontal scaling increases capacity by running multiple instances of a service.
+
+Stateless services are easier to scale because any instance can handle a request without depending on local memory from a previous request.
+
+File uploads require careful handling.
+
+The server should validate file types, sizes, names, and storage locations.
+
+User-uploaded files should not automatically be treated as trusted executable content.
+
+Static files can be served by a web server or backend application.
+
+A backend can provide a static directory for files such as images, stylesheets, and JavaScript assets.
+
+WebSockets provide a mechanism for persistent two-way communication between a client and server.
+
+WebSockets are useful for chat applications, real-time notifications, multiplayer systems, and live updates.
+
+Traditional HTTP requests follow a request-response pattern. WebSockets maintain a connection that can support communication in both directions.
+
+Node.js can be used to build real-time applications using event-driven programming.
+
+A queue can store tasks for later processing.
+
+Background jobs are useful for operations that do not need to block the HTTP response.
+
+Examples include sending emails, processing images, generating reports, and performing large computations.
+
+A worker can process jobs from a queue.
+
+Separating background work from the request-response process can improve application responsiveness.
+
+An API should have clear documentation.
+
+Documentation can describe endpoints, authentication, parameters, request bodies, responses, errors, and examples.
+
+API versioning allows an API to evolve while maintaining compatibility with existing clients.
+
+A version can be represented in a URL path, header, or another mechanism.
+
+Breaking changes should be managed carefully.
+
+Backward compatibility allows older clients to continue functioning after a server update.
+
+A deployment process moves an application from development into a production environment.
+
+Production configuration should differ appropriately from development configuration.
+
+Environment variables are commonly used to configure ports, database connections, external services, and secrets.
+
+A process manager can restart applications when they fail and help manage multiple instances.
+
+Containers package an application and its dependencies into a portable environment.
+
+A container image describes the files and configuration needed to run an application.
+
+A deployment system can build an image and run it in a production environment.
+
+A full-stack application commonly contains a frontend, backend, database, and deployment environment.
+
+The frontend sends requests to the backend API.
+
+The backend validates input, authenticates the user, applies business rules, interacts with the database, and returns a response.
+
+The frontend displays the result and updates its state.
+
+This architecture separates responsibilities while allowing the complete application to work as one system.
+
+A well-designed Node.js and Express application is organized around clear responsibilities.
+
+Routes define available endpoints.
+
+Controllers coordinate HTTP requests and responses.
+
+Services contain business logic.
+
+Repositories or data-access modules communicate with databases.
+
+Middleware handles cross-cutting concerns such as authentication, logging, validation, and error handling.
+
+Configuration manages environment-specific values.
+
+This structure can be adapted to the size and needs of a project.
+
+Small applications may combine some layers. Larger applications benefit from clearer separation.
+
+The goal of architecture is not to create unnecessary complexity. The goal is to make the system easier to understand, test, modify, and operate.
+
+Node.js and Express are powerful tools for building APIs and backend services. Their asynchronous programming model and large ecosystem make them widely used in modern web development.
+
+Understanding HTTP, routing, middleware, validation, authentication, authorization, databases, error handling, testing, and deployment provides the foundation for building reliable backend systems.

@@ -1,0 +1,463 @@
+A database is a system used to store and retrieve data.
+
+Most applications need persistent storage.
+
+Persistent data remains available after an application process stops.
+
+A database can store users, products, orders, messages, documents, and other information.
+
+A database management system provides tools for creating, reading, updating, and deleting data.
+
+These four operations are commonly called CRUD operations.
+
+Create adds new data.
+
+Read retrieves existing data.
+
+Update modifies existing data.
+
+Delete removes data.
+
+A relational database stores data in tables.
+
+A table contains rows and columns.
+
+A row represents a record.
+
+A column represents an attribute of a record.
+
+For example, a users table may contain an id, name, email, and created_at column.
+
+A primary key uniquely identifies a row.
+
+An integer or universally unique identifier can be used as a primary key.
+
+A primary key should be stable and unique.
+
+A foreign key references a row in another table.
+
+Foreign keys represent relationships between tables.
+
+A user can have many orders.
+
+An order can belong to one user.
+
+This is a one-to-many relationship.
+
+A many-to-many relationship occurs when records on both sides can be related to many records on the other side.
+
+A junction table can represent a many-to-many relationship.
+
+For example, students and courses can be connected through an enrollments table.
+
+Database normalization organizes data to reduce unnecessary duplication.
+
+Normalization can improve consistency.
+
+However, excessive normalization may require many joins.
+
+Denormalization stores some repeated data to improve read performance.
+
+Denormalization introduces additional consistency concerns.
+
+The appropriate data model depends on application requirements.
+
+SQL is a language used to interact with relational databases.
+
+A SELECT statement retrieves data.
+
+A WHERE clause filters rows.
+
+An ORDER BY clause sorts results.
+
+A LIMIT clause restricts the number of returned rows.
+
+An INSERT statement creates rows.
+
+An UPDATE statement modifies rows.
+
+A DELETE statement removes rows.
+
+A database query should return only the data needed by the application when practical.
+
+Selecting unnecessary columns can increase network and processing costs.
+
+A JOIN combines related data from multiple tables.
+
+An inner join returns matching records from both sides.
+
+A left join returns all records from the left table and matching records from the right table.
+
+A join condition specifies how records are related.
+
+A query with many joins can become complex.
+
+Query performance should be measured.
+
+A database index provides a data structure that can speed up searches.
+
+An index can be created on a column frequently used for filtering.
+
+Indexes can also support sorting and joins.
+
+Indexes consume storage.
+
+Indexes can make writes slower because the index must be updated when data changes.
+
+Adding indexes without understanding query patterns can create unnecessary overhead.
+
+A composite index contains multiple columns.
+
+The order of columns in a composite index can affect which queries benefit from it.
+
+A database query planner determines how to execute a query.
+
+An execution plan shows the operations used by the database.
+
+An execution plan can reveal table scans, index scans, joins, and estimated costs.
+
+A full table scan examines many or all rows.
+
+A full scan may be acceptable for a small table.
+
+For a large table, an appropriate index may significantly improve performance.
+
+A database constraint enforces rules on data.
+
+A NOT NULL constraint requires a value.
+
+A UNIQUE constraint prevents duplicate values.
+
+A CHECK constraint can restrict allowed values.
+
+A foreign key constraint enforces a relationship between tables.
+
+Constraints help protect data integrity.
+
+Application validation and database constraints serve different purposes.
+
+The application can provide friendly validation errors.
+
+The database provides a final layer of data integrity.
+
+A transaction groups multiple database operations into one logical unit.
+
+A transaction should follow the ACID properties.
+
+Atomicity means that a transaction's operations are treated as one unit.
+
+Consistency means that the database moves from one valid state to another.
+
+Isolation controls how concurrent transactions interact.
+
+Durability means that committed changes survive appropriate failures.
+
+A transaction can be committed.
+
+A committed transaction becomes permanent according to the database guarantees.
+
+A transaction can be rolled back.
+
+A rollback removes changes made by the transaction.
+
+Transactions are important when multiple changes must remain consistent.
+
+For example, transferring money may require subtracting from one account and adding to another.
+
+Both operations should succeed together.
+
+A failure between the two operations should not leave the system in an invalid state.
+
+Database isolation levels define how transactions see changes made by other transactions.
+
+Different isolation levels provide different tradeoffs.
+
+A dirty read occurs when a transaction reads uncommitted data from another transaction.
+
+A non-repeatable read occurs when the same query returns different results within one transaction.
+
+A phantom read occurs when new matching rows appear during a transaction.
+
+Stronger isolation can reduce concurrency.
+
+The appropriate isolation level depends on the application.
+
+A deadlock occurs when transactions wait for each other indefinitely.
+
+Databases can detect and abort one transaction to resolve a deadlock.
+
+Applications should handle transaction failures appropriately.
+
+A database connection allows an application to communicate with the database.
+
+Creating a new connection for every request can be inefficient.
+
+Connection pools maintain reusable connections.
+
+A pool limits the number of simultaneous database connections.
+
+Too many connections can overload a database.
+
+A database migration changes the database schema.
+
+Migrations can create tables, add columns, add indexes, or modify constraints.
+
+Migration files provide a history of schema changes.
+
+Migrations should be applied consistently across environments.
+
+A migration should be tested before production use.
+
+Schema changes can be difficult when an application is already running.
+
+Backward-compatible changes can reduce deployment risk.
+
+A column can sometimes be added before application code begins using it.
+
+Old columns can be removed only after no active application version depends on them.
+
+A database backup creates a copy of data that can be used for recovery.
+
+Backups should be tested through restoration.
+
+A backup that cannot be restored is not a reliable recovery strategy.
+
+Replication creates additional copies of database data.
+
+A primary database may process writes.
+
+Read replicas may process read queries.
+
+Replication can improve read scalability.
+
+Replication may introduce delay.
+
+A read from a replica may not immediately include a recent write.
+
+Applications that require immediate consistency may need to read from the primary.
+
+Database partitioning divides data into separate partitions.
+
+Partitioning can improve performance and management for very large datasets.
+
+Sharding distributes data across multiple database nodes.
+
+A shard key determines where a record is stored.
+
+An uneven shard key can create a hot shard.
+
+A hot shard receives much more traffic than other shards.
+
+Choosing a shard key requires understanding access patterns.
+
+A relational database is often a good choice when data has strong relationships and transactions.
+
+A document database stores records as documents.
+
+Documents are often represented using JSON-like structures.
+
+Document databases can store related data together.
+
+This can reduce the need for joins.
+
+Document databases can be useful when data structures vary between records.
+
+However, embedding too much data can create duplication and large documents.
+
+A key-value database stores values associated with keys.
+
+Key-value systems are often optimized for fast lookup by key.
+
+They can be useful for caching, sessions, counters, and simple access patterns.
+
+A wide-column database organizes data around column families.
+
+Wide-column systems can support large-scale distributed workloads.
+
+A graph database represents entities as nodes and relationships as edges.
+
+Graph databases can be useful when relationships are central to queries.
+
+Different database models solve different problems.
+
+NoSQL does not mean that data has no structure.
+
+NoSQL systems still require thoughtful data modeling.
+
+A database schema describes the structure and rules of stored data.
+
+Some systems enforce schemas strongly.
+
+Other systems allow more flexible document structures.
+
+Schema flexibility can speed development but may move validation responsibility into application code.
+
+Data consistency is an important design decision.
+
+Strong consistency means reads observe the latest committed data according to the system's guarantees.
+
+Eventual consistency means that different replicas may temporarily contain different values.
+
+Eventually, replicas converge if no new changes occur.
+
+Eventual consistency can improve availability and scalability.
+
+It is appropriate only when the application can tolerate delayed updates.
+
+A cache is often used alongside a database.
+
+The cache can serve frequently requested data faster than the database.
+
+Cache invalidation is an important design problem.
+
+When database data changes, related cached data may need to be removed or updated.
+
+A stale cache contains outdated information.
+
+A cache expiration time can limit how long stale data remains available.
+
+A write-through cache writes data to the cache and database together according to the cache strategy.
+
+A write-back cache may write to the cache first and persist changes later.
+
+Different caching strategies have different reliability risks.
+
+Database performance depends on data size, query complexity, indexes, hardware, concurrency, and application behavior.
+
+The N plus one query problem occurs when an application retrieves a list and then performs another query for each item.
+
+This can produce many unnecessary database queries.
+
+A join or batch query can sometimes reduce this problem.
+
+Batching groups multiple operations together.
+
+Pagination limits the number of records returned at once.
+
+Offset pagination skips a number of records before returning results.
+
+Large offsets can become slower as the offset increases.
+
+Cursor pagination uses a value representing a position in an ordered dataset.
+
+Cursor pagination can perform better for large datasets.
+
+The cursor should be stable enough for the required use case.
+
+Sorting requires a defined order.
+
+A query without an explicit order should not assume a particular result order.
+
+A database should store timestamps consistently.
+
+Applications should define how time zones are handled.
+
+Storing timestamps in a consistent format can simplify comparisons.
+
+Data types should match the information being stored.
+
+A numeric value should not be stored as text without a good reason.
+
+A date should use an appropriate date or timestamp type when supported.
+
+Choosing correct data types can improve validation and storage efficiency.
+
+Null represents the absence of a value.
+
+Null is different from an empty string.
+
+Null is also different from zero.
+
+Queries involving null values require appropriate conditions.
+
+A database can enforce uniqueness.
+
+For example, an email address may need to be unique within a user table.
+
+Unique constraints prevent race conditions that application-only checks may miss.
+
+Two requests can arrive at the same time.
+
+Both may check whether an email is available.
+
+Both may see that it is available.
+
+Without a database uniqueness constraint, both requests may insert the same value.
+
+A unique constraint provides a final guarantee.
+
+Concurrency occurs when multiple operations happen at the same time.
+
+Database systems use locks and other mechanisms to coordinate concurrent operations.
+
+A row lock can prevent conflicting modifications to a particular row.
+
+Locks can reduce concurrency if held for too long.
+
+Transactions should generally be kept as short as practical.
+
+A long transaction can hold locks and block other operations.
+
+Database connection pools should be configured according to application workload and database capacity.
+
+A connection pool that is too large can overwhelm the database.
+
+A pool that is too small can limit application throughput.
+
+Database monitoring can measure query latency, connection usage, lock waits, cache hit rates, and storage capacity.
+
+Slow query logs can identify expensive operations.
+
+Database administrators can use query plans and monitoring data to optimize performance.
+
+A database should be protected from unauthorized access.
+
+Credentials should be stored securely.
+
+Network access should be restricted.
+
+Sensitive data may require encryption.
+
+Database backups should also be protected.
+
+Access should follow the principle of least privilege.
+
+An application database user should have only the permissions it needs.
+
+Administrative credentials should not be used by ordinary application code.
+
+Data deletion can have legal, business, and technical implications.
+
+Deleting a row may affect related records.
+
+A soft delete marks data as deleted without immediately removing it.
+
+A hard delete permanently removes data according to database behavior.
+
+Soft deletes can preserve history but require filters in queries.
+
+A system should define how deleted data is handled.
+
+Audit data can record who changed a record and when.
+
+Audit logs can support investigation and compliance requirements.
+
+A database is part of a larger application system.
+
+The database should not be treated as an isolated component.
+
+Application logic, caching, queues, APIs, and storage all influence database behavior.
+
+Good database design begins with understanding how data will be used.
+
+A database should support important access patterns efficiently.
+
+The simplest database that satisfies requirements is often the best starting point.
+
+As data and traffic grow, the database can be optimized or scaled.
+
+Database design involves tradeoffs between consistency, performance, flexibility, scalability, and operational complexity.
+
+A developer who understands databases can design applications that store data safely and retrieve it efficiently.
+
+The quality of a database design strongly affects the reliability and performance of the entire application.

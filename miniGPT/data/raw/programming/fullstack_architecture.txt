@@ -1,0 +1,511 @@
+A full-stack application contains multiple layers that work together to provide a complete software experience.
+
+The frontend is the part of an application that users interact with directly.
+
+The backend provides server-side logic and exposes services that the frontend can use.
+
+The database stores persistent application data.
+
+A full-stack application connects these layers through well-defined interfaces.
+
+A typical web application may contain a React frontend, a Node.js and Express backend, a database, authentication, and deployment infrastructure.
+
+The frontend is responsible for displaying information and collecting user interaction.
+
+The backend is responsible for business logic, validation, authentication, authorization, and communication with external services and databases.
+
+The database is responsible for storing persistent data.
+
+A user may interact with a button in the frontend.
+
+The frontend may send an HTTP request to the backend.
+
+The backend receives the request and validates the data.
+
+The backend checks whether the user is authenticated.
+
+The backend checks whether the user is authorized to perform the requested operation.
+
+The backend applies business rules.
+
+The backend communicates with the database.
+
+The database returns information or confirms that an operation was completed.
+
+The backend creates an HTTP response.
+
+The frontend receives the response and updates its user interface.
+
+This request-response cycle is fundamental to many web applications.
+
+The frontend and backend should communicate through a clear API contract.
+
+An API contract describes available endpoints, request formats, response formats, authentication requirements, and possible errors.
+
+A consistent API contract reduces confusion between frontend and backend development.
+
+A frontend should not need to know how the backend internally stores data.
+
+The backend should expose useful resources and operations rather than exposing internal database implementation details.
+
+For example, a frontend may request a list of products through an API endpoint without knowing whether the backend uses SQL, NoSQL, or another storage system.
+
+Separation of concerns allows each layer to have a focused responsibility.
+
+The user interface should focus on presentation and interaction.
+
+The backend should focus on business rules and application services.
+
+The database should focus on storing and retrieving data.
+
+A monolithic application contains multiple parts in one deployable application.
+
+A modular monolith can still have clear internal separation between modules.
+
+A microservice architecture divides functionality into multiple independently deployable services.
+
+Microservices can provide independent scaling and deployment, but they also introduce additional operational complexity.
+
+For many applications, a well-structured monolith is a practical starting point.
+
+An application should begin with an architecture appropriate for its current requirements.
+
+Architecture should evolve as the application grows.
+
+The frontend may contain components, pages, layouts, hooks, API services, and state management.
+
+A component represents a reusable part of the interface.
+
+A page represents a larger screen or route.
+
+A layout provides shared structure such as navigation, sidebars, headers, and content areas.
+
+A custom hook can contain reusable frontend logic.
+
+An API service module can contain functions for communicating with backend endpoints.
+
+A state management system can coordinate information shared across multiple parts of the application.
+
+The backend may contain routes, controllers, services, repositories, models, middleware, configuration, and utilities.
+
+Routes define the public HTTP interface.
+
+Controllers coordinate incoming requests and outgoing responses.
+
+Services contain business logic.
+
+Repositories communicate with databases.
+
+Middleware handles functionality that applies across multiple requests.
+
+Configuration controls environment-specific settings.
+
+Utilities provide reusable helper functions.
+
+A common request flow is:
+
+The client sends a request.
+
+The router identifies the endpoint.
+
+Middleware processes the request.
+
+The controller receives the request.
+
+The service applies business logic.
+
+The repository accesses the database.
+
+The service processes the result.
+
+The controller creates a response.
+
+The client receives the response.
+
+This structure is not mandatory for every application, but it provides a useful way to organize responsibilities.
+
+Business logic should not be duplicated across multiple controllers.
+
+Reusable business rules should be placed in an appropriate service or domain module.
+
+A controller should generally remain focused on translating HTTP requests into application operations.
+
+A database repository should generally remain focused on data access.
+
+Validation should happen at appropriate boundaries.
+
+Incoming request data should be validated before business logic relies on it.
+
+Database constraints should provide an additional layer of data integrity.
+
+Frontend validation improves the user experience.
+
+Backend validation protects the application from invalid or malicious requests.
+
+A frontend cannot be trusted as a security boundary.
+
+A user can modify JavaScript code, send requests manually, or bypass the frontend entirely.
+
+Security rules must be enforced by the backend.
+
+Authentication identifies a user.
+
+Authorization determines what the user can access.
+
+A protected resource should verify both identity and permission.
+
+For example, a user may be authenticated but not authorized to modify another user's data.
+
+The backend should verify resource ownership when necessary.
+
+An insecure API may allow a user to change an identifier in a URL and access another user's private record.
+
+This type of problem can be prevented by checking ownership and permissions on the server.
+
+A role-based access system assigns users roles.
+
+An administrator may have access to management operations.
+
+A regular user may have access only to personal resources.
+
+More detailed permission systems can define individual capabilities.
+
+Authentication information should be handled carefully.
+
+Passwords should be securely hashed.
+
+Tokens and sessions should be protected.
+
+Sensitive credentials should not be exposed in frontend source code.
+
+Environment variables can provide configuration values to backend applications.
+
+Development, testing, and production environments often require different configuration.
+
+A development environment may use a local database.
+
+A testing environment may use an isolated test database.
+
+A production environment may use a managed database service.
+
+Environment-specific configuration should be separated from application logic.
+
+The same application code can often run in different environments using different configuration values.
+
+A frontend application may use an environment variable to determine the backend API URL.
+
+Private backend secrets should not be included in code that is sent to browsers.
+
+A database connection string should be stored securely.
+
+A production system should use HTTPS to protect communication between clients and servers.
+
+HTTPS encrypts data transmitted between the client and server.
+
+Secure cookies can help protect session information.
+
+Security headers can provide additional browser protections.
+
+Cross-origin configuration should allow only appropriate origins when possible.
+
+Rate limiting can reduce abuse of public endpoints.
+
+Input validation can reject invalid data before it reaches business logic or the database.
+
+Output encoding can help prevent unsafe content from being interpreted as executable code.
+
+A full-stack application should handle errors at multiple layers.
+
+The frontend should display useful messages when an operation fails.
+
+The backend should return appropriate HTTP status codes.
+
+The database layer should report failures to the application.
+
+The application should log useful information for developers and operators.
+
+An error response should not expose sensitive internal details.
+
+A production application should distinguish between expected errors and unexpected failures.
+
+An expected error may occur when a user requests a resource that does not exist.
+
+An unexpected error may indicate a programming bug or infrastructure problem.
+
+The frontend should handle loading states.
+
+When a request is in progress, the interface can display a loading indicator.
+
+The frontend should handle empty states.
+
+An empty state communicates that a request succeeded but there is no data to display.
+
+The frontend should handle error states.
+
+An error state communicates that an operation failed and may provide an action to retry.
+
+A complete interface should consider loading, success, empty, and failure states.
+
+Network communication can fail for many reasons.
+
+The server may be unavailable.
+
+The network may be interrupted.
+
+The request may time out.
+
+The server may return an error response.
+
+The frontend should not assume that every request succeeds.
+
+Retries can be useful for temporary failures but should be used carefully.
+
+Repeated retries can increase load on an already failing service.
+
+Caching can reduce repeated requests.
+
+A frontend may cache data that does not change frequently.
+
+A backend may cache frequently accessed information.
+
+Caching requires a strategy for determining when stored data is no longer valid.
+
+A stale cache can return outdated information.
+
+Pagination helps applications handle large datasets.
+
+Instead of returning thousands of records at once, the backend can return a limited number of records.
+
+The frontend can request additional pages when needed.
+
+Cursor-based pagination can be useful for large or changing datasets.
+
+Search functionality often combines frontend input with backend filtering.
+
+The frontend sends a search query.
+
+The backend validates the query and performs an appropriate database search.
+
+The backend returns matching results.
+
+Debouncing can reduce unnecessary requests while a user is typing.
+
+A debounced search waits for a short period of inactivity before sending a request.
+
+Sorting and filtering can be performed by the backend when working with large datasets.
+
+The backend can accept query parameters describing requested filters and sorting.
+
+The API should validate those parameters.
+
+A file upload system may involve the frontend selecting a file, the backend validating the upload, and a storage system storing the file.
+
+Large files may be stored in object storage rather than directly in the application server.
+
+The database may store metadata about the file.
+
+A URL or identifier can be used to locate the stored file.
+
+File uploads require validation and security controls.
+
+A full-stack application may integrate with external services.
+
+Examples include payment providers, email services, cloud storage, analytics systems, and authentication providers.
+
+External service credentials should remain private.
+
+External API failures should be handled gracefully.
+
+An application should not assume that an external service is always available.
+
+Timeouts and error handling are important when communicating with external services.
+
+Background jobs can handle work that does not need to happen during an HTTP request.
+
+For example, sending an email can occur asynchronously after a user performs an action.
+
+A queue can store background tasks.
+
+A worker can process tasks from the queue.
+
+This can improve response times for users.
+
+A deployment process makes an application available to users.
+
+A frontend can be built into static assets and served from a web server or hosting platform.
+
+A backend can run as a server process.
+
+A database can run on a managed database platform or infrastructure controlled by the application owner.
+
+Deployment configuration should be reproducible.
+
+Version control stores the source code and project history.
+
+A continuous integration system can automatically run tests and checks when code changes.
+
+Continuous deployment can automatically deploy approved changes.
+
+A build process may install dependencies, run tests, create a production build, and package the application.
+
+A production environment should be monitored.
+
+Monitoring can track availability, response time, errors, and resource usage.
+
+Logs can help investigate problems.
+
+Metrics can reveal performance changes.
+
+Alerts can notify operators when important conditions occur.
+
+A health check can verify that an application is running.
+
+A readiness check can verify that the application is prepared to handle requests.
+
+Scalability describes an application's ability to handle increasing workload.
+
+Vertical scaling increases the resources of a single server.
+
+Horizontal scaling adds more application instances.
+
+Stateless backend services are generally easier to scale horizontally.
+
+A load balancer can distribute requests across multiple application instances.
+
+A database can become a bottleneck as traffic grows.
+
+Database indexes, caching, read replicas, and better queries can improve performance.
+
+Performance optimization should begin with measurement.
+
+Developers should identify actual bottlenecks rather than optimizing based on assumptions.
+
+A slow frontend may be caused by excessive rendering, large assets, slow network requests, or inefficient data processing.
+
+A slow backend may be caused by inefficient database queries, external service delays, CPU-intensive operations, or resource limitations.
+
+A slow database query may require indexes or a different query design.
+
+Application performance should be considered across the entire system.
+
+The frontend, network, backend, database, and external services all contribute to the final user experience.
+
+Testing helps maintain application reliability.
+
+Frontend tests can verify component behavior.
+
+Backend tests can verify routes and services.
+
+Database tests can verify data operations.
+
+End-to-end tests can verify complete workflows.
+
+A complete workflow might involve creating an account, logging in, creating a resource, viewing the resource, updating it, and deleting it.
+
+Testing should cover important business behavior.
+
+Automated tests provide confidence when code changes.
+
+A project should use a version control workflow that allows changes to be reviewed and safely integrated.
+
+Small, focused changes are easier to understand and debug.
+
+Feature branches can isolate new development.
+
+Code reviews can identify bugs and design problems.
+
+Documentation helps future developers understand the system.
+
+Documentation should describe how to install the project, configure the environment, run the application, run tests, and deploy the application.
+
+An API documentation system can describe available endpoints.
+
+A database schema document can describe tables and relationships.
+
+Architecture documentation can describe major components and data flows.
+
+A full-stack project should have a clear project structure.
+
+The structure should help developers find related code quickly.
+
+Names should communicate purpose.
+
+Modules should have focused responsibilities.
+
+Large files can become difficult to maintain when they contain unrelated responsibilities.
+
+Refactoring improves the internal structure of code without changing its external behavior.
+
+Refactoring can reduce duplication, clarify responsibilities, and improve maintainability.
+
+Refactoring should be performed carefully and supported by tests when possible.
+
+Technical debt represents shortcuts or design decisions that make future changes more difficult.
+
+Technical debt is not always bad. Sometimes a simple solution is appropriate for the current stage of a project.
+
+However, important technical debt should be recognized and managed.
+
+A software system evolves over time.
+
+Requirements change.
+
+New features are added.
+
+Users discover new needs.
+
+Performance requirements increase.
+
+Security threats change.
+
+A maintainable architecture allows the system to evolve without requiring complete rewrites for every change.
+
+The best architecture depends on the project's requirements.
+
+A small application may need only a few modules.
+
+A large application may need more specialized boundaries.
+
+Architecture should provide useful structure without unnecessary complexity.
+
+A full-stack developer should understand the complete path of data through an application.
+
+A user action begins in the interface.
+
+The frontend creates a request.
+
+The request travels across the network.
+
+The backend receives and validates it.
+
+Authentication and authorization are checked.
+
+Business logic is executed.
+
+The database may be queried or updated.
+
+The result travels back through the backend.
+
+The frontend receives the response.
+
+The user interface updates.
+
+Understanding this complete flow helps developers debug problems more effectively.
+
+When an application fails, the problem may be in the user interface, network request, backend route, middleware, business logic, database query, external service, or deployment environment.
+
+A systematic debugging process examines each layer.
+
+Logs, browser developer tools, network inspection, database tools, and automated tests can help locate problems.
+
+A full-stack application is a system rather than a collection of unrelated files.
+
+The quality of the system depends on how its parts communicate and how clearly responsibilities are defined.
+
+React, Node.js, Express, databases, authentication, APIs, and deployment tools are individual technologies.
+
+Full-stack development is the practice of combining these technologies to solve real problems.
+
+A strong full-stack developer understands not only how to write code but also how data moves through the system, how failures are handled, how security is enforced, and how the application is operated after deployment.
+
+The goal of full-stack architecture is to build software that is understandable, reliable, secure, maintainable, and capable of evolving as requirements change.

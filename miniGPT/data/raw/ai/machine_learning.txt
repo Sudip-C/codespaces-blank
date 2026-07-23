@@ -1,0 +1,107 @@
+Machine learning is a branch of artificial intelligence that focuses on creating systems capable of learning patterns from data. Instead of requiring programmers to write every rule explicitly, a machine learning algorithm uses examples to discover relationships between inputs and outputs. The learned relationships can then be used to make predictions, classifications, or decisions about new data.
+
+A machine learning system usually consists of data, a model, a loss function, and an optimization process. Data provides examples from which patterns can be learned. The model represents a mathematical function that transforms inputs into outputs. The loss function measures the difference between the model's predictions and the desired results. The optimization process adjusts the model's parameters to reduce this difference.
+
+A model contains parameters that control its behavior. During training, the parameters are gradually updated. The model begins with parameters that may produce poor predictions. After processing many examples, the optimization algorithm modifies the parameters so that the predictions become more accurate. The goal is not simply to memorize the training examples but to learn patterns that can be applied to new examples.
+
+Machine learning problems can be divided into several broad categories. The major categories include supervised learning, unsupervised learning, and reinforcement learning. Each category uses data and feedback in a different way.
+
+Supervised learning uses labeled examples. Each training example contains an input and a desired output. The model learns a relationship between the input and the output. For example, a dataset may contain images of animals with labels such as cat, dog, or bird. A classification model can learn to predict the appropriate label for a new image.
+
+Another supervised learning task is regression. Regression models predict numerical values rather than categories. A model may predict the price of a house based on its size, location, and number of rooms. It may predict temperature, demand, revenue, or another continuous quantity.
+
+Classification is the task of assigning an input to one or more categories. Binary classification has two possible categories, such as spam and not spam. Multiclass classification has more than two categories, such as identifying whether an image contains a cat, dog, horse, or bird. Multilabel classification allows an example to belong to multiple categories at the same time.
+
+Unsupervised learning works with data that does not have explicit labels. The algorithm attempts to discover structure or patterns in the data. Clustering is one common form of unsupervised learning. A clustering algorithm may group similar customers, documents, images, or other examples together.
+
+Dimensionality reduction is another unsupervised learning technique. High-dimensional data may contain many features. Dimensionality reduction attempts to represent the important information using fewer dimensions. This can help with visualization, data analysis, and computational efficiency.
+
+Semi-supervised learning combines labeled and unlabeled data. In many real-world situations, collecting raw data is relatively easy while assigning accurate labels is expensive. A semi-supervised system can use a small amount of labeled data together with a larger amount of unlabeled data.
+
+Self-supervised learning creates training signals from the data itself. Language modeling is an example of self-supervised learning. Given a sequence of tokens, the model can be trained to predict a missing or future token. The original text provides the target without requiring a human to label every example manually.
+
+A dataset is often divided into training, validation, and test sets. The training set is used to update model parameters. The validation set is used during development to compare models and tune hyperparameters. The test set is used for a final evaluation after development decisions have been made.
+
+The separation between training and evaluation data is important. If the model has already seen the evaluation examples during training, the evaluation may not accurately measure generalization. A model can memorize specific examples and achieve excellent performance on data it has already seen.
+
+Generalization refers to the ability of a model to perform well on new examples. A model that learns general relationships can make useful predictions beyond the exact examples in its training dataset. Good generalization is one of the main goals of machine learning.
+
+Overfitting occurs when a model learns the training data too specifically. An overfit model may have very low training loss but high validation loss. It may memorize individual examples, unusual details, or noise. Increasing model capacity can sometimes improve performance, but excessive capacity combined with limited data can increase the risk of overfitting.
+
+Underfitting occurs when a model is unable to learn important patterns. An underfit model performs poorly on both training and validation data. It may be too small, insufficiently trained, or limited by poor features or an inappropriate architecture.
+
+Regularization methods are used to reduce overfitting. Weight decay penalizes excessively large parameter values during optimization. Dropout randomly disables some neural network activations during training. Data augmentation creates variations of training examples. Early stopping ends training when validation performance stops improving.
+
+Early stopping is especially useful when training loss continues to decrease while validation loss begins to increase. The model checkpoint with the best validation performance can be saved and used instead of the final model. This prevents a later, more overfit version from being selected.
+
+Hyperparameters are settings chosen before or during training rather than learned directly from the data. Examples include learning rate, batch size, number of layers, hidden dimension, dropout rate, and number of training epochs. Choosing appropriate hyperparameters can strongly affect the final model.
+
+The learning rate determines the size of parameter updates. If the learning rate is too large, training may become unstable and the loss may fail to decrease. If the learning rate is too small, training may be extremely slow. A suitable learning rate allows the optimizer to make useful progress.
+
+The batch size determines how many training examples are processed before an optimizer update. A small batch uses less memory and produces more frequent updates. A larger batch can make better use of available hardware but requires more memory. The best batch size depends on the model, dataset, hardware, and training procedure.
+
+An epoch represents one complete pass through the training dataset. If a dataset contains enough examples for a model to process all of them once, that represents one epoch. Training for multiple epochs allows the model to repeatedly improve its parameters, but excessive training can lead to overfitting.
+
+A batch is a group of training examples processed together. If a dataset contains 100,000 training examples and the batch size is 32, approximately 3,125 batches are required for one complete pass through the dataset. The exact number depends on how the dataset handles the final incomplete batch.
+
+Gradient descent is a method for optimizing model parameters. The model first performs a forward pass and produces predictions. The loss function measures the prediction error. Backpropagation calculates gradients of the loss with respect to the model parameters. The optimizer uses these gradients to update the parameters.
+
+The basic gradient descent update can be expressed conceptually as a parameter being changed in the opposite direction of its gradient. The learning rate controls how large the update is. The process is repeated many times until the model reaches a useful solution or training is stopped.
+
+Stochastic gradient descent uses a small portion of the training data for each update. Mini-batch gradient descent uses a batch of examples. Modern optimizers often improve upon basic stochastic gradient descent by adapting the update process based on previous gradients.
+
+Adam is a popular optimization algorithm that maintains information about previous gradients. AdamW is a related optimizer that separates weight decay from the gradient update. Both are commonly used when training neural networks.
+
+The loss function depends on the task. Mean squared error is commonly used for regression. Cross-entropy loss is commonly used for classification and language modeling. A loss function provides a numerical signal that allows the training process to determine whether the model is improving.
+
+Accuracy measures the proportion of predictions that are correct. Accuracy can be useful for balanced classification problems but may be misleading when some classes are much more common than others.
+
+Precision measures how many predicted positive examples are actually positive. Recall measures how many actual positive examples the model successfully identifies. These metrics are useful when false positives and false negatives have different consequences.
+
+The F1 score combines precision and recall into a single measure. It is often useful when a balance between precision and recall is important.
+
+For language models, cross-entropy loss is commonly used. The model produces a probability distribution over possible next tokens. The loss becomes lower when the model assigns a higher probability to the correct next token.
+
+Perplexity is another metric commonly associated with language models. It can be interpreted as a measure of how uncertain the model is when predicting the next token. Lower perplexity generally indicates better predictive performance on the evaluation data.
+
+Feature engineering is the process of creating useful input representations for a machine learning model. Traditional machine learning systems often rely heavily on human-designed features. Deep learning systems can learn many useful representations automatically from raw data.
+
+Data preprocessing prepares information for training. Text may be cleaned and tokenized. Images may be resized and normalized. Numerical features may be scaled. The appropriate preprocessing depends on the data and model.
+
+Data quality is extremely important. Incorrect labels, duplicated examples, corrupted files, and irrelevant information can reduce model performance. A larger dataset is not automatically better if the additional data is low quality.
+
+Data leakage occurs when information from outside the training process accidentally reveals the answer to the model. Leakage can produce unrealistically good evaluation results. For example, information derived from the test set should not be used to design the model or select hyperparameters.
+
+Class imbalance occurs when some categories have many more examples than others. A model trained on imbalanced data may favor the most common class. Possible solutions include resampling, class weighting, data collection, and appropriate evaluation metrics.
+
+Machine learning models can be simple or highly complex. Linear regression uses a linear relationship between input features and a numerical output. Decision trees make a sequence of decisions based on feature values. Random forests combine many decision trees. Support vector machines attempt to find useful decision boundaries. Neural networks learn layered mathematical transformations.
+
+A decision tree represents decisions as a tree structure. Internal nodes contain conditions, branches represent possible outcomes, and leaves contain predictions. Decision trees can be easy to interpret but may overfit if they become too complex.
+
+An ensemble combines multiple models. Random forests combine many decision trees trained using variations of the data. Boosting methods build models sequentially, with later models focusing on examples that earlier models handled poorly.
+
+Neural networks are especially useful for complex data such as images, audio, and language. A neural network can learn nonlinear relationships that may be difficult to represent using traditional methods.
+
+Training a neural network requires computational resources. The amount of computation depends on the size of the model, the number of training examples, the sequence length, the batch size, and the number of training steps.
+
+A checkpoint is a saved snapshot of a training process. A checkpoint may contain model parameters, optimizer state, scheduler state, epoch information, and batch information. Checkpoints allow long training jobs to resume after interruption.
+
+Resuming training requires restoring more than just the model weights. The optimizer may contain internal state that influences future updates. A learning-rate scheduler may also need to be restored. The training loop must know which epoch and batch have already been completed.
+
+A model checkpoint can also be used for inference. During inference, the model receives input and produces predictions without updating its parameters. Gradients are usually disabled to reduce memory usage and computation.
+
+Training mode and evaluation mode can behave differently in neural networks. Dropout, for example, randomly disables activations during training but behaves differently during evaluation. Calling the appropriate mode is therefore important.
+
+Machine learning is an experimental discipline. Researchers often train multiple versions of a model, compare validation results, inspect errors, and adjust the dataset or hyperparameters. A single training run does not always reveal the best configuration.
+
+A useful experiment changes one or a small number of important variables at a time. If the dataset, model size, learning rate, batch size, and optimizer are all changed simultaneously, it becomes difficult to determine which change caused an improvement or decline.
+
+The training curve provides valuable information. If training loss and validation loss both decrease, the model may still be learning useful general patterns. If training loss decreases while validation loss increases, overfitting may be occurring. If both losses remain high, the model may be underfitting or the optimization process may not be working effectively.
+
+Machine learning systems should be evaluated using data and metrics appropriate to their intended use. A model that performs well on one benchmark may perform poorly in a different environment. Real-world performance can be affected by changes in data distribution, unusual inputs, and conditions that were not represented during training.
+
+Machine learning models learn from examples, but learning from data does not guarantee understanding in the human sense. A model can identify statistical relationships without possessing human-like intentions, experiences, or consciousness. The behavior of a model depends on its architecture, training data, optimization process, and deployment environment.
+
+The field of machine learning continues to develop rapidly. Current research explores more efficient training, better data usage, multimodal learning, reinforcement learning, model compression, interpretability, retrieval systems, and methods for making models more reliable.
+
+A successful machine learning project requires more than selecting an algorithm. It requires defining the problem, collecting suitable data, preparing the data, selecting an appropriate model, training the model, evaluating generalization, analyzing errors, and monitoring performance after deployment.
