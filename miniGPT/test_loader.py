@@ -2,12 +2,16 @@ from rag.document_loader import DocumentLoader
 
 from rag.chunker import TextChunker
 
-from rag.retriever import KeywordRetriever
+from rag.embedding_retriever import (
+
+    EmbeddingRetriever
+
+)
 
 
-# -----------------------------
+# --------------------------------
 # Load documents
-# -----------------------------
+# --------------------------------
 
 loader = DocumentLoader(
 
@@ -28,9 +32,9 @@ print(
 )
 
 
-# -----------------------------
+# --------------------------------
 # Create chunks
-# -----------------------------
+# --------------------------------
 
 chunker = TextChunker(
 
@@ -57,24 +61,24 @@ print(
 )
 
 
-# -----------------------------
-# Create retriever
-# -----------------------------
+# --------------------------------
+# Create embedding retriever
+# --------------------------------
 
-retriever = KeywordRetriever(
+retriever = EmbeddingRetriever(
 
     chunks
 
 )
 
 
-# -----------------------------
+# --------------------------------
 # Test query
-# -----------------------------
+# --------------------------------
 
 query = (
 
-    "What is artificial intelligence?"
+    "What is AI?"
 
 )
 
@@ -88,9 +92,9 @@ results = retriever.retrieve(
 )
 
 
-# -----------------------------
+# --------------------------------
 # Display results
-# -----------------------------
+# --------------------------------
 
 print()
 
@@ -143,6 +147,17 @@ for index, result in enumerate(
 
     )
 
+
+    print(
+
+        "Similarity:",
+
+        result["similarity"]
+
+    )
+
+
+    print()
 
     print(
 
