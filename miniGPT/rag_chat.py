@@ -1,52 +1,39 @@
 import torch
 
 from config import GPTConfig
-
 from model.gpt import GPTModel
-
 from model.tokenizer import GPTTokenizer
-
-from rag.document_loader import DocumentLoader
-
-from rag.chunker import TextChunker
 
 from rag.rag_pipeline import RAGPipeline
 
 
 def main():
 
-    # --------------------------------
+    # -------------------------------
     # Configuration
-    # --------------------------------
+    # -------------------------------
 
     config = GPTConfig()
 
     device = config.device
 
-
-    # --------------------------------
-    # Load tokenizer
-    # --------------------------------
+    # -------------------------------
+    # Tokenizer
+    # -------------------------------
 
     tokenizer = GPTTokenizer()
 
+    # -------------------------------
+    # Model
+    # -------------------------------
 
-    # --------------------------------
-    # Load model
-    # --------------------------------
-
-    model = GPTModel(
-
-        config
-
-    )
-
+    model = GPTModel(config)
 
     model.load_state_dict(
 
         torch.load(
 
-            "best_model.pt",
+            "best_model_32.pt",
 
             map_location=device
 
@@ -54,73 +41,15 @@ def main():
 
     )
 
-
-    model.to(
-
-        device
-
-    )
-
+    model.to(device)
 
     model.eval()
 
+    # -------------------------------
+    # RAG Pipeline
+    # -------------------------------
 
-    # --------------------------------
-    # Load knowledge
-    # --------------------------------
-
-    loader = DocumentLoader(
-
-        "data/raw"
-
-    )
-
-
-    documents = (
-
-        loader.load_documents()
-
-    )
-
-
-    # --------------------------------
-    # Create chunks
-    # --------------------------------
-
-    chunker = TextChunker(
-
-        chunk_size=500,
-
-        overlap=100
-
-    )
-
-
-    chunks = (
-
-        chunker.chunk_documents(
-
-            documents
-
-        )
-
-    )
-
-
-    print(
-
-        f"Loaded {len(chunks)} chunks"
-
-    )
-
-
-    # --------------------------------
-    # Create RAG pipeline
-    # --------------------------------
-
-    rag = RAGPipeline(
-
-        chunks,
+    pipeline = RAGPipeline(
 
         model,
 
@@ -130,106 +59,61 @@ def main():
 
     )
 
-
-    # --------------------------------
-    # Chat loop
-    # --------------------------------
+    # -------------------------------
+    # Chat Loop
+    # -------------------------------
 
     while True:
 
-
         question = input(
 
-            "\nAsk a question "
-
-            "(or type 'exit'): "
+            "\nAsk a question (or type 'exit'): "
 
         )
-
 
         if question.lower() == "exit":
 
             break
 
+        result = pipeline.ask(
 
-        # Retrieve context
-
-        context, results = (
-
-            rag.retrieve_context(
-
-                question,
-
-                top_k=3
-
-            )
+            question
 
         )
 
+        print()
 
-        # Build prompt
+        print("=" * 60)
 
-        prompt = (
+        print("ANSWER")
 
-            rag.build_prompt(
-
-                question,
-
-                context
-
-            )
-
-        )
-
+        print("=" * 60)
 
         print()
 
         print(
 
-            "Retrieved from:"
+            result["answer"]
 
         )
 
+        print()
 
-        for result in results:
+        print("=" * 60)
+
+        print("SOURCES")
+
+        print("=" * 60)
+
+        print()
+
+        for source in result["sources"]:
 
             print(
 
-                result["source"]
+                source["source"]
 
             )
-
-
-        print()
-
-        print(
-
-            "Context:"
-
-        )
-
-
-        print(
-
-            context[:1000]
-
-        )
-
-
-        print()
-
-        print(
-
-            "Prompt sent to model:"
-
-        )
-
-
-        print(
-
-            prompt
-
-        )
 
 
 if __name__ == "__main__":

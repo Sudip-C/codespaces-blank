@@ -60,3 +60,81 @@ class GPTModel(nn.Module):
         )
 
         return logits
+    @torch.no_grad()
+    def generate(
+
+        self,
+
+        input_ids,
+
+        max_new_tokens=150,
+
+        temperature=0.8,
+
+        top_k=40
+
+    ):
+
+        self.eval()
+
+        for _ in range(max_new_tokens):
+
+            # Keep only the last max_seq_len tokens
+            input_cond = input_ids[:, -self.config.max_seq_len:]
+
+            logits = self(input_cond)
+
+            logits = logits[:, -1, :]
+
+            logits = logits / temperature
+
+            # Top-k sampling
+            values, indices = torch.topk(
+
+                logits,
+
+                k=top_k
+
+            )
+
+            probs = torch.softmax(
+
+                values,
+
+                dim=-1
+
+            )
+
+            next_token = torch.multinomial(
+
+                probs,
+
+                num_samples=1
+
+            )
+
+            next_token = torch.gather(
+
+                indices,
+
+                -1,
+
+                next_token
+
+            )
+
+            input_ids = torch.cat(
+
+                [
+
+                    input_ids,
+
+                    next_token
+
+                ],
+
+                dim=1
+
+            )
+
+        return input_ids

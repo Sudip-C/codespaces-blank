@@ -1,95 +1,133 @@
-import numpy as np
+import json
+from pathlib import Path
 
+import numpy as np
 from sentence_transformers import SentenceTransformer
 
 
 class EmbeddingRetriever:
 
     def __init__(
+        self,
+        cache_directory="rag/cache",
+        embedding_model="all-MiniLM-L6-v2"
+    ):
+
+        self.cache_directory = Path(
+            cache_directory
+        )
+
+        print()
+
+        print("Loading embedding cache...")
+
+        self.embeddings = np.load(
+
+            self.cache_directory /
+            "embeddings.npy"
+
+        )
+
+        with open(
+
+            self.cache_directory /
+            "chunks.json",
+
+            "r",
+
+            encoding="utf-8"
+
+        ) as file:
+
+            self.chunks = json.load(
+                file
+            )
+
+        print(
+
+            f"Loaded {len(self.chunks)} chunks."
+        )
+
+        print()
+
+        print("Loading embedding model...")
+
+        self.model = SentenceTransformer(
+            embedding_model
+        )
+
+    # -----------------------------------
+
+    def encode_query(
 
         self,
 
-        chunks,
-
-        model_name=(
-
-            "all-MiniLM-L6-v2"
-
-        )
+        query
 
     ):
 
-        self.chunks = chunks
+        return self.model.encode(
 
+            query,
 
-        print(
+            convert_to_numpy=True,
 
-            "Loading embedding model..."
+            normalize_embeddings=True
 
         )
 
+    # -----------------------------------
 
-        self.model = (
+    def similarity_search(
 
-            SentenceTransformer(
+        self,
 
-                model_name
+        query_embedding,
+
+        top_k=3
+
+    ):
+
+        scores = (
+
+            self.embeddings
+            @ query_embedding
+
+        )
+
+        top_indices = np.argsort(
+
+            scores
+
+        )[::-1][:top_k]
+
+        results = []
+
+        for index in top_indices:
+
+            results.append(
+
+                {
+
+                    "source":
+
+                        self.chunks[index]["source"],
+
+                    "text":
+
+                        self.chunks[index]["text"],
+
+                    "score":
+
+                        float(scores[index])
+
+                }
 
             )
 
-        )
+        return results
 
-
-        print(
-
-            "Creating chunk embeddings..."
-
-        )
-
-
-        texts = [
-
-            chunk["text"]
-
-            for chunk in chunks
-
-        ]
-
-
-        self.embeddings = (
-
-            self.model.encode(
-
-                texts,
-
-                convert_to_numpy=True,
-
-                show_progress_bar=True
-
-            )
-
-        )
-
-
-        # Normalize embeddings
-
-        norms = np.linalg.norm(
-
-            self.embeddings,
-
-            axis=1,
-
-            keepdims=True
-
-        )
-
-
-        self.embeddings = (
-
-            self.embeddings / norms
-
-        )
-
+    # -----------------------------------
 
     def retrieve(
 
@@ -101,80 +139,16 @@ class EmbeddingRetriever:
 
     ):
 
+        query_embedding = self.encode_query(
 
-        query_embedding = (
-
-            self.model.encode(
-
-                [query],
-
-                convert_to_numpy=True
-
-            )[0]
+            query
 
         )
 
+        return self.similarity_search(
 
-        query_norm = np.linalg.norm(
+            query_embedding,
 
-            query_embedding
-
-        )
-
-
-        query_embedding = (
-
-            query_embedding / query_norm
+            top_k
 
         )
-
-
-        similarities = (
-
-            self.embeddings
-
-            @ query_embedding
-
-        )
-
-
-        top_indices = np.argsort(
-
-            similarities
-
-        )[::-1][:top_k]
-
-
-        results = []
-
-
-        for index in top_indices:
-
-            result = (
-
-                self.chunks[index]
-
-                .copy()
-
-            )
-
-
-            result["similarity"] = (
-
-                float(
-
-                    similarities[index]
-
-                )
-
-            )
-
-
-            results.append(
-
-                result
-
-            )
-
-
-        return results

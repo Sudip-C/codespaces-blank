@@ -1,3 +1,5 @@
+import torch
+
 from rag.embedding_retriever import EmbeddingRetriever
 
 
@@ -7,28 +9,15 @@ class RAGPipeline:
 
         self,
 
-        chunks,
-
         model,
 
         tokenizer,
 
         device,
 
-        max_context_length=2000
+        top_k=3
 
     ):
-
-        self.retriever = (
-
-            EmbeddingRetriever(
-
-                chunks
-
-            )
-
-        )
-
 
         self.model = model
 
@@ -36,79 +25,53 @@ class RAGPipeline:
 
         self.device = device
 
-        self.max_context_length = (
+        self.top_k = top_k
 
-            max_context_length
+        self.retriever = EmbeddingRetriever()
 
-        )
+    # ----------------------------------
 
-
-    def retrieve_context(
+    def retrieve(
 
         self,
 
-        question,
-
-        top_k=3
+        question
 
     ):
 
-        results = (
+        return self.retriever.retrieve(
 
-            self.retriever.retrieve(
+            question,
 
-                question,
-
-                top_k=top_k
-
-            )
+            top_k=self.top_k
 
         )
 
+    # ----------------------------------
 
-        context_parts = []
+    def build_context(
 
+        self,
 
-        current_length = 0
+        retrieved_chunks
 
-
-        for result in results:
-
-            text = result["text"]
-
-
-            remaining = (
-
-                self.max_context_length
-
-                - current_length
-
-            )
-
-
-            if remaining <= 0:
-
-                break
-
-
-            text = text[:remaining]
-
-
-            context_parts.append(text)
-
-
-            current_length += len(text)
-
+    ):
 
         context = "\n\n".join(
 
-            context_parts
+            [
+
+                chunk["text"]
+
+                for chunk in retrieved_chunks
+
+            ]
 
         )
 
+        return context
 
-        return context, results
-
+    # ----------------------------------
 
     def build_prompt(
 
@@ -120,21 +83,127 @@ class RAGPipeline:
 
     ):
 
-        prompt = f"""
-
-Context:
+        prompt = f"""Context:
 
 {context}
-
 
 Question:
 
 {question}
 
-
 Answer:
-
 """
 
-
         return prompt
+
+    # ----------------------------------
+
+    def generate_answer(
+
+        self,
+
+        prompt,
+
+        max_new_tokens=150,
+
+        temperature=0.8,
+
+        top_k=40
+
+    ):
+
+        input_ids = self.tokenizer.encode(
+
+            prompt
+
+        )
+
+        input_ids = torch.tensor(
+
+            [input_ids],
+
+            dtype=torch.long,
+
+            device=self.device
+
+        )
+
+        output_ids = self.model.generate(
+
+            input_ids,
+
+            max_new_tokens=max_new_tokens,
+
+            temperature=temperature,
+
+            top_k=top_k
+
+        )
+
+        # Only decode newly generated tokens
+
+        input_length = input_ids.shape[1]
+
+        generated_tokens = output_ids[0][
+
+            input_length:
+
+        ]
+
+        answer = self.tokenizer.decode(
+
+            generated_tokens.tolist()
+
+        )
+
+        return answer.strip()
+
+    # ----------------------------------
+
+    def ask(
+
+        self,
+
+        question
+
+    ):
+
+        retrieved_chunks = self.retrieve(
+
+            question
+
+        )
+
+        context = self.build_context(
+
+            retrieved_chunks
+
+        )
+
+        prompt = self.build_prompt(
+
+            question,
+
+            context
+
+        )
+
+        answer = self.generate_answer(
+
+            prompt
+
+        )
+
+        return {
+
+            "question": question,
+
+            "answer": answer,
+
+            "sources": retrieved_chunks,
+
+            "context": context,
+
+            "prompt": prompt
+
+        }

@@ -551,7 +551,6 @@ def main():
                     f"Loss {loss.item():.4f}"
                 )
 
-
             # --------------------------------
             # Save Checkpoint
             # --------------------------------
@@ -560,9 +559,8 @@ def main():
 
                 batch_idx > 0
 
-                and batch_idx % 200 == 0
+                and batch_idx % 50 == 0
             ):
-
 
                 torch.save(
 
@@ -577,21 +575,17 @@ def main():
 
                             optimizer.state_dict(),
 
-
                         "scheduler_state_dict":
 
                             scheduler.state_dict(),
-
 
                         "epoch":
 
                             epoch,
 
-
                         "batch":
 
                             batch_idx,
-
 
                         "best_validation_loss":
 
@@ -602,9 +596,7 @@ def main():
                     checkpoint_path
                 )
 
-
                 print()
-
 
                 print(
 
@@ -614,7 +606,6 @@ def main():
 
                     f"Batch {batch_idx}"
                 )
-
 
         # ------------------------------------
         # Average Training Loss
@@ -626,7 +617,6 @@ def main():
 
             / len(train_loader)
         )
-
 
         # ------------------------------------
         # Validation
@@ -644,7 +634,6 @@ def main():
 
             config.vocab_size
         )
-
 
         # ------------------------------------
         # Update Learning Rate
@@ -665,7 +654,6 @@ def main():
             f"Epoch {epoch + 1}"
         )
 
-
         print(
 
             f"Train Loss: "
@@ -673,14 +661,12 @@ def main():
             f"{average_train_loss:.4f}"
         )
 
-
         print(
 
             f"Validation Loss: "
 
             f"{validation_loss:.4f}"
         )
-
 
         # ------------------------------------
         # Save Best Model
@@ -693,9 +679,7 @@ def main():
             < best_validation_loss
         ):
 
-
             best_validation_loss = validation_loss
-
 
             torch.save(
 
@@ -704,12 +688,10 @@ def main():
                 "best_model.pt"
             )
 
-
             print(
 
                 "Best model saved."
             )
-
 
         # ------------------------------------
         # Save End-of-Epoch Checkpoint
@@ -723,16 +705,13 @@ def main():
 
                     model.state_dict(),
 
-
                 "optimizer_state_dict":
 
                     optimizer.state_dict(),
 
-
                 "scheduler_state_dict":
 
                     scheduler.state_dict(),
-
 
                 # Next epoch
 
@@ -740,13 +719,11 @@ def main():
 
                     epoch + 1,
 
-
                 # -1 means no batch to skip
 
                 "batch":
 
                     -1,
-
 
                 "best_validation_loss":
 
@@ -757,19 +734,15 @@ def main():
             checkpoint_path
         )
 
-
         print(
 
             "End-of-epoch checkpoint saved."
         )
 
-
         print(
 
             "-" * 50
         )
-
-
 # ============================================
 # Program Entry Point
 # ============================================
