@@ -136,7 +136,10 @@ Answer:
 
             temperature=temperature,
 
-            top_k=top_k
+            top_k=top_k,
+            top_p=0.9,
+
+            eos_token_id=self.tokenizer.eos_token_id
 
         )
 

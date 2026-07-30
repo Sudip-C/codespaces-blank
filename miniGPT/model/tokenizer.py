@@ -28,3 +28,6 @@ class GPTTokenizer:
     def vocab_size(self):
 
         return self.tokenizer.n_vocab
+    @property
+    def eos_token_id(self):
+        return self.tokenizer.eot_token
