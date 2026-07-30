@@ -71,7 +71,11 @@ class GPTModel(nn.Module):
 
         temperature=0.8,
 
-        top_k=40
+        top_k=40,
+
+        eos_token_id=50256,
+
+        top_p=0.9
 
     ):
 
@@ -88,7 +92,11 @@ class GPTModel(nn.Module):
 
             logits = logits / temperature
 
-            # Top-k sampling
+            
+            # -----------------------------
+            # Top-k filtering
+            # -----------------------------
+
             values, indices = torch.topk(
 
                 logits,
@@ -96,10 +104,45 @@ class GPTModel(nn.Module):
                 k=top_k
 
             )
-
-            probs = torch.softmax(
+            # -----------------------------
+            # Top-p (Nucleus) filtering
+            # -----------------------------
+            sorted_values, sorted_indices = torch.sort(
 
                 values,
+
+                descending=True
+
+            )
+
+            sorted_probs  = torch.softmax(
+
+                sorted_values,
+
+                dim=-1
+
+            )
+            cumulative_probs = torch.cumsum(
+
+                sorted_probs,
+
+                dim=-1
+
+            )
+            remove_mask = cumulative_probs > top_p
+
+            # Keep at least one token
+            remove_mask[..., 1:] = remove_mask[..., :-1].clone()
+            remove_mask[..., 0] = False
+
+            sorted_values[remove_mask] = float("-inf")
+
+            # -----------------------------
+            # Sample
+            # -----------------------------
+            probs = torch.softmax(
+
+                sorted_values,
 
                 dim=-1
 
@@ -115,6 +158,16 @@ class GPTModel(nn.Module):
 
             next_token = torch.gather(
 
+                sorted_indices,
+
+                -1,
+
+                next_token
+
+            )
+            
+            next_token = torch.gather(
+
                 indices,
 
                 -1,
@@ -122,6 +175,9 @@ class GPTModel(nn.Module):
                 next_token
 
             )
+
+            if next_token.item() == eos_token_id:
+                break
 
             input_ids = torch.cat(
 
