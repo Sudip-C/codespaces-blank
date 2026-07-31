@@ -45,11 +45,12 @@ class QAGenerator:
             dataset.append(
 
                 {
+
                     "instruction": template.format(topic),
 
                     "response": answer,
 
-                    "source": document["source"]
+                    "sources": document["source"]
                 }
 
             )
