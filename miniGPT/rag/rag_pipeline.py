@@ -83,16 +83,21 @@ class RAGPipeline:
 
     ):
 
-        prompt = f"""Context:
+        prompt = f"""You are a helpful AI assistant.
 
-{context}
+    Use ONLY the information provided in the context below.
 
-Question:
+    If the answer is not found in the context, say:
+    "I don't have enough information to answer that."
 
-{question}
+    Context:
+    {context}
 
-Answer:
-"""
+    Question:
+    {question}
+
+    Answer:
+    """
 
         return prompt
 

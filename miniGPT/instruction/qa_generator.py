@@ -12,47 +12,153 @@ class QAGenerator:
 
     def __init__(self):
 
-        self.templates = []
-
-        self.templates.extend(DEFINITION_TEMPLATES)
-        self.templates.extend(BEGINNER_TEMPLATES)
-        self.templates.extend(PURPOSE_TEMPLATES)
-        self.templates.extend(APPLICATION_TEMPLATES)
-        self.templates.extend(FEATURE_TEMPLATES)
-        self.templates.extend(WORKING_TEMPLATES)
-
-    # ----------------------------------------
-
-    def generate(
-        self,
-        topic,
-        document,
-        max_answer_words=250
-    ):
-
-        text = document["text"]
-
-        words = text.split()
-
-        answer = " ".join(
-            words[:max_answer_words]
+        self.definition = (
+            DEFINITION_TEMPLATES
+            + BEGINNER_TEMPLATES
         )
 
-        dataset = []
+        self.purpose = PURPOSE_TEMPLATES
 
-        for template in self.templates:
+        self.application = APPLICATION_TEMPLATES
 
-            dataset.append(
+        self.features = FEATURE_TEMPLATES
+
+        self.working = WORKING_TEMPLATES
+
+    # ----------------------------------
+
+    def detect_template_group(
+
+        self,
+
+        section
+
+    ):
+
+        text = section.lower()
+
+        if any(
+
+            word in text
+
+            for word in [
+
+                "used",
+
+                "application",
+
+                "applications",
+
+                "industry"
+
+            ]
+
+        ):
+
+            return self.application
+
+
+        if any(
+
+            word in text
+
+            for word in [
+
+                "important",
+
+                "benefit",
+
+                "advantage",
+
+                "purpose"
+
+            ]
+
+        ):
+
+            return self.purpose
+
+
+        if any(
+
+            word in text
+
+            for word in [
+
+                "works",
+
+                "working",
+
+                "process",
+
+                "steps",
+
+                "algorithm"
+
+            ]
+
+        ):
+
+            return self.working
+
+
+        if any(
+
+            word in text
+
+            for word in [
+
+                "feature",
+
+                "characteristic",
+
+                "property"
+
+            ]
+
+        ):
+
+            return self.features
+
+
+        return self.definition
+
+    # ----------------------------------
+
+    def generate(
+
+        self,
+
+        topic,
+
+        section,
+
+        source
+
+    ):
+
+        templates = self.detect_template_group(
+
+            section
+
+        )
+
+        examples = []
+
+        for template in templates:
+
+            examples.append(
 
                 {
 
                     "instruction": template.format(topic),
 
-                    "response": answer,
+                    "response": section,
 
-                    "sources": document["source"]
+                    "source": source
+
                 }
 
             )
 
-        return dataset
+        return examples

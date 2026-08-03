@@ -20,15 +20,15 @@ def main():
     # -------------------------------
     # Tokenizer
     # -------------------------------
-
+    print("Loading tokenizer...")
     tokenizer = GPTTokenizer()
 
     # -------------------------------
     # Model
     # -------------------------------
-
+    print("Loading model...")
     model = GPTModel(config)
-
+    print("Loading weights...")
     model.load_state_dict(
 
         torch.load(
@@ -40,7 +40,7 @@ def main():
         )
 
     )
-
+    print("Moving model to device...")
     model.to(device)
 
     model.eval()
@@ -48,7 +48,7 @@ def main():
     # -------------------------------
     # RAG Pipeline
     # -------------------------------
-
+    print("Creating RAG pipeline...")
     pipeline = RAGPipeline(
 
         model,
@@ -58,7 +58,7 @@ def main():
         device
 
     )
-
+    print("Ready!")
     # -------------------------------
     # Chat Loop
     # -------------------------------
@@ -75,12 +75,35 @@ def main():
 
             break
 
-        result = pipeline.ask(
+##---------------
+        print("Retrieving context...")
 
-            question
+        retrieved = pipeline.retrieve(question)
 
+        print("Context retrieved.")
+
+        context = pipeline.build_context(retrieved)
+
+        prompt = pipeline.build_prompt(
+            question,
+            context
         )
 
+        print("Prompt built.")
+
+        print("Generating answer...")
+
+        answer = pipeline.generate_answer(prompt)
+
+        print("Answer generated.")
+
+        result = {
+            "answer": answer,
+            "sources": retrieved
+        }
+
+
+##---------------
         print()
 
         print("=" * 60)
